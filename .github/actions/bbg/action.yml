@@ -35,7 +35,7 @@ runs:
     
     - name: Extract BBG Version
       shell: bash
-      working-directory: ${{ github.workspace }}/kernel/Baseband-guard
+      working-directory: ${{ github.workspace }}/kernel/aosp/Baseband-guard
       run: |
         # Extract and export BBG version info
         BBG_COMMIT=$(git rev-parse --short HEAD 2>/dev/null)
