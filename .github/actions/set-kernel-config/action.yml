@@ -15,7 +15,11 @@ runs:
     run: |
       set -euo pipefail
 
-      DEFCONFIG="private/devices/google/muzel_defconfig"
+<<<<<<< HEAD
+      DEFCONFIG="../private/devices/google/muzel_defconfig"
+=======
+      DEFCONFIG="../private/devices/google/muzel/muzel_defconfig"
+>>>>>>> 025fbea40aef52d4d4228f7d633fc47bb1a5935f
       CONFIG_LIST="${{ inputs.config_list }}"
 
       if [ ! -f "$DEFCONFIG" ]; then
