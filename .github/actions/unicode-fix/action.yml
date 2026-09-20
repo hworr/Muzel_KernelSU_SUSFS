@@ -18,7 +18,7 @@ runs:
 
         echo "Patching unicode!"
         if [ "$(printf '%s\n' "$KERNEL_VERSION" "$MIN_VERSION" | sort -V | head -n1)" = "$KERNEL_VERSION" ]; then
-            patch -p1 --forward < "${{ github.workspace }}/kernel_patches/aosp/unicode_bypass_fix_6.1-.patch"
+            patch -p1 --forward < "${{ github.workspace }}/kernel_patches/common/unicode_bypass_fix_6.1-.patch"
         else
-            patch -p1 --forward < "${{ github.workspace }}/kernel_patches/aosp/unicode_bypass_fix_6.1+.patch"
+            patch -p1 --forward < "${{ github.workspace }}/kernel_patches/common/unicode_bypass_fix_6.1+.patch"
         fi

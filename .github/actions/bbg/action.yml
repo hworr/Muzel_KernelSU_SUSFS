@@ -12,7 +12,7 @@ runs:
           curl -fsSL --retry 5 --retry-delay 5 --retry-all-errors --connect-timeout 30 https://raw.githubusercontent.com/vc-teahouse/Baseband-guard/main/setup.sh | bash
         attempts: 5
         delay: 5
-        workdir: ${{ github.workspace }}/kernel
+        workdir: ${{ github.workspace }}/kernel/aosp
     
     - name: Configure Baseband Guard
       shell: bash
@@ -35,7 +35,7 @@ runs:
     
     - name: Extract BBG Version
       shell: bash
-      working-directory: ${{ github.workspace }}/kernel/Baseband-guard
+      working-directory: ${{ github.workspace }}/kernel/aosp/Baseband-guard
       run: |
         # Extract and export BBG version info
         BBG_COMMIT=$(git rev-parse --short HEAD 2>/dev/null)
