@@ -19,17 +19,17 @@ runs:
       working-directory: ${{ github.workspace }}/kernel
       run: |
         # Modify security Kconfig to include baseband_guard in LSM
-        sed -i '/^config LSM$/,/^help$/{ /^[[:space:]]*default/ { /baseband_guard/! s/selinux/selinux,baseband_guard/ } }' common/security/Kconfig
+        sed -i '/^config LSM$/,/^help$/{ /^[[:space:]]*default/ { /baseband_guard/! s/selinux/selinux,baseband_guard/ } }' aosp/security/Kconfig
     
     - name: Verify BBG Installation
       shell: bash
       working-directory: ${{ github.workspace }}/kernel
       run: |
-        if grep -q "baseband_guard" common/security/Kconfig; then
-          echo "[+] SUCCESS: baseband_guard found in common/security/Kconfig"
-          grep -n "baseband_guard" common/security/Kconfig || true
+        if grep -q "baseband_guard" aosp/security/Kconfig; then
+          echo "[+] SUCCESS: baseband_guard found in aosp/security/Kconfig"
+          grep -n "baseband_guard" aosp/security/Kconfig || true
         else
-          echo "[-] FAILED: baseband_guard not found in common/security/Kconfig"
+          echo "[-] FAILED: baseband_guard not found in aosp/security/Kconfig"
           exit 1
         fi
     

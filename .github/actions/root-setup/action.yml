@@ -63,8 +63,8 @@ runs:
           fi
         done
 
-        if [ -d common/drivers ]; then
-          drivers_dir="common/drivers"
+        if [ -d aosp/drivers ]; then
+          drivers_dir="aosp/drivers"
         elif [ -d drivers ]; then
           drivers_dir="drivers"
         else

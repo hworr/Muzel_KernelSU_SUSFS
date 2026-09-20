@@ -611,8 +611,8 @@ jobs:
         
         # Get SUSFS version from susfs.h if available
         SUSFS_VER="N/A"
-        if [ -f "${{ github.workspace }}/kernel/common/include/linux/susfs.h" ]; then
-          SUSFS_VER=$(grep '#define SUSFS_VERSION' "${{ github.workspace }}/kernel/common/include/linux/susfs.h" | awk -F'"' '{print $2}' || echo "N/A")
+        if [ -f "${{ github.workspace }}/kernel/aosp/include/linux/susfs.h" ]; then
+          SUSFS_VER=$(grep '#define SUSFS_VERSION' "${{ github.workspace }}/kernel/aosp/include/linux/susfs.h" | awk -F'"' '{print $2}' || echo "N/A")
         fi
         
         # Get cache stats from env (set by cache-stats action)

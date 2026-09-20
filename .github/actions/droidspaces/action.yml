@@ -45,7 +45,7 @@ runs:
 
     - name: Apply the SYSVIPC kABI fix
       shell: bash
-      working-directory: ${{ github.workspace }}/kernel/common
+      working-directory: ${{ github.workspace }}/kernel/aosp
       run: |
         if [ "${{ inputs.version }}" == "android16-6.12" ]; then
           cp ${{ github.workspace }}/Droidspaces-OSS/Documentation/resources/kernel-patches/GKI/kernel-6.12/001.GKI-6.12-or-above-fix_sysvipc_kabi.patch ./
@@ -78,10 +78,10 @@ runs:
       if: inputs.version == 'android16-6.12'
       working-directory: ${{ github.workspace }}/kernel
       run: |
-        echo >> "${{ github.workspace }}/kernel/common/ipc/namespace.c"
-        echo 'EXPORT_SYMBOL_GPL(put_ipc_ns);' >> "${{ github.workspace }}/kernel/common/ipc/namespace.c"
-        echo >> "${{ github.workspace }}/kernel/common/ipc/msgutil.c"
-        echo 'EXPORT_SYMBOL_GPL(init_ipc_ns);' >> "${{ github.workspace }}/kernel/common/ipc/msgutil.c"
+        echo >> "${{ github.workspace }}/kernel/aosp/ipc/namespace.c"
+        echo 'EXPORT_SYMBOL_GPL(put_ipc_ns);' >> "${{ github.workspace }}/kernel/aosp/ipc/namespace.c"
+        echo >> "${{ github.workspace }}/kernel/aosp/ipc/msgutil.c"
+        echo 'EXPORT_SYMBOL_GPL(init_ipc_ns);' >> "${{ github.workspace }}/kernel/aosp/ipc/msgutil.c"
 
     - name: Enable Kernel Configs
       uses: ./.github/actions/set-kernel-config

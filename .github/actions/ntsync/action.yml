@@ -16,7 +16,7 @@ runs:
   steps:
     - name: Apply NTSync Patch
       shell: bash
-      working-directory: ${{ github.workspace }}/kernel/common
+      working-directory: ${{ github.workspace }}/kernel/aosp
       run: |
         set -euo pipefail
 
@@ -36,14 +36,14 @@ runs:
         fi
 
         if [[ ${{ inputs.version }} = "android13-5.10" ]]; then
-          patch -p1 < ${{ github.workspace }}/kernel_patches/common/ntsync/ntsync_compat_android12-5.10.patch
+          patch -p1 < ${{ github.workspace }}/kernel_patches/aosp/ntsync/ntsync_compat_android12-5.10.patch
         elif [[ ${{ inputs.version }} = "android14-5.15" ]]; then
-          patch -p1 < ${{ github.workspace }}/kernel_patches/common/ntsync/ntsync_compat_android13-5.15.patch
+          patch -p1 < ${{ github.workspace }}/kernel_patches/aosp/ntsync/ntsync_compat_android13-5.15.patch
         else
-          patch -p1 < ${{ github.workspace }}/kernel_patches/common/ntsync/ntsync_compat_${{ inputs.version }}.patch
+          patch -p1 < ${{ github.workspace }}/kernel_patches/aosp/ntsync/ntsync_compat_${{ inputs.version }}.patch
         fi
 
-        patch -p1 < ${{ github.workspace }}/kernel_patches/common/ntsync/ntsync_base.patch
+        patch -p1 < ${{ github.workspace }}/kernel_patches/aosp/ntsync/ntsync_base.patch
 
     - name: Enable NTSync
       uses: ./.github/actions/set-kernel-config

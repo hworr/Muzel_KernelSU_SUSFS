@@ -26,7 +26,7 @@ runs:
   steps:
     - name: Apply Kernel Name Branding
       shell: bash
-      working-directory: ${{ github.workspace }}/kernel/common
+      working-directory: ${{ github.workspace }}/kernel/aosp
       run: |
         VERSION="${{ inputs.version }}"
         ANDROID_PART=$(echo "$VERSION" | cut -d- -f1)

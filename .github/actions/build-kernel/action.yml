@@ -16,7 +16,7 @@ runs:
     shell: bash
     working-directory: ${{ github.workspace }}/kernel
     run: |
-      sed -i 's/check_defconfig//' ./common/build.config.gki
+      sed -i 's/check_defconfig//' ./aosp/build.config.gki
       if [ -f "build/build.sh" ]; then
         BUILD_GKI_ARTIFACTS="" \
         BUILD_GKI_CERTIFICATION_TOOLS=0 \
@@ -26,14 +26,14 @@ runs:
         SKIP_CP_KERNEL_HDR=1 \
         OUT_DIR="/home/runner/out" \
         LTO=thin \
-        BUILD_CONFIG=common/build.config.gki.aarch64 \
+        BUILD_CONFIG=aosp/build.config.gki.aarch64 \
         CC="/usr/bin/ccache clang" \
         CXX="/usr/bin/ccache clang++" \
         HOSTCC="/usr/bin/ccache clang" \
         HOSTCXX="/usr/bin/ccache clang++" \
         build/build.sh -j"$(nproc)"
       else
-        sed -i '/name = "kernel_aarch64",/a\    check_defconfig = "disabled",' common/BUILD.bazel
+        sed -i '/name = "kernel_aarch64",/a\    check_defconfig = "disabled",' aosp/BUILD.bazel
         tools/bazel build \
           --config=fast \
           --disk_cache=/home/runner/.cache/bazel \
@@ -45,9 +45,9 @@ runs:
     working-directory: ${{ github.workspace }}/kernel
     run: |
       set -euo pipefail
-      if [ -f "bazel-bin/common/kernel_aarch64/Image" ]; then
-        echo "Found Image at bazel-bin/common/kernel_aarch64/Image"
-        cp "bazel-bin/common/kernel_aarch64/Image" "${{ github.workspace }}/AnyKernel3/Image"
+      if [ -f "bazel-bin/aosp/kernel_aarch64/Image" ]; then
+        echo "Found Image at bazel-bin/aosp/kernel_aarch64/Image"
+        cp "bazel-bin/aosp/kernel_aarch64/Image" "${{ github.workspace }}/AnyKernel3/Image"
         exit 0
         fi
       if [ -f "/home/runner/out/dist/Image" ]; then

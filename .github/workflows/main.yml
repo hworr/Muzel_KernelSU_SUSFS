@@ -1019,7 +1019,7 @@ jobs:
             for rej_file in "${rej_files[@]}"; do
               rel_rej="${rej_file#${source_dir}/}"
               rel_name="$(basename "$rel_rej")"
-              if [ "$rel_rej" = "common/mm/rmap.c.rej" ] || [ "$rel_name" = "i2c-nomadik.c.rej" ]; then
+              if [ "$rel_rej" = "aosp/mm/rmap.c.rej" ] || [ "$rel_name" = "i2c-nomadik.c.rej" ]; then
                 echo "Skipping $rel_rej because it is an ignored reject file"
                 continue
               fi

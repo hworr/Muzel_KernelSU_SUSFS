@@ -10,7 +10,7 @@ runs:
   steps:
     - name: Apply Ptrace Patch
       shell: bash
-      working-directory: ${{ github.workspace }}/kernel/common
+      working-directory: ${{ github.workspace }}/kernel/aosp
       run: |
         set -euo pipefail
         KERNEL_VERSION="${{ inputs.kernel_version }}"

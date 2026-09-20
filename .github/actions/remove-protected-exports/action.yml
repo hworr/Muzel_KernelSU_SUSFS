@@ -14,53 +14,53 @@ runs:
           exit 0
         fi
 
-        rm -rf common/android/abi_gki_protected_exports_*
+        rm -rf aosp/android/abi_gki_protected_exports_*
 
-        if ls -1 common/android/abi_gki_protected_exports_* >/dev/null 2>&1; then
+        if ls -1 aosp/android/abi_gki_protected_exports_* >/dev/null 2>&1; then
           echo "Error: abi_gki_protected_exports_* still exists after removal"
-          ls -la common/android/abi_gki_protected_exports_* || true
+          ls -la aosp/android/abi_gki_protected_exports_* || true
           exit 1
         fi
 
-        if grep -q '"protected_exports_list"[[:space:]]*:[[:space:]]*"android/abi_gki_protected_exports_aarch64"' common/BUILD.bazel; then
-          BEFORE_BUILD_BAZEL_SHA="$(sha256sum common/BUILD.bazel | awk '{print $1}')"
-          perl -pi -e 's/^\s*"protected_exports_list"\s*:\s*"android\/abi_gki_protected_exports_aarch64",\s*$//;' common/BUILD.bazel
-          AFTER_BUILD_BAZEL_SHA="$(sha256sum common/BUILD.bazel | awk '{print $1}')"
+        if grep -q '"protected_exports_list"[[:space:]]*:[[:space:]]*"android/abi_gki_protected_exports_aarch64"' aosp/BUILD.bazel; then
+          BEFORE_BUILD_BAZEL_SHA="$(sha256sum aosp/BUILD.bazel | awk '{print $1}')"
+          perl -pi -e 's/^\s*"protected_exports_list"\s*:\s*"android\/abi_gki_protected_exports_aarch64",\s*$//;' aosp/BUILD.bazel
+          AFTER_BUILD_BAZEL_SHA="$(sha256sum aosp/BUILD.bazel | awk '{print $1}')"
           if [ "$BEFORE_BUILD_BAZEL_SHA" = "$AFTER_BUILD_BAZEL_SHA" ]; then
-            echo "Error: common/BUILD.bazel was not modified"
+            echo "Error: aosp/BUILD.bazel was not modified"
             exit 1
           fi
-          if grep -q '"protected_exports_list"[[:space:]]*:[[:space:]]*"android/abi_gki_protected_exports_aarch64"' common/BUILD.bazel; then
-            echo "Error: protected_exports_list reference still present in common/BUILD.bazel"
+          if grep -q '"protected_exports_list"[[:space:]]*:[[:space:]]*"android/abi_gki_protected_exports_aarch64"' aosp/BUILD.bazel; then
+            echo "Error: protected_exports_list reference still present in aosp/BUILD.bazel"
             exit 1
           fi
         fi
 
-        if grep -q '^protected_modules = ' common/modules.bzl; then
-          BEFORE_MODULES_BZL_SHA="$(sha256sum common/modules.bzl | awk '{print $1}')"
-          sed -i 's/protected_modules = \[.*\]/protected_modules = []/' common/modules.bzl
-          AFTER_MODULES_BZL_SHA="$(sha256sum common/modules.bzl | awk '{print $1}')"
+        if grep -q '^protected_modules = ' aosp/modules.bzl; then
+          BEFORE_MODULES_BZL_SHA="$(sha256sum aosp/modules.bzl | awk '{print $1}')"
+          sed -i 's/protected_modules = \[.*\]/protected_modules = []/' aosp/modules.bzl
+          AFTER_MODULES_BZL_SHA="$(sha256sum aosp/modules.bzl | awk '{print $1}')"
           if [ "$BEFORE_MODULES_BZL_SHA" = "$AFTER_MODULES_BZL_SHA" ]; then
-            echo "Error: common/modules.bzl was not modified"
+            echo "Error: aosp/modules.bzl was not modified"
             exit 1
           fi
-          if ! grep -q '^protected_modules = \[\]' common/modules.bzl; then
-            echo "Error: protected_modules was not set to [] in common/modules.bzl"
+          if ! grep -q '^protected_modules = \[\]' aosp/modules.bzl; then
+            echo "Error: protected_modules was not set to [] in aosp/modules.bzl"
             exit 1
           fi
         fi
 
         # Remove protected_module_names_list for 6.12+ kernels (Bazel build system)
-        if grep -q 'protected_module_names_list' common/BUILD.bazel; then
-          BEFORE_BUILD_BAZEL_SHA="$(sha256sum common/BUILD.bazel | awk '{print $1}')"
-          perl -pi -e 's/^\s*protected_module_names_list\s*=\s*":gki_(?:aarch64|x86_64)_protected_module_names",\s*$//;' common/BUILD.bazel
-          AFTER_BUILD_BAZEL_SHA="$(sha256sum common/BUILD.bazel | awk '{print $1}')"
+        if grep -q 'protected_module_names_list' aosp/BUILD.bazel; then
+          BEFORE_BUILD_BAZEL_SHA="$(sha256sum aosp/BUILD.bazel | awk '{print $1}')"
+          perl -pi -e 's/^\s*protected_module_names_list\s*=\s*":gki_(?:aarch64|x86_64)_protected_module_names",\s*$//;' aosp/BUILD.bazel
+          AFTER_BUILD_BAZEL_SHA="$(sha256sum aosp/BUILD.bazel | awk '{print $1}')"
           if [ "$BEFORE_BUILD_BAZEL_SHA" = "$AFTER_BUILD_BAZEL_SHA" ]; then
-            echo "Warning: common/BUILD.bazel was not modified for protected_module_names_list (may not be present)"
+            echo "Warning: aosp/BUILD.bazel was not modified for protected_module_names_list (may not be present)"
           fi
-          if grep -q 'protected_module_names_list' common/BUILD.bazel; then
-            echo "Error: protected_module_names_list reference still present in common/BUILD.bazel"
-            grep -n 'protected_module_names_list' common/BUILD.bazel || true
+          if grep -q 'protected_module_names_list' aosp/BUILD.bazel; then
+            echo "Error: protected_module_names_list reference still present in aosp/BUILD.bazel"
+            grep -n 'protected_module_names_list' aosp/BUILD.bazel || true
             exit 1
           fi
         fi

@@ -15,7 +15,7 @@ runs:
     - name: Fix WiFi and Bluetooth on Samsung 6.6 GKI Devices
       if: inputs.version == 'android15-6.6'
       shell: bash
-      working-directory: ${{ github.workspace }}/kernel/common
+      working-directory: ${{ github.workspace }}/kernel/aosp
       run: |
         set -euo pipefail
 
@@ -184,7 +184,7 @@ runs:
     - name: Fix WiFi and Bluetooth on Xiaomi 6.6 GKI Devices
       if: inputs.version == 'android15-6.6'
       shell: bash
-      working-directory: ${{ github.workspace }}/kernel/common
+      working-directory: ${{ github.workspace }}/kernel/aosp
       run: |
         SYMBOL_LIST=android/abi_gki_aarch64_xiaomi
         echo "device_find_any_child" >> $SYMBOL_LIST

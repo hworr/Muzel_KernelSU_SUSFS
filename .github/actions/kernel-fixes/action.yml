@@ -21,7 +21,7 @@ runs:
   using: composite
   steps:
     - name: 'Apply Makefile and parse-options.c fixes for GLIBC >= 2.38'
-      working-directory: ${{ github.workspace }}/kernel/common
+      working-directory: ${{ github.workspace }}/kernel/aosp
       shell: bash
       run: |
         set -euo pipefail
@@ -61,12 +61,12 @@ runs:
     - name: 'Apply mmap.c fix for specific versions'
       shell: bash
       if: inputs.version == 'android15-6.6' && inputs.sublevel <= '58'
-      working-directory: ${{ github.workspace }}/kernel/common
+      working-directory: ${{ github.workspace }}/kernel/aosp
       run: |
         echo "[*] Checking for android15 + kernel 6.6 include fix..."
         if [[ "${{ inputs.android_version }}" == "android15" && "${{ inputs.kernel_version }}" == "6.6" ]]; then
           echo "[+] android15 + 6.6, checking for fs.h include."
-          cd "${{ github.workspace }}/kernel/common"
+          cd "${{ github.workspace }}/kernel/aosp"
           if ! grep -qxF '#include <trace/hooks/fs.h>' ./fs/namespace.c; then
             echo "[*] Adding missing #include <trace/hooks/fs.h> to fs/namespace.c."
             sed -i '/#include <trace\/hooks\/blk.h>/a #include <trace\/hooks\/fs.h>' ./fs/namespace.c
@@ -80,7 +80,7 @@ runs:
     - name: 'Apply mmap.c fix for specific versions'
       shell: bash
       if: (inputs.version == 'android12-5.10' && inputs.sublevel == 226) || (inputs.version == 'android13-5.10' && inputs.sublevel == 223) || (inputs.version == 'android13-5.15' && inputs.sublevel == 167) || (inputs.version == 'android14-5.15' && inputs.sublevel == 167)
-      working-directory: ${{ github.workspace }}/kernel/common
+      working-directory: ${{ github.workspace }}/kernel/aosp
       run: |
         echo "[*] Applying mmap.c fix for specific version combo."
         sed -i 's/\s*vm_flags_clear(new_vma, VM_PAD_MASK);/                new_vma->vm_flags \&= ~VM_PAD_MASK;/' mm/mmap.c

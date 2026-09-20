@@ -16,7 +16,7 @@ runs:
   steps:
     - name: Apply libbpf feature-detection fix (android12-5.10)
       shell: bash
-      working-directory: ${{ github.workspace }}/kernel/common
+      working-directory: ${{ github.workspace }}/kernel/aosp
       if: inputs.version == 'android12-5.10'
       run: |
         set -euo pipefail
@@ -24,7 +24,7 @@ runs:
 
     - name: Apply resolve_btfids linker-flag fix (android12-5.10)
       shell: bash
-      working-directory: ${{ github.workspace }}/kernel/common
+      working-directory: ${{ github.workspace }}/kernel/aosp
       if: inputs.version == 'android12-5.10'
       run: |
         set -euo pipefail
@@ -32,7 +32,7 @@ runs:
 
     - name: Apply ANDROID_KABI_USE macro fix (android12-5.10, sublevel 43)
       shell: bash
-      working-directory: ${{ github.workspace }}/kernel/common
+      working-directory: ${{ github.workspace }}/kernel/aosp
       if: inputs.version == 'android12-5.10' && inputs.sublevel == '43'
       run: |
         set -euo pipefail
@@ -45,7 +45,7 @@ runs:
 
     # - name: Apply xdp_buff BTF-emit fix (android12-5.10)
     #   shell: bash
-    #   working-directory: ${{ github.workspace }}/kernel/common
+    #   working-directory: ${{ github.workspace }}/kernel/aosp
     #   if: inputs.version == 'android12-5.10'
     #   run: |
     #     set -euo pipefail
@@ -63,7 +63,7 @@ runs:
 
     # - name: Apply resolve_btfids ELF_T_WORD endian fix (android12-5.10)
     #   shell: bash
-    #   working-directory: ${{ github.workspace }}/kernel/common
+    #   working-directory: ${{ github.workspace }}/kernel/aosp
     #   if: inputs.version == 'android12-5.10'
     #   run: |
     #     set -euo pipefail
@@ -84,7 +84,7 @@ runs:
 
     - name: Expose host dd for hermetic BTF generation (android12-5.10)
       shell: bash
-      working-directory: ${{ github.workspace }}/kernel/common
+      working-directory: ${{ github.workspace }}/kernel/aosp
       if: inputs.version == 'android12-5.10'
       run: |
         set -euo pipefail

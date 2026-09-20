@@ -16,42 +16,42 @@ runs:
   steps:
     - name: Apply Kernel Config for 5.10
       shell: bash
-      working-directory: ${{ github.workspace }}/kernel/common
+      working-directory: ${{ github.workspace }}/kernel/aosp
       if: inputs.kernel_version == '5.10'
       run: |
         sed -i 's/CONFIG_IP_SET_MAX/65534/g' net/netfilter/ipset/ip_set_core.c
 
     - name: Apply BBRv3 Patch
       shell: bash
-      working-directory: ${{ github.workspace }}/kernel/common
+      working-directory: ${{ github.workspace }}/kernel/aosp
       run: |
         set -euo pipefail
         if [[ ${{ inputs.version }} == "android16-6.12" ]]; then
-          #patch -p1 < "${{ github.workspace }}/kernel_patches/common/bbrv3/0001-net-tcp-backport-BBRv3-to-android15-6.6.patch"
+          #patch -p1 < "${{ github.workspace }}/kernel_patches/aosp/bbrv3/0001-net-tcp-backport-BBRv3-to-android15-6.6.patch"
           #patch -p1 < ${{ github.action_path }}/patches/0001-net-tcp-backport-BBRv3-to-android16-6.12.patch
           echo "skipped"
         elif [[ ${{ inputs.version }} == "android15-6.6" ]]; then
-          patch -p1 < "${{ github.workspace }}/kernel_patches/common/bbrv3/0001-net-tcp-backport-BBRv3-to-android15-6.6.patch"
+          patch -p1 < "${{ github.workspace }}/kernel_patches/aosp/bbrv3/0001-net-tcp-backport-BBRv3-to-android15-6.6.patch"
         elif [[ ${{ inputs.version }} == "android14-6.1" ]]; then
-          patch -p1 < "${{ github.workspace }}/kernel_patches/common/bbrv3/0001-net-tcp-backport-BBRv3-to-android14-6.1.patch"
+          patch -p1 < "${{ github.workspace }}/kernel_patches/aosp/bbrv3/0001-net-tcp-backport-BBRv3-to-android14-6.1.patch"
         elif [[ ${{ inputs.version }} == "android14-5.15" ]]; then
-          #patch -p1 < "${{ github.workspace }}/kernel_patches/common/bbrv3/0001-net-tcp-backport-BBRv3-to-android13-5.15.patch"
+          #patch -p1 < "${{ github.workspace }}/kernel_patches/aosp/bbrv3/0001-net-tcp-backport-BBRv3-to-android13-5.15.patch"
           patch -p1 < ${{ github.action_path }}/patches/0001-net-tcp-backport-BBRv3-to-android14-5.15.patch
         elif [[ ${{ inputs.version }} == "android13-5.15" ]]; then
-          patch -p1 < "${{ github.workspace }}/kernel_patches/common/bbrv3/0001-net-tcp-backport-BBRv3-to-android13-5.15.patch"
+          patch -p1 < "${{ github.workspace }}/kernel_patches/aosp/bbrv3/0001-net-tcp-backport-BBRv3-to-android13-5.15.patch"
           if [[ ${{ inputs.sublevel }} -le "43" ]]; then
             patch -p1 < ${{ github.action_path }}/patches/0002-net-tcp-add-tcp_snd_cwnd-and-tcp_snd_cwnd_set-helper-functions.patch
           fi
         elif [[ ${{ inputs.version }} == "android13-5.10" ]]; then
-          patch -p1 < "${{ github.workspace }}/kernel_patches/common/bbrv3/0001-net-tcp-backport-BBRv3-to-android12-5.10.patch"
+          patch -p1 < "${{ github.workspace }}/kernel_patches/aosp/bbrv3/0001-net-tcp-backport-BBRv3-to-android12-5.10.patch"
         elif [[ ${{ inputs.version }} == "android12-5.10" ]]; then
-          patch -p1 < "${{ github.workspace }}/kernel_patches/common/bbrv3/0001-net-tcp-backport-BBRv3-to-android12-5.10.patch"
+          patch -p1 < "${{ github.workspace }}/kernel_patches/aosp/bbrv3/0001-net-tcp-backport-BBRv3-to-android12-5.10.patch"
         fi
 
         if [[ ${{ inputs.version }} == "android12-5.10" || ${{ inputs.version }} == "android13-5.10" ]]; then
           if ! grep -qF 'int proc_dou8vec_minmax(' ./include/linux/sysctl.h; then
-            patch -p1 < "${{ github.workspace }}/kernel_patches/common/bbrv3/sysctl_add_proc_dou8vec_minmax.patch"
-            patch -p1 < "${{ github.workspace }}/kernel_patches/common/bbrv3/sysctl_fix_data-races_in_proc_dou8vec_minmax.patch"
+            patch -p1 < "${{ github.workspace }}/kernel_patches/aosp/bbrv3/sysctl_add_proc_dou8vec_minmax.patch"
+            patch -p1 < "${{ github.workspace }}/kernel_patches/aosp/bbrv3/sysctl_fix_data-races_in_proc_dou8vec_minmax.patch"
           fi
         fi
 
