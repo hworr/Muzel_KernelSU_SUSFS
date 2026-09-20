@@ -12,11 +12,11 @@ runs:
           curl -fsSL --retry 5 --retry-delay 5 --retry-all-errors --connect-timeout 30 https://raw.githubusercontent.com/vc-teahouse/Baseband-guard/main/setup.sh | bash
         attempts: 5
         delay: 5
-        workdir: ${{ github.workspace }}/kernel
+        workdir: ${{ github.workspace }}/kernel/aosp
     
     - name: Configure Baseband Guard
       shell: bash
-      working-directory: ${{ github.workspace }}/kernel
+      working-directory: ${{ github.workspace }}/kernel/aosp
       run: |
         # Modify security Kconfig to include baseband_guard in LSM
         sed -i '/^config LSM$/,/^help$/{ /^[[:space:]]*default/ { /baseband_guard/! s/selinux/selinux,baseband_guard/ } }' aosp/security/Kconfig
