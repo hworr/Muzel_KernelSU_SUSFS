@@ -12,7 +12,7 @@ runs:
       uses: ./.github/actions/set-kernel-config
       with:
         config_list: |
-          CONFIG_CIFS=y
+          CONFIG_CIFS=m
           CONFIG_NETWORK_FILESYSTEMS=y
           CONFIG_NETFS_SUPPORT=y
           CONFIG_KEYS=y
