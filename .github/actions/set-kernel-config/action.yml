@@ -15,11 +15,7 @@ runs:
     run: |
       set -euo pipefail
 
-<<<<<<< HEAD
       DEFCONFIG="private/devices/google/muzel/muzel_defconfig"
-=======
-      DEFCONFIG="private/devices/google/muzel/muzel_defconfig"
->>>>>>> 025fbea40aef52d4d4228f7d633fc47bb1a5935f
       CONFIG_LIST="${{ inputs.config_list }}"
 
       if [ ! -f "$DEFCONFIG" ]; then
@@ -29,7 +25,7 @@ runs:
 
       apply_line() {
         local line="$1"
-        line="$(echo "$line" | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')"
+        line="$(echo "\( line" | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]* \)//')"
 
         # skip empty/comments
         [[ -z "$line" || "$line" == \#* ]] && return
