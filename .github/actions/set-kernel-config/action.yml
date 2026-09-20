@@ -15,7 +15,7 @@ runs:
     run: |
       set -euo pipefail
 
-      DEFCONFIG="arch/arm64/configs/gki_defconfig"
+      DEFCONFIG="private/devices/google/muzel/muzel_defconfig"
       CONFIG_LIST="${{ inputs.config_list }}"
 
       if [ ! -f "$DEFCONFIG" ]; then
