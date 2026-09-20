@@ -34,10 +34,10 @@ runs:
         build/build.sh -j"$(nproc)"
       else
         sed -i '/name = "kernel_aarch64",/a\    check_defconfig = "disabled",' aosp/BUILD.bazel
-        tools/bazel build \
-          --config=fast \
-          --disk_cache=/home/runner/.cache/bazel \
-          //common:kernel_aarch64/Image
+        tools/bazel run \
+          --config=stamp \
+          --config=muzel \
+          //private/devices/google/muzel:lga_muzel_dist "$@"
       fi
 
   - name: 'Gather Build Artifacts'
