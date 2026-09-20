@@ -11,14 +11,14 @@ runs:
   steps:
   - name: Patch gki_defconfig
     shell: bash
-    working-directory: ${{ github.workspace }}/kernel/aosp
+    working-directory: ${{ github.workspace }}/kernel
     run: |
       set -euo pipefail
 
 <<<<<<< HEAD
-      DEFCONFIG="../private/devices/google/muzel_defconfig"
+      DEFCONFIG="private/devices/google/muzel_defconfig"
 =======
-      DEFCONFIG="../private/devices/google/muzel/muzel_defconfig"
+      DEFCONFIG="private/devices/google/muzel/muzel_defconfig"
 >>>>>>> 025fbea40aef52d4d4228f7d633fc47bb1a5935f
       CONFIG_LIST="${{ inputs.config_list }}"
 
