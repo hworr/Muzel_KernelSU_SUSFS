@@ -35,7 +35,7 @@ runs:
 
         echo "Using custom kernel source from Blackmanx/kernel_google_muzel"
         rm -rf aosp
-        git clone --depth=1 https://github.com/Blackmanx/kernel_google_muzel aosp || {
+        git clone --depth=1 https://github.com/Blackmanx/kernel_google_muzel . || {
           echo "ERROR: git clone failed" >&2
           exit 1
         }
