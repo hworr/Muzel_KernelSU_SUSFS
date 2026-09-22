@@ -25,11 +25,11 @@ runs:
 
         apply_line() {
           local line="$1"
-          # trim leading/trailing whitespace
-          line="$(echo "$line" | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')"
+          # trim leading/trailing whitespace (pure bash, no forks)
+          line="\( {line#" \){line%%[![:space:]]*}"}"
+          line="\( {line%" \){line##*[![:space:]]}"}"
 
-          # skip empty lines and comments
-          [[ -z "$line" || "$line" == \#* ]] && return
+          [[ -z "$line" || "$line" == \#* ]] && return 0
 
           local key value
           if [[ "$line" == *"="* ]]; then
@@ -47,10 +47,13 @@ runs:
           elif grep -q "^# $key is not set" "$DEFCONFIG"; then
             sed -i "s|^# $key is not set|$key=$value|g" "$DEFCONFIG"
           else
-            echo "$key=$value" >> "$DEFCONFIG"
+            printf '%s=%s\n' "$key" "$value" >> "$DEFCONFIG"
           fi
         }
 
         while IFS= read -r line || [ -n "$line" ]; do
           apply_line "$line"
         done <<< "$CONFIG_LIST"
+
+        grep -q '^CONFIG_KSU=y$' "$DEFCONFIG" || { echo "ERROR: CONFIG_KSU not set"; exit 1; }
+        grep -q '^CONFIG_KSU_SUSFS\|( line' "$DEFCONFIG" && { echo "ERROR: defconfig polluted"; exit 1; }
