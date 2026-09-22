@@ -26,7 +26,7 @@ runs:
         apply_line() {
           local line="$1"
           # trim leading/trailing whitespace
-          line="$(echo "\( line" | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]* \)//')"
+          line="$(echo "$line" | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')"
 
           # skip empty lines and comments
           [[ -z "$line" || "$line" == \#* ]] && return
