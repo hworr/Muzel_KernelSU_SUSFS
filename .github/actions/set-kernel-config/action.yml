@@ -9,49 +9,48 @@ inputs:
 runs:
   using: composite
   steps:
-  - name: Patch gki_defconfig
-    shell: bash
-    working-directory: ${{ github.workspace }}/kernel/aosp
-    run: |
-      set -euo pipefail
+    - name: Patch gki_defconfig
+      shell: bash
+      working-directory: ${{ github.workspace }}/kernel/aosp
+      run: |
+        set -euo pipefail
 
-      DEFCONFIG="/home/runner/work/Muzel_KernelSU_SUSFS/Muzel_KernelSU_SUSF/private/devices/google/muzel/muzel_defconfig"
-      CONFIG_LIST="${{ inputs.config_list }}"
+        DEFCONFIG="${{ github.workspace }}/kernel/private/devices/google/muzel/muzel_defconfig"
+        CONFIG_LIST="${{ inputs.config_list }}"
 
-      if [ ! -f "$DEFCONFIG" ]; then
-        echo "ERROR: gki_defconfig not found"
-        exit 1
-      fi
-
-      apply_line() {
-        local line="$1"
-        line="$(echo "\( line" | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]* \)//')"
-
-        # skip empty/comments
-        [[ -z "$line" || "$line" == \#* ]] && return
-
-        local key value
-        if [[ "$line" == *"="* ]]; then
-          key="${line%%=*}"
-          value="${line#*=}"
-        else
-          key="$line"
-          value="y"
+        if [ ! -f "$DEFCONFIG" ]; then
+          echo "ERROR: defconfig not found at $DEFCONFIG"
+          exit 1
         fi
 
-        echo "Processing: $key=$value"
+        apply_line() {
+          local line="$1"
+          # trim leading/trailing whitespace
+          line="$(echo "\( line" | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]* \)//')"
 
-        # if config exists anywhere in file → replace it
-        if grep -q "^$key=" "$DEFCONFIG"; then
-          sed -i "s|^$key=.*|$key=$value|g" "$DEFCONFIG"
-        elif grep -q "^# $key is not set" "$DEFCONFIG"; then
-          sed -i "s|^# $key is not set|$key=$value|g" "$DEFCONFIG"
-        else
-          # not present → append
-          echo "$key=$value" >> "$DEFCONFIG"
-        fi
-      }
+          # skip empty lines and comments
+          [[ -z "$line" || "$line" == \#* ]] && return
 
-      while IFS= read -r line || [ -n "$line" ]; do
-        apply_line "$line"
-      done <<< "$CONFIG_LIST"
+          local key value
+          if [[ "$line" == *"="* ]]; then
+            key="${line%%=*}"
+            value="${line#*=}"
+          else
+            key="$line"
+            value="y"
+          fi
+
+          echo "Processing: $key=$value"
+
+          if grep -q "^$key=" "$DEFCONFIG"; then
+            sed -i "s|^$key=.*|$key=$value|g" "$DEFCONFIG"
+          elif grep -q "^# $key is not set" "$DEFCONFIG"; then
+            sed -i "s|^# $key is not set|$key=$value|g" "$DEFCONFIG"
+          else
+            echo "$key=$value" >> "$DEFCONFIG"
+          fi
+        }
+
+        while IFS= read -r line || [ -n "$line" ]; do
+          apply_line "$line"
+        done <<< "$CONFIG_LIST"
