@@ -1,0 +1,113 @@
+set -euo pipefail
+
+DEFCONFIG="/home/runner/work/Muzel_KernelSU_SUSFS/Muzel_KernelSU_SUSFS/kernel/private/devices/google/muzel/muzel_defconfig"
+CONFIG_LIST="CONFIG_KSU=y
+"
+VERBOSE="${VERBOSE:-0}"
+
+if [[ ! -f "$DEFCONFIG" ]]; then
+  printf 'ERROR: defconfig not found at %s\n' "$DEFCONFIG" >&2
+  exit 1
+fi
+
+# --- 1. Parse the requested settings once -----------------------------------
+declare -A want=()          # key -> value
+want_keys=()                # first-seen order, for stable appends
+
+while IFS= read -r raw || [[ -n "$raw" ]]; do
+  raw="${raw%$'\r'}"                       # tolerate CRLF lists
+  raw="${raw#"${raw%%[![:space:]]*}"}"     # ltrim (no fork)
+  raw="${raw%"${raw##*[![:space:]]}"}"     # rtrim (no fork)
+
+  if [[ -z "$raw" || "$raw" == \#* ]]; then
+    continue                               # blank line / comment
+  fi
+
+  if [[ "$raw" == *=* ]]; then
+    key="${raw%%=*}"; value="${raw#*=}"
+  else
+    key="$raw";       value="y"            # bare key means =y
+  fi
+
+  if [[ "$key" != CONFIG_* ]]; then
+    printf 'WARN: skipping malformed entry: %s\n' "$raw" >&2
+    continue
+  fi
+
+  if [[ -z "${want["$key"]+x}" ]]; then
+    want_keys+=("$key")                    # keep first-seen order
+  fi
+  want["$key"]="$value"                    # last value wins
+done <<< "$CONFIG_LIST"
+
+if (( ${#want_keys[@]} == 0 )); then
+  printf 'Nothing to do: CONFIG_LIST is empty.\n'
+  exit 0
+fi
+
+# --- 2. Rewrite the defconfig in a single pass ------------------------------
+# Scratch file lives outside the kernel tree, so a cancelled or killed step
+# can never leave an untracked sibling next to the defconfig.
+tmp="$(mktemp "${RUNNER_TEMP:-${TMPDIR:-/tmp}}/defconfig.XXXXXX")"
+trap 'rm -f "$tmp"' EXIT
+
+declare -A seen=()
+found=0
+
+while IFS= read -r line || [[ -n "$line" ]]; do
+  # Regex, not globs: stray trailing whitespace or a missing space after "#"
+  # must not make us miss an existing entry and append a duplicate later.
+  key=""
+  if [[ "$line" =~ ^#[[:space:]]*(CONFIG_[A-Za-z0-9_]+)[[:space:]]+is[[:space:]]+not[[:space:]]+set[[:space:]]*$ ]]; then
+    key="${BASH_REMATCH[1]}"
+  elif [[ "$line" =~ ^(CONFIG_[A-Za-z0-9_]+)= ]]; then
+    key="${BASH_REMATCH[1]}"
+  fi
+
+  if [[ -n "$key" && -n "${want["$key"]+x}" ]]; then
+    if [[ -n "${seen["$key"]+x}" ]]; then
+      continue                             # duplicate definition -> drop the extra
+    fi
+    seen["$key"]=1
+    value="${want["$key"]}"
+    if [[ "$value" == n ]]; then
+      printf '# %s is not set\n' "$key"    # canonical Kconfig "off"
+    else
+      printf '%s=%s\n' "$key" "$value"
+    fi
+    found=$(( found + 1 ))
+    if [[ "$VERBOSE" == 1 ]]; then
+      printf '  set %s=%s\n' "$key" "$value" >&2
+    fi
+  else
+    printf '%s\n' "$line"                  # untouched line, byte-for-byte
+  fi
+done < "$DEFCONFIG" > "$tmp"
+
+# --- 3. Append settings that were absent from the file ----------------------
+for key in "${want_keys[@]}"; do
+  if [[ -n "${seen["$key"]+x}" ]]; then
+    continue                               # already present, rewritten in pass 2
+  fi
+  value="${want["$key"]}"
+  if [[ "$value" == n ]]; then
+    printf '# %s is not set\n' "$key" >> "$tmp"
+  else
+    printf '%s=%s\n' "$key" "$value" >> "$tmp"
+  fi
+  found=$(( found + 1 ))
+  if [[ "$VERBOSE" == 1 ]]; then
+    printf '  add %s=%s\n' "$key" "$value" >&2
+  fi
+done
+
+# --- 4. Commit only if the content actually differs -------------------------
+if cmp -s "$tmp" "$DEFCONFIG"; then
+  printf '%s: already up to date (%d setting(s) present).\n' "$DEFCONFIG" "$found"
+else
+  if [[ "$VERBOSE" == 1 ]]; then
+    diff -u "$DEFCONFIG" "$tmp" || true
+  fi
+  cat "$tmp" > "$DEFCONFIG"                # keeps inode, mode and ownership
+  printf '%s: patched (%d setting(s) enforced).\n' "$DEFCONFIG" "${#want_keys[@]}"
+fi
