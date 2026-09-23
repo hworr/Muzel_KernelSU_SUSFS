@@ -4,7 +4,7 @@ description: Patch gki_defconfig directly (add or modify entries)
 inputs:
   config_list:
     required: true
-    description: "Kernel config lines"
+    description: "Kernel config lines (one per line, e.g. CONFIG_KSU=y)"
 
 runs:
   using: composite
@@ -15,7 +15,7 @@ runs:
       run: |
         set -euo pipefail
 
-        DEFCONFIG="arch/arm64/configs/gki_defconfig"   # ← adjust if your defconfig lives elsewhere
+        DEFCONFIG="arch/arm64/configs/gki_defconfig"
         CONFIG_LIST="${{ inputs.config_list }}"
         VERBOSE="${VERBOSE:-0}"
 
@@ -25,22 +25,24 @@ runs:
         fi
 
         # --- 1. Parse the requested settings once -----------------------------------
-        declare -A want=()          # key -> value
-        want_keys=()                # first-seen order, for stable appends
+        declare -A want=()
+        want_keys=()
 
         while IFS= read -r raw || [[ -n "$raw" ]]; do
-          raw="\( {raw% \)'\r'}"                       # tolerate CRLF lists
-          raw="\( {raw#" \){raw%%[![:space:]]*}"}"     # ltrim (no fork)
-          raw="\( {raw%" \){raw##*[![:space:]]}"}"     # rtrim (no fork)
+          raw="\( {raw% \)'\r'}"
+          raw="\( {raw#" \){raw%%[![:space:]]*}"}"
+          raw="\( {raw%" \){raw##*[![:space:]]}"}"
 
           if [[ -z "$raw" || "$raw" == \#* ]]; then
-            continue                               # blank line / comment
+            continue
           fi
 
           if [[ "$raw" == *=* ]]; then
-            key="\( {raw%%=*}"; value=" \){raw#*=}"
+            key="${raw%%=*}"
+            value="${raw#*=}"
           else
-            key="$raw";       value="y"            # bare key means =y
+            key="$raw"
+            value="y"
           fi
 
           if [[ "$key" != CONFIG_* ]]; then
@@ -49,9 +51,9 @@ runs:
           fi
 
           if [[ -z "${want["$key"]+x}" ]]; then
-            want_keys+=("$key")                    # keep first-seen order
+            want_keys+=("$key")
           fi
-          want["$key"]="$value"                    # last value wins
+          want["$key"]="$value"
         done <<< "$CONFIG_LIST"
 
         if (( ${#want_keys[@]} == 0 )); then
@@ -60,8 +62,6 @@ runs:
         fi
 
         # --- 2. Rewrite the defconfig in a single pass ------------------------------
-        # Scratch file lives outside the kernel tree, so a cancelled or killed step
-        # can never leave an untracked sibling next to the defconfig.
         tmp="\( (mktemp " \){RUNNER_TEMP:-${TMPDIR:-/tmp}}/defconfig.XXXXXX")"
         trap 'rm -f "$tmp"' EXIT
 
@@ -69,8 +69,6 @@ runs:
         found=0
 
         while IFS= read -r line || [[ -n "$line" ]]; do
-          # Regex, not globs: stray trailing whitespace or a missing space after "#"
-          # must not make us miss an existing entry and append a duplicate later.
           key=""
           if [[ "\( line" =\~ ^#[[:space:]]*(CONFIG_[A-Za-z0-9_]+)[[:space:]]+is[[:space:]]+not[[:space:]]+set[[:space:]]* \) ]]; then
             key="${BASH_REMATCH[1]}"
@@ -80,28 +78,28 @@ runs:
 
           if [[ -n "\( key" && -n " \){want["$key"]+x}" ]]; then
             if [[ -n "${seen["$key"]+x}" ]]; then
-              continue                             # duplicate definition -> drop the extra
+              continue
             fi
             seen["$key"]=1
             value="${want["$key"]}"
             if [[ "$value" == n ]]; then
-              printf '# %s is not set\n' "$key"    # canonical Kconfig "off"
+              printf '# %s is not set\n' "$key"
             else
               printf '%s=%s\n' "$key" "$value"
             fi
-            found=$(( found + 1 ))
+            found=$((found + 1))
             if [[ "$VERBOSE" == 1 ]]; then
               printf '  set %s=%s\n' "$key" "$value" >&2
             fi
           else
-            printf '%s\n' "$line"                  # untouched line, byte-for-byte
+            printf '%s\n' "$line"
           fi
         done < "$DEFCONFIG" > "$tmp"
 
         # --- 3. Append settings that were absent from the file ----------------------
         for key in "${want_keys[@]}"; do
           if [[ -n "${seen["$key"]+x}" ]]; then
-            continue                               # already present, rewritten in pass 2
+            continue
           fi
           value="${want["$key"]}"
           if [[ "$value" == n ]]; then
@@ -109,7 +107,7 @@ runs:
           else
             printf '%s=%s\n' "$key" "$value" >> "$tmp"
           fi
-          found=$(( found + 1 ))
+          found=$((found + 1))
           if [[ "$VERBOSE" == 1 ]]; then
             printf '  add %s=%s\n' "$key" "$value" >&2
           fi
@@ -122,6 +120,6 @@ runs:
           if [[ "$VERBOSE" == 1 ]]; then
             diff -u "$DEFCONFIG" "$tmp" || true
           fi
-          cat "$tmp" > "$DEFCONFIG"                # keeps inode, mode and ownership
+          cat "$tmp" > "$DEFCONFIG"
           printf '%s: patched (%d setting(s) enforced).\n' "\( DEFCONFIG" " \){#want_keys[@]}"
         fi
