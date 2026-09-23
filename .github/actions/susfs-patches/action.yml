@@ -16,7 +16,7 @@ runs:
   steps:
     - name: Apply Kernel SUSFS Patches
       shell: bash
-      working-directory: ${{ github.workspace }}/kernel/aosp
+      working-directory: ${{ github.workspace }}/kernel/common/ack
       run: |
         # Apply base SUSFS patches
         cp "${{ github.workspace }}/susfs4ksu/kernel_patches/fs/"* "${{ github.workspace }}/kernel/aosp/fs/"
@@ -26,7 +26,7 @@ runs:
     - name: Apply Android 12 5.10 Fake Patches
       shell: bash
       if: inputs.version == 'android12-5.10'
-      working-directory: ${{ github.workspace }}/kernel/aosp
+      working-directory: ${{ github.workspace }}/kernel/common/ack
       run: |
         if [ "${{ inputs.sublevel }}" -le "43" ]; then
           echo "Applying base.c Android 12 5.10 Fake Patch"
@@ -44,7 +44,7 @@ runs:
     - name: Apply Android 13 5.10 Fake Patches
       shell: bash
       if: inputs.version == 'android13-5.10'
-      working-directory: ${{ github.workspace }}/kernel/aosp
+      working-directory: ${{ github.workspace }}/kernel/common/ack
       run: |
         echo "Applying Android 13 5.10 SUSFS fixes"
         if [ "${{ inputs.sublevel }}" -le "107" ]; then
@@ -59,7 +59,7 @@ runs:
     - name: Apply Android 13 5.15 Fake Patches
       shell: bash
       if: inputs.version == 'android13-5.15'
-      working-directory: ${{ github.workspace }}/kernel/aosp
+      working-directory: ${{ github.workspace }}/kernel/common/ack
       run: |
         echo "Applying Android 13 5.15 SUSFS fixes"
         if [ "${{ inputs.sublevel }}" -le "41" ]; then
@@ -86,7 +86,7 @@ runs:
     - name: Apply Android 14 6.1 Fake Patches
       shell: bash
       if: inputs.version == 'android14-6.1'
-      working-directory: ${{ github.workspace }}/kernel/aosp
+      working-directory: ${{ github.workspace }}/kernel/common/ack
       run: |
         if [ "${{ inputs.sublevel }}" -le "25" ]; then
           echo "Applying base.c Android 14 6.1 Fake Patch"
@@ -106,7 +106,7 @@ runs:
     - name: Apply Android 15 6.6 Fake Patches
       shell: bash
       if: inputs.version == 'android15-6.6'
-      working-directory: ${{ github.workspace }}/kernel/aosp
+      working-directory: ${{ github.workspace }}/kernel/common/ack
       run: |
         echo "Applying 6.6 SUSFS fixes"
         if [ "${{ inputs.sublevel }}" -le "30" ]; then
@@ -129,7 +129,7 @@ runs:
     - name: Apply Android 16 6.12 Fake Patches
       shell: bash
       if: inputs.version == 'android16-6.12'
-      working-directory: ${{ github.workspace }}/kernel/aosp
+      working-directory: ${{ github.workspace }}/kernel/common/ack
       run: |
         echo "Applying 6.12 SUSFS fixes"
         if [ "${{ inputs.sublevel }}" -ge "58" ]; then
@@ -143,7 +143,7 @@ runs:
 
     - name: Apply Kernel SUSFS Patches
       shell: bash
-      working-directory: ${{ github.workspace }}/kernel/aosp
+      working-directory: ${{ github.workspace }}/kernel/common/ack
       run: |
         patch -p1 < 50_add_susfs_in_gki-${{ inputs.version }}.patch
 

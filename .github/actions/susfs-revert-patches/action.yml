@@ -17,7 +17,7 @@ runs:
     - name: Revert Android 12 5.10 Fake Patches
       shell: bash
       if: inputs.version == 'android12-5.10'
-      working-directory: ${{ github.workspace }}/kernel/aosp
+      working-directory: ${{ github.workspace }}/kernel/common/ack
       run: |
         if [ "${{ inputs.sublevel }}" -le "43" ]; then
           echo "Reverting base.c Android 12 5.10 Fake Patch"
@@ -27,13 +27,13 @@ runs:
     - name: Revert Android 13 5.10 Fake Patches
       shell: bash
       if: inputs.version == 'android13-5.10'
-      working-directory: ${{ github.workspace }}/kernel/aosp
+      working-directory: ${{ github.workspace }}/kernel/common/ack
       run: |
 
     - name: Revert Android 13 5.15 Fake Patches
       shell: bash
       if: inputs.version == 'android13-5.15'
-      working-directory: ${{ github.workspace }}/kernel/aosp
+      working-directory: ${{ github.workspace }}/kernel/common/ack
       run: |
         if [ "${{ inputs.sublevel }}" -le "41" ]; then
           echo "Reverting namespace.c Android 13 5.15 Fake Patch"
@@ -55,7 +55,7 @@ runs:
     - name: Revert Android 14 6.1 Fake Patches
       shell: bash
       if: inputs.version == 'android14-6.1'
-      working-directory: ${{ github.workspace }}/kernel/aosp
+      working-directory: ${{ github.workspace }}/kernel/common/ack
       run: |
         if [ "${{ inputs.sublevel }}" -le "25" ]; then
           sed -i '/^#include <trace\/hooks\/sched.h>$/d' fs/proc/base.c
@@ -74,7 +74,7 @@ runs:
     - name: Revert Android 15 6.6 Fake Patches
       shell: bash
       if: inputs.version == 'android15-6.6'
-      working-directory: ${{ github.workspace }}/kernel/aosp
+      working-directory: ${{ github.workspace }}/kernel/common/ack
       run: |
         echo "Reverting 6.6 Fake Patches"
         if [ "${{ inputs.sublevel }}" -le "92" ]; then
@@ -89,7 +89,7 @@ runs:
     - name: Revert Android 16 6.12 Fake Patches
       shell: bash
       if: inputs.version == 'android16-6.12'
-      working-directory: ${{ github.workspace }}/kernel/aosp
+      working-directory: ${{ github.workspace }}/kernel/common/ack
       run: |
         echo "Reverting 6.12 Fake Patches"
         if [ "${{ inputs.sublevel }}" -ge "58" ]; then
@@ -104,7 +104,7 @@ runs:
     - name: Apply show_pad Fix
       shell: bash
       if: true
-      working-directory: ${{ github.workspace }}/kernel/aosp
+      working-directory: ${{ github.workspace }}/kernel/common/ack
       run: |
         SHOW_PAD_FIX=0
         if [[ "${{ inputs.version }}" = "android12-5.10" && "${{ inputs.sublevel }}" -le 209 ]]; then

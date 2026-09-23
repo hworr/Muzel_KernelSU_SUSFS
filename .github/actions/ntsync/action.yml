@@ -16,7 +16,7 @@ runs:
   steps:
     - name: Apply NTSync Patch
       shell: bash
-      working-directory: ${{ github.workspace }}/kernel/aosp
+      working-directory: ${{ github.workspace }}/kernel/common/ack
       run: |
         set -euo pipefail
 

@@ -16,14 +16,14 @@ runs:
   steps:
     - name: Apply Kernel Config for 5.10
       shell: bash
-      working-directory: ${{ github.workspace }}/kernel/aosp
+      working-directory: ${{ github.workspace }}/kernel/common/ack
       if: inputs.kernel_version == '5.10'
       run: |
         sed -i 's/CONFIG_IP_SET_MAX/65534/g' net/netfilter/ipset/ip_set_core.c
 
     - name: Apply BBRv3 Patch
       shell: bash
-      working-directory: ${{ github.workspace }}/kernel/aosp
+      working-directory: ${{ github.workspace }}/kernel/common/ack
       run: |
         set -euo pipefail
         if [[ ${{ inputs.version }} == "android16-6.12" ]]; then
