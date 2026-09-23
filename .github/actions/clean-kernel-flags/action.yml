@@ -19,6 +19,6 @@ runs:
         fi
 
         # Commit changes to avoid dirty state during build
-        cd ${{ github.workspace }}/kernel/aosp
+        cd ${{ github.workspace }}/kernel/common/ack
         git add .
         git commit -m "Wild: Clean Dirty Flag"

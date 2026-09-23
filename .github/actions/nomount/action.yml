@@ -28,7 +28,7 @@ runs:
       run: |
         set -euo pipefail
 
-        KERNEL_DIR="${{ github.workspace }}/kernel/aosp"
+        KERNEL_DIR="${{ github.workspace }}/kernel/common/ack"
         test -d "$KERNEL_DIR/fs" || {
           echo "Kernel source directory does not exist: $KERNEL_DIR" >&2
           exit 1

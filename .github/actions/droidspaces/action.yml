@@ -78,10 +78,10 @@ runs:
       if: inputs.version == 'android16-6.12'
       working-directory: ${{ github.workspace }}/kernel
       run: |
-        echo >> "${{ github.workspace }}/kernel/aosp/ipc/namespace.c"
-        echo 'EXPORT_SYMBOL_GPL(put_ipc_ns);' >> "${{ github.workspace }}/kernel/aosp/ipc/namespace.c"
-        echo >> "${{ github.workspace }}/kernel/aosp/ipc/msgutil.c"
-        echo 'EXPORT_SYMBOL_GPL(init_ipc_ns);' >> "${{ github.workspace }}/kernel/aosp/ipc/msgutil.c"
+        echo >> "${{ github.workspace }}/kernel/common/ack/ipc/namespace.c"
+        echo 'EXPORT_SYMBOL_GPL(put_ipc_ns);' >> "${{ github.workspace }}/kernel/common/ack/ipc/namespace.c"
+        echo >> "${{ github.workspace }}/kernel/common/ack/ipc/msgutil.c"
+        echo 'EXPORT_SYMBOL_GPL(init_ipc_ns);' >> "${{ github.workspace }}/kernel/common/ack/ipc/msgutil.c"
 
     - name: Enable Kernel Configs
       uses: ./.github/actions/set-kernel-config

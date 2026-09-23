@@ -1,0 +1,1835 @@
+﻿2026-09-23T09:32:58.4396731Z Current runner version: '2.337.0'
+2026-09-23T09:32:58.4413457Z ##[group]Runner Image Provisioner
+2026-09-23T09:32:58.4414161Z Hosted Compute Agent
+2026-09-23T09:32:58.4414602Z Version: 20260828.587
+2026-09-23T09:32:58.4415002Z Commit: abac92662cab4cc7352de4f9f9d2e2419aad9c29
+2026-09-23T09:32:58.4415490Z Build Date: 2026-08-28T16:44:25Z
+2026-09-23T09:32:58.4415994Z Worker ID: {02250f4b-dedb-410c-ac88-f5a652113a86}
+2026-09-23T09:32:58.4416423Z Azure Region: westus3
+2026-09-23T09:32:58.4416828Z ##[endgroup]
+2026-09-23T09:32:58.4417783Z ##[group]Operating System
+2026-09-23T09:32:58.4418226Z Ubuntu
+2026-09-23T09:32:58.4418573Z 24.04.5
+2026-09-23T09:32:58.4418896Z LTS
+2026-09-23T09:32:58.4419255Z ##[endgroup]
+2026-09-23T09:32:58.4419597Z ##[group]Runner Image
+2026-09-23T09:32:58.4419953Z Image: ubuntu-24.04
+2026-09-23T09:32:58.4420413Z Version: 20260907.300.1
+2026-09-23T09:32:58.4421137Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260907.300/images/ubuntu/Ubuntu2404-Readme.md
+2026-09-23T09:32:58.4422096Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260907.300
+2026-09-23T09:32:58.4422758Z ##[endgroup]
+2026-09-23T09:32:58.4423474Z ##[group]GITHUB_TOKEN Permissions
+2026-09-23T09:32:58.4425183Z Actions: write
+2026-09-23T09:32:58.4425559Z Contents: write
+2026-09-23T09:32:58.4425949Z Metadata: read
+2026-09-23T09:32:58.4426333Z ##[endgroup]
+2026-09-23T09:32:58.4427641Z Secret source: Actions
+2026-09-23T09:32:58.4428268Z Cache mode: write
+2026-09-23T09:32:58.4428915Z Prepare workflow directory
+2026-09-23T09:32:58.4634103Z Prepare all required actions
+2026-09-23T09:32:58.4665118Z Getting action download info
+2026-09-23T09:32:58.8181019Z Download action repository 'actions/checkout@v7' (SHA:3d3c42e5aac5ba805825da76410c181273ba90b1)
+2026-09-23T09:32:59.1926858Z Download action repository 'endersonmenezes/free-disk-space@v4' (SHA:2a22f8c59cae9cddae7194b33e6b92d023b2b4b8)
+2026-09-23T09:32:59.5685412Z Download action repository 'pierotofy/set-swap-space@master' (SHA:fc79b3f67fa8a838184ce84a674ca12238d2c761)
+2026-09-23T09:32:59.7915501Z Download action repository 'actions/upload-artifact@v7' (SHA:043fb46d1a93c77aae656e7c1c64a875d1fc6a0a)
+2026-09-23T09:32:59.9324498Z Download action repository 'actions/cache@v6' (SHA:55cc8345863c7cc4c66a329aec7e433d2d1c52a9)
+2026-09-23T09:33:00.2686151Z Uses: hworr/Muzel_KernelSU_SUSFS/.github/workflows/build.yml@refs/heads/main (9ea4199fe3064831d636b6117722e5b1acb6fdca)
+2026-09-23T09:33:00.2690247Z ##[group] Inputs
+2026-09-23T09:33:00.2690809Z   version: android15-6.6
+2026-09-23T09:33:00.2691374Z   android_version: android15
+2026-09-23T09:33:00.2691941Z   kernel_version: 6.6
+2026-09-23T09:33:00.2692456Z   sublevel: 102
+2026-09-23T09:33:00.2692955Z   os_patch_level: 2025-10
+2026-09-23T09:33:00.2693506Z   variant: KernelSU
+2026-09-23T09:33:00.2694505Z   feature_set: NoMount+BBG+NET+DS+NTSync+Ptrace+Unicode+BPF+Perf
+2026-09-23T09:33:00.2695393Z   ksu_branch: c6f3978e6832a61bf8a755fc49a8053750fac973
+2026-09-23T09:33:00.2696214Z   susfs_commit: 9d9464f191b2d846590ac4d1b52e123df135c401
+2026-09-23T09:33:00.2696939Z   root_flavor: kernelsu
+2026-09-23T09:33:00.2697544Z   root_commit: 449436dd56e4abb075f7b53fb5b2b33ff3830dd2
+2026-09-23T09:33:00.2698349Z   nomount_commit: db76155b6c8073dd02b8f7ecf6cdae4a1547e157
+2026-09-23T09:33:00.2699211Z   kernel_patches_commit: 41ae18b35d20e0c6ac04116785a4a1089528ae94
+2026-09-23T09:33:00.2700105Z   anykernel3_commit: e1e9dce98430c5c6f231f7094a8c7f4ecaf50948
+2026-09-23T09:33:00.2700984Z   droidspaces_commit: cff50fa04d50472b607ba6822e8bf482b19cd427
+2026-09-23T09:33:00.2701721Z   brand_name: worrh
+2026-09-23T09:33:00.2702478Z   bypass: false
+2026-09-23T09:33:00.2702954Z   use_cache: false
+2026-09-23T09:33:00.2755600Z   release_type: Action
+2026-09-23T09:33:00.2756204Z   kernel_build_version: 6.6.x-android15
+2026-09-23T09:33:00.2756886Z   commit_mode: latest
+2026-09-23T09:33:00.2757447Z   use_susfs: false
+2026-09-23T09:33:00.2757948Z   use_nomount: true
+2026-09-23T09:33:00.2758713Z   use_bbg: true
+2026-09-23T09:33:00.2759313Z   use_net: true
+2026-09-23T09:33:00.2759779Z   use_ds: true
+2026-09-23T09:33:00.2760242Z   use_ntsync: true
+2026-09-23T09:33:00.2760720Z   use_ptrace: true
+2026-09-23T09:33:00.2761199Z   use_unicode: true
+2026-09-23T09:33:00.2761681Z   use_bpf: true
+2026-09-23T09:33:00.2762148Z   use_perf: true
+2026-09-23T09:33:00.2762749Z   test_release_notes: false
+2026-09-23T09:33:00.2763300Z ##[endgroup]
+2026-09-23T09:33:00.2764846Z Complete job name: build-android15-6-6 (kernelsu, KernelSU, 449436dd56e4abb075f7b53fb5b2b33ff3830dd2) / build (android15-6.6, android15, 6.6, 102, 2025-10, KernelSU) / 6.6.102-android15-2025-10 (KernelSU)
+2026-09-23T09:33:00.3522973Z ##[group]Run actions/checkout@v7
+2026-09-23T09:33:00.3523799Z with:
+2026-09-23T09:33:00.3524294Z   repository: hworr/Muzel_KernelSU_SUSFS
+2026-09-23T09:33:00.3528761Z   token: ***
+2026-09-23T09:33:00.3529224Z   ssh-strict: true
+2026-09-23T09:33:00.3529697Z   ssh-user: git
+2026-09-23T09:33:00.3530196Z   persist-credentials: true
+2026-09-23T09:33:00.3530744Z   clean: true
+2026-09-23T09:33:00.3531244Z   sparse-checkout-cone-mode: true
+2026-09-23T09:33:00.3531819Z   fetch-depth: 1
+2026-09-23T09:33:00.3532289Z   fetch-tags: false
+2026-09-23T09:33:00.3532780Z   show-progress: true
+2026-09-23T09:33:00.3533267Z   lfs: false
+2026-09-23T09:33:00.3533918Z   submodules: false
+2026-09-23T09:33:00.3534465Z   set-safe-directory: true
+2026-09-23T09:33:00.3535034Z   allow-unsafe-pr-checkout: false
+2026-09-23T09:33:00.3535705Z ##[endgroup]
+2026-09-23T09:33:00.4222422Z Syncing repository: hworr/Muzel_KernelSU_SUSFS
+2026-09-23T09:33:00.4224984Z ##[group]Getting Git version info
+2026-09-23T09:33:00.4226461Z Working directory is '/home/runner/work/Muzel_KernelSU_SUSFS/Muzel_KernelSU_SUSFS'
+2026-09-23T09:33:00.4228425Z [command]/usr/bin/git version
+2026-09-23T09:33:00.5122877Z git version 2.55.0
+2026-09-23T09:33:00.5144247Z ##[endgroup]
+2026-09-23T09:33:00.5155903Z Temporarily overriding HOME='/home/runner/work/_temp/3a0fb729-bb8d-42d3-b8f9-2d975a0ffd13' before making global git config changes
+2026-09-23T09:33:00.5157836Z Adding repository directory to the temporary git global config as a safe directory
+2026-09-23T09:33:00.5160893Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/Muzel_KernelSU_SUSFS/Muzel_KernelSU_SUSFS
+2026-09-23T09:33:00.5365981Z Deleting the contents of '/home/runner/work/Muzel_KernelSU_SUSFS/Muzel_KernelSU_SUSFS'
+2026-09-23T09:33:00.5368889Z ##[group]Determining repository object format
+2026-09-23T09:33:00.5370494Z ##[endgroup]
+2026-09-23T09:33:00.5371760Z ##[group]Initializing the repository
+2026-09-23T09:33:00.5374471Z [command]/usr/bin/git init /home/runner/work/Muzel_KernelSU_SUSFS/Muzel_KernelSU_SUSFS
+2026-09-23T09:33:00.5816279Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-09-23T09:33:00.5817764Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-09-23T09:33:00.5818773Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-09-23T09:33:00.5819621Z hint: call:
+2026-09-23T09:33:00.5820070Z hint:
+2026-09-23T09:33:00.5820655Z hint: 	git config --global init.defaultBranch <name>
+2026-09-23T09:33:00.5821315Z hint:
+2026-09-23T09:33:00.5821936Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-09-23T09:33:00.5822921Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-09-23T09:33:00.5823877Z hint:
+2026-09-23T09:33:00.5824330Z hint: 	git branch -m <name>
+2026-09-23T09:33:00.5824834Z hint:
+2026-09-23T09:33:00.5825518Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-09-23T09:33:00.5830819Z Initialized empty Git repository in /home/runner/work/Muzel_KernelSU_SUSFS/Muzel_KernelSU_SUSFS/.git/
+2026-09-23T09:33:00.5837658Z [command]/usr/bin/git remote add origin https://github.com/hworr/Muzel_KernelSU_SUSFS
+2026-09-23T09:33:00.6035938Z ##[endgroup]
+2026-09-23T09:33:00.6037194Z ##[group]Disabling automatic garbage collection
+2026-09-23T09:33:00.6038374Z [command]/usr/bin/git config --local gc.auto 0
+2026-09-23T09:33:00.6066962Z ##[endgroup]
+2026-09-23T09:33:00.6068152Z ##[group]Setting up auth
+2026-09-23T09:33:00.6069040Z Removing SSH command configuration
+2026-09-23T09:33:00.6070968Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-09-23T09:33:00.6101215Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-09-23T09:33:00.7525122Z Removing HTTP extra header
+2026-09-23T09:33:00.7529748Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-09-23T09:33:00.7587094Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-09-23T09:33:00.7738814Z Removing includeIf entries pointing to credentials config files
+2026-09-23T09:33:00.7743164Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-09-23T09:33:00.7773940Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-09-23T09:33:00.7958556Z [command]/usr/bin/git config --file /home/runner/work/_temp/git-credentials-a62c7428-4a7c-4953-ad56-47ec67a7a07f.config http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-09-23T09:33:00.7991172Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/Muzel_KernelSU_SUSFS/Muzel_KernelSU_SUSFS/.git.path /home/runner/work/_temp/git-credentials-a62c7428-4a7c-4953-ad56-47ec67a7a07f.config
+2026-09-23T09:33:00.8019053Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/Muzel_KernelSU_SUSFS/Muzel_KernelSU_SUSFS/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-a62c7428-4a7c-4953-ad56-47ec67a7a07f.config
+2026-09-23T09:33:00.8048787Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-a62c7428-4a7c-4953-ad56-47ec67a7a07f.config
+2026-09-23T09:33:00.8077546Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-a62c7428-4a7c-4953-ad56-47ec67a7a07f.config
+2026-09-23T09:33:00.8102749Z ##[endgroup]
+2026-09-23T09:33:00.8104168Z ##[group]Fetching the repository
+2026-09-23T09:33:00.8108304Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +9ea4199fe3064831d636b6117722e5b1acb6fdca:refs/remotes/origin/main
+2026-09-23T09:33:01.4927171Z From https://github.com/hworr/Muzel_KernelSU_SUSFS
+2026-09-23T09:33:01.4928045Z  * [new ref]         9ea4199fe3064831d636b6117722e5b1acb6fdca -> origin/main
+2026-09-23T09:33:01.4935278Z [command]/usr/bin/git branch --list --remote origin/main
+2026-09-23T09:33:01.4960121Z   origin/main
+2026-09-23T09:33:01.4966503Z [command]/usr/bin/git rev-parse refs/remotes/origin/main
+2026-09-23T09:33:01.4988373Z 9ea4199fe3064831d636b6117722e5b1acb6fdca
+2026-09-23T09:33:01.4994291Z ##[endgroup]
+2026-09-23T09:33:01.4994699Z ##[group]Determining the checkout info
+2026-09-23T09:33:01.4994970Z ##[endgroup]
+2026-09-23T09:33:01.5002958Z [command]/usr/bin/git sparse-checkout disable
+2026-09-23T09:33:01.5144920Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-09-23T09:33:01.5173189Z ##[group]Checking out the ref
+2026-09-23T09:33:01.5176476Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2026-09-23T09:33:01.5290089Z Switched to a new branch 'main'
+2026-09-23T09:33:01.5295314Z branch 'main' set up to track 'origin/main'.
+2026-09-23T09:33:01.5300794Z ##[endgroup]
+2026-09-23T09:33:01.5338795Z [command]/usr/bin/git log -1 --format=%H
+2026-09-23T09:33:01.5364047Z 9ea4199fe3064831d636b6117722e5b1acb6fdca
+2026-09-23T09:33:01.5575531Z ##[group]Run endersonmenezes/free-disk-space@v4
+2026-09-23T09:33:01.5575883Z with:
+2026-09-23T09:33:01.5576025Z   remove_android: true
+2026-09-23T09:33:01.5576175Z   remove_dotnet: true
+2026-09-23T09:33:01.5576322Z   remove_haskell: true
+2026-09-23T09:33:01.5576471Z   remove_tool_cache: true
+2026-09-23T09:33:01.5576623Z   remove_swap: true
+2026-09-23T09:33:01.5576974Z   remove_packages: azure-cli google-cloud-cli microsoft-edge-stable google-chrome-stable firefox postgresql* temurin-* *llvm* mysql* dotnet-sdk-*
+2026-09-23T09:33:01.5577353Z   remove_packages_one_command: true
+2026-09-23T09:33:01.5578119Z   remove_folders: /usr/share/swift /usr/share/miniconda /usr/share/az* /usr/local/lib/node_modules /usr/local/share/chromium /usr/local/share/powershell /usr/local/julia /usr/local/aws-cli /usr/local/aws-sam-cli /usr/share/gradle
+2026-09-23T09:33:01.5578604Z   rm_cmd: rmz
+2026-09-23T09:33:01.5578746Z   rmz_version: 3.2.0
+2026-09-23T09:33:01.5578893Z   testing: false
+2026-09-23T09:33:01.5579054Z   principal_dir: /
+2026-09-23T09:33:01.5579199Z ##[endgroup]
+2026-09-23T09:33:01.5619149Z ##[start-action display=Set GitHub Path;id=__endersonmenezes_free-disk-space.__run]
+2026-09-23T09:33:01.5642592Z ##[group]Run echo "$GITHUB_ACTION_PATH" >> $GITHUB_PATH
+2026-09-23T09:33:01.5642882Z [36;1mecho "$GITHUB_ACTION_PATH" >> $GITHUB_PATH[0m
+2026-09-23T09:33:01.5675981Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-09-23T09:33:01.5676202Z env:
+2026-09-23T09:33:01.5676418Z   GITHUB_ACTION_PATH: /home/runner/work/_actions/endersonmenezes/free-disk-space/v4
+2026-09-23T09:33:01.5676667Z ##[endgroup]
+2026-09-23T09:33:01.5742802Z ##[end-action id=__endersonmenezes_free-disk-space.__run;outcome=success;conclusion=success;duration_ms=12]
+2026-09-23T09:33:01.5746649Z ##[start-action display=Free Disk Space;id=__endersonmenezes_free-disk-space.free-disk-space]
+2026-09-23T09:33:01.5757998Z ##[group]Run main.sh
+2026-09-23T09:33:01.5758168Z [36;1mmain.sh[0m
+2026-09-23T09:33:01.5784989Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-09-23T09:33:01.5785214Z env:
+2026-09-23T09:33:01.5785353Z   PRINCIPAL_DIR: /
+2026-09-23T09:33:01.5785499Z   ANDROID_FILES: true
+2026-09-23T09:33:01.5785649Z   DOTNET_FILES: true
+2026-09-23T09:33:01.5785798Z   HASKELL_FILES: true
+2026-09-23T09:33:01.5785941Z   TOOL_CACHE: true
+2026-09-23T09:33:01.5786081Z   SWAP_STORAGE: true
+2026-09-23T09:33:01.5786423Z   PACKAGES: azure-cli google-cloud-cli microsoft-edge-stable google-chrome-stable firefox postgresql* temurin-* *llvm* mysql* dotnet-sdk-*
+2026-09-23T09:33:01.5786792Z   REMOVE_ONE_COMMAND: true
+2026-09-23T09:33:01.5787270Z   REMOVE_FOLDERS: /usr/share/swift /usr/share/miniconda /usr/share/az* /usr/local/lib/node_modules /usr/local/share/chromium /usr/local/share/powershell /usr/local/julia /usr/local/aws-cli /usr/local/aws-sam-cli /usr/share/gradle
+2026-09-23T09:33:01.5788034Z   RM_CMD: rmz
+2026-09-23T09:33:01.5788171Z   RMZ_VERSION: 3.2.0
+2026-09-23T09:33:01.5788315Z   TESTING: false
+2026-09-23T09:33:01.5788458Z ##[endgroup]
+2026-09-23T09:33:01.5910821Z Installing rmz
+2026-09-23T09:33:01.9613821Z 🤖 Removing Android Folder
+2026-09-23T09:33:33.9641861Z FreeUp Space: 11236.37 MB
+2026-09-23T09:33:33.9642328Z Time Elapsed: 32 seconds
+2026-09-23T09:33:33.9654723Z -
+2026-09-23T09:33:33.9655336Z 📄 Removing .NET Folder
+2026-09-23T09:33:39.8415481Z FreeUp Space: 5661.09 MB
+2026-09-23T09:33:39.8415733Z Time Elapsed: 6 seconds
+2026-09-23T09:33:39.8427189Z -
+2026-09-23T09:33:39.8427719Z 📄 Removing Haskell Folder
+2026-09-23T09:33:40.7359149Z FreeUp Space: 3743.46 MB
+2026-09-23T09:33:40.7359571Z Time Elapsed: 1 seconds
+2026-09-23T09:33:40.7371396Z -
+2026-09-23T09:33:40.7372455Z 📦 Removing azure-cli google-cloud-cli microsoft-edge-stable google-chrome-stable firefox postgresql* temurin-* *llvm* mysql* dotnet-sdk-*
+2026-09-23T09:33:44.4532614Z Reading package lists...
+2026-09-23T09:33:44.5945242Z Building dependency tree...
+2026-09-23T09:33:44.5988987Z Reading state information...
+2026-09-23T09:33:44.7136802Z Package 'postgresql-pgmp' is not installed, so not removed
+2026-09-23T09:33:44.7137442Z Package 'postgresql-9.1' is not installed, so not removed
+2026-09-23T09:33:44.7137832Z Package 'postgresql-postgis-java' is not installed, so not removed
+2026-09-23T09:33:44.7138271Z Package 'postgresql-11-auto-failover' is not installed, so not removed
+2026-09-23T09:33:44.7138719Z Package 'postgresql-12-auto-failover' is not installed, so not removed
+2026-09-23T09:33:44.7139142Z Package 'postgresql-13-auto-failover' is not installed, so not removed
+2026-09-23T09:33:44.7139560Z Package 'postgresql-14-auto-failover' is not installed, so not removed
+2026-09-23T09:33:44.7139983Z Package 'postgresql-15-auto-failover' is not installed, so not removed
+2026-09-23T09:33:44.7140366Z Package 'postgresql-doc-18' is not installed, so not removed
+2026-09-23T09:33:44.7140739Z Package 'libllvmspirvlib-dev' is not installed, so not removed
+2026-09-23T09:33:44.7141203Z Package 'libstarpu-contrib-any-openmp-llvm-1.4-1' is not installed, so not removed
+2026-09-23T09:33:44.7141619Z Package 'llvm-21' is not installed, so not removed
+2026-09-23T09:33:44.7141996Z Package 'mysql-client-5.7' is not installed, so not removed
+2026-09-23T09:33:44.7142356Z Package 'mysql-client-core-5.7' is not installed, so not removed
+2026-09-23T09:33:44.7142800Z Package 'mysql-server-5.5' is not installed, so not removed
+2026-09-23T09:33:44.7143223Z Package 'mysql-server-5.7' is not installed, so not removed
+2026-09-23T09:33:44.7143579Z Package 'mysql-server-core-5.7' is not installed, so not removed
+2026-09-23T09:33:44.7144087Z Package 'mysql-client-core-5.5' is not installed, so not removed
+2026-09-23T09:33:44.7144495Z Package 'mysql-client-core-5.6' is not installed, so not removed
+2026-09-23T09:33:44.7144853Z Package 'mysql-client-5.5' is not installed, so not removed
+2026-09-23T09:33:44.7145196Z Package 'mysql-client-5.6' is not installed, so not removed
+2026-09-23T09:33:44.7145621Z Package 'mysql-cluster-community-client-plugins' is not installed, so not removed
+2026-09-23T09:33:44.7146082Z Package 'mysql-server-core-5.5' is not installed, so not removed
+2026-09-23T09:33:44.7146463Z Package 'mysql-server-core-5.6' is not installed, so not removed
+2026-09-23T09:33:44.7146835Z Package 'mysql-server-5.6' is not installed, so not removed
+2026-09-23T09:33:44.7147176Z Package 'mysql-testsuite-5.5' is not installed, so not removed
+2026-09-23T09:33:44.7147511Z Package 'mysql-testsuite-5.6' is not installed, so not removed
+2026-09-23T09:33:44.7147846Z Package 'mysql-testsuite-5.7' is not installed, so not removed
+2026-09-23T09:33:44.7148169Z Package 'dotnet-sdk-6.0' is not installed, so not removed
+2026-09-23T09:33:44.7148485Z Package 'postgresql-client' is not installed, so not removed
+2026-09-23T09:33:44.7148812Z Package 'postgresql-doc-16' is not installed, so not removed
+2026-09-23T09:33:44.7149123Z Package 'postgresql' is not installed, so not removed
+2026-09-23T09:33:44.7149423Z Package 'postgresql-doc' is not installed, so not removed
+2026-09-23T09:33:44.7149773Z Package 'postgresql-server-dev-all' is not installed, so not removed
+2026-09-23T09:33:44.7150133Z Package 'postgresql-contrib' is not installed, so not removed
+2026-09-23T09:33:44.7150479Z Package 'postgresql-plperl-16' is not installed, so not removed
+2026-09-23T09:33:44.7150838Z Package 'postgresql-plpython3-16' is not installed, so not removed
+2026-09-23T09:33:44.7151190Z Package 'postgresql-pltcl-16' is not installed, so not removed
+2026-09-23T09:33:44.7151529Z Package 'postgresql-pgrouting' is not installed, so not removed
+2026-09-23T09:33:44.7151877Z Package 'postgresql-comparator' is not installed, so not removed
+2026-09-23T09:33:44.7152222Z Package 'postgresql-filedump' is not installed, so not removed
+2026-09-23T09:33:44.7152563Z Package 'postgresql-postgis' is not installed, so not removed
+2026-09-23T09:33:44.7152921Z Package 'postgresql-16-auto-failover' is not installed, so not removed
+2026-09-23T09:33:44.7153278Z Package 'postgresql-16-age' is not installed, so not removed
+2026-09-23T09:33:44.7154108Z Package 'postgresql-16-asn1oid' is not installed, so not removed
+2026-09-23T09:33:44.7154577Z Package 'postgresql-16-bgw-replstatus' is not installed, so not removed
+2026-09-23T09:33:44.7154951Z Package 'postgresql-16-credcheck' is not installed, so not removed
+2026-09-23T09:33:44.7155297Z Package 'postgresql-16-cron' is not installed, so not removed
+2026-09-23T09:33:44.7155645Z Package 'postgresql-16-debversion' is not installed, so not removed
+2026-09-23T09:33:44.7156013Z Package 'postgresql-16-decoderbufs' is not installed, so not removed
+2026-09-23T09:33:44.7156380Z Package 'postgresql-16-dirtyread' is not installed, so not removed
+2026-09-23T09:33:44.7156811Z Package 'postgresql-16-extra-window-functions' is not installed, so not removed
+2026-09-23T09:33:44.7157252Z Package 'postgresql-16-first-last-agg' is not installed, so not removed
+2026-09-23T09:33:44.7157627Z Package 'postgresql-16-h3' is not installed, so not removed
+2026-09-23T09:33:44.7157955Z Package 'postgresql-16-hll' is not installed, so not removed
+2026-09-23T09:33:44.7158293Z Package 'postgresql-16-hypopg' is not installed, so not removed
+2026-09-23T09:33:44.7158644Z Package 'postgresql-16-icu-ext' is not installed, so not removed
+2026-09-23T09:33:44.7158985Z Package 'postgresql-16-ip4r' is not installed, so not removed
+2026-09-23T09:33:44.7159322Z Package 'postgresql-16-jsquery' is not installed, so not removed
+2026-09-23T09:33:44.7159679Z Package 'postgresql-16-londiste-sql' is not installed, so not removed
+2026-09-23T09:33:44.7160050Z Package 'postgresql-16-pgq-node' is not installed, so not removed
+2026-09-23T09:33:44.7160423Z Package 'postgresql-16-mimeo' is not installed, so not removed
+2026-09-23T09:33:44.7160772Z Package 'postgresql-16-mysql-fdw' is not installed, so not removed
+2026-09-23T09:33:44.7161197Z Package 'postgresql-16-numeral' is not installed, so not removed
+2026-09-23T09:33:44.7161577Z Package 'postgresql-16-ogr-fdw' is not installed, so not removed
+2026-09-23T09:33:44.7161924Z Package 'postgresql-16-omnidb' is not installed, so not removed
+2026-09-23T09:33:44.7162269Z Package 'postgresql-16-orafce' is not installed, so not removed
+2026-09-23T09:33:44.7162617Z Package 'postgresql-16-partman' is not installed, so not removed
+2026-09-23T09:33:44.7162961Z Package 'postgresql-16-periods' is not installed, so not removed
+2026-09-23T09:33:44.7163324Z Package 'postgresql-16-pg-catcheck' is not installed, so not removed
+2026-09-23T09:33:44.7163846Z Package 'postgresql-16-pg-checksums' is not installed, so not removed
+2026-09-23T09:33:44.7164236Z Package 'postgresql-16-pg-fact-loader' is not installed, so not removed
+2026-09-23T09:33:44.7164636Z Package 'postgresql-16-pg-failover-slots' is not installed, so not removed
+2026-09-23T09:33:44.7165017Z Package 'postgresql-16-pg-gvm' is not installed, so not removed
+2026-09-23T09:33:44.7165379Z Package 'postgresql-16-pg-qualstats' is not installed, so not removed
+2026-09-23T09:33:44.7165763Z Package 'postgresql-16-pg-stat-kcache' is not installed, so not removed
+2026-09-23T09:33:44.7166166Z Package 'postgresql-16-pg-track-settings' is not installed, so not removed
+2026-09-23T09:33:44.7166572Z Package 'postgresql-16-pg-wait-sampling' is not installed, so not removed
+2026-09-23T09:33:44.7166957Z Package 'postgresql-16-pgaudit' is not installed, so not removed
+2026-09-23T09:33:44.7167331Z Package 'postgresql-16-pgauditlogtofile' is not installed, so not removed
+2026-09-23T09:33:44.7167719Z Package 'postgresql-16-pgextwlist' is not installed, so not removed
+2026-09-23T09:33:44.7168086Z Package 'postgresql-16-pgfincore' is not installed, so not removed
+2026-09-23T09:33:44.7168462Z Package 'postgresql-16-pgl-ddl-deploy' is not installed, so not removed
+2026-09-23T09:33:44.7168838Z Package 'postgresql-16-pglogical' is not installed, so not removed
+2026-09-23T09:33:44.7169220Z Package 'postgresql-16-pglogical-ticker' is not installed, so not removed
+2026-09-23T09:33:44.7169608Z Package 'postgresql-16-pgmemcache' is not installed, so not removed
+2026-09-23T09:33:44.7170179Z Package 'postgresql-16-pgmp' is not installed, so not removed
+2026-09-23T09:33:44.7170521Z Package 'postgresql-16-pgpcre' is not installed, so not removed
+2026-09-23T09:33:44.7170957Z Package 'postgresql-16-pgpool2' is not installed, so not removed
+2026-09-23T09:33:44.7171303Z Package 'postgresql-16-pgq3' is not installed, so not removed
+2026-09-23T09:33:44.7171651Z Package 'postgresql-16-pgrouting' is not installed, so not removed
+2026-09-23T09:33:44.7172039Z Package 'postgresql-16-pgrouting-scripts' is not installed, so not removed
+2026-09-23T09:33:44.7172444Z Package 'postgresql-16-pgrouting-doc' is not installed, so not removed
+2026-09-23T09:33:44.7172820Z Package 'postgresql-16-pgsphere' is not installed, so not removed
+2026-09-23T09:33:44.7173170Z Package 'postgresql-16-pgtap' is not installed, so not removed
+2026-09-23T09:33:44.7173518Z Package 'postgresql-16-pgvector' is not installed, so not removed
+2026-09-23T09:33:44.7174012Z Package 'postgresql-16-pldebugger' is not installed, so not removed
+2026-09-23T09:33:44.7174372Z Package 'postgresql-16-pllua' is not installed, so not removed
+2026-09-23T09:33:44.7174739Z Package 'postgresql-16-plpgsql-check' is not installed, so not removed
+2026-09-23T09:33:44.7175120Z Package 'postgresql-16-plprofiler' is not installed, so not removed
+2026-09-23T09:33:44.7175479Z Package 'postgresql-16-plproxy' is not installed, so not removed
+2026-09-23T09:33:44.7175825Z Package 'postgresql-16-plr' is not installed, so not removed
+2026-09-23T09:33:44.7176162Z Package 'postgresql-16-plsh' is not installed, so not removed
+2026-09-23T09:33:44.7176516Z Package 'postgresql-16-pointcloud' is not installed, so not removed
+2026-09-23T09:33:44.7176880Z Package 'postgresql-16-postgis-3' is not installed, so not removed
+2026-09-23T09:33:44.7177261Z Package 'postgresql-16-postgis-3-scripts' is not installed, so not removed
+2026-09-23T09:33:44.7177660Z Package 'postgresql-16-powa' is not installed, so not removed
+2026-09-23T09:33:44.7177997Z Package 'postgresql-16-prefix' is not installed, so not removed
+2026-09-23T09:33:44.7178358Z Package 'postgresql-16-preprepare' is not installed, so not removed
+2026-09-23T09:33:44.7178755Z Package 'postgresql-16-prioritize' is not installed, so not removed
+2026-09-23T09:33:44.7179102Z Package 'postgresql-16-q3c' is not installed, so not removed
+2026-09-23T09:33:44.7179447Z Package 'postgresql-16-rational' is not installed, so not removed
+2026-09-23T09:33:44.7179799Z Package 'postgresql-16-rdkit' is not installed, so not removed
+2026-09-23T09:33:44.7180143Z Package 'postgresql-16-repack' is not installed, so not removed
+2026-09-23T09:33:44.7180487Z Package 'postgresql-16-repmgr' is not installed, so not removed
+2026-09-23T09:33:44.7180826Z Package 'postgresql-16-rum' is not installed, so not removed
+2026-09-23T09:33:44.7181159Z Package 'postgresql-16-semver' is not installed, so not removed
+2026-09-23T09:33:44.7181511Z Package 'postgresql-16-set-user' is not installed, so not removed
+2026-09-23T09:33:44.7181875Z Package 'postgresql-16-show-plans' is not installed, so not removed
+2026-09-23T09:33:44.7182244Z Package 'postgresql-16-similarity' is not installed, so not removed
+2026-09-23T09:33:44.7182608Z Package 'postgresql-16-slony1-2' is not installed, so not removed
+2026-09-23T09:33:44.7182960Z Package 'postgresql-16-snakeoil' is not installed, so not removed
+2026-09-23T09:33:44.7183312Z Package 'postgresql-16-squeeze' is not installed, so not removed
+2026-09-23T09:33:44.7183764Z Package 'postgresql-16-statviz' is not installed, so not removed
+2026-09-23T09:33:44.7184154Z Package 'postgresql-16-tablelog' is not installed, so not removed
+2026-09-23T09:33:44.7184505Z Package 'postgresql-16-tdigest' is not installed, so not removed
+2026-09-23T09:33:44.7184855Z Package 'postgresql-16-tds-fdw' is not installed, so not removed
+2026-09-23T09:33:44.7185212Z Package 'postgresql-16-toastinfo' is not installed, so not removed
+2026-09-23T09:33:44.7185563Z Package 'postgresql-16-unit' is not installed, so not removed
+2026-09-23T09:33:44.7186081Z Package 'postgresql-16-wal2json' is not installed, so not removed
+2026-09-23T09:33:44.7186417Z Package 'postgresql-all' is not installed, so not removed
+2026-09-23T09:33:44.7186831Z Package 'postgresql-autodoc' is not installed, so not removed
+2026-09-23T09:33:44.7187200Z Package 'postgresql-pgrouting-scripts' is not installed, so not removed
+2026-09-23T09:33:44.7187594Z Package 'postgresql-postgis-scripts' is not installed, so not removed
+2026-09-23T09:33:44.7187977Z Package 'postgresql-server-dev-16' is not installed, so not removed
+2026-09-23T09:33:44.7188332Z Package 'libllvmlibc-18-dev' is not installed, so not removed
+2026-09-23T09:33:44.7188652Z Package 'libllvm14t64' is not installed, so not removed
+2026-09-23T09:33:44.7188974Z Package 'llvm-14-linker-tools' is not installed, so not removed
+2026-09-23T09:33:44.7189296Z Package 'llvm-14-dev' is not installed, so not removed
+2026-09-23T09:33:44.7189595Z Package 'libllvm15t64' is not installed, so not removed
+2026-09-23T09:33:44.7189913Z Package 'llvm-15-linker-tools' is not installed, so not removed
+2026-09-23T09:33:44.7190270Z Package 'llvm-15-dev' is not installed, so not removed
+2026-09-23T09:33:44.7190554Z Package 'llvm' is not installed, so not removed
+2026-09-23T09:33:44.7190826Z Package 'llvm-15' is not installed, so not removed
+2026-09-23T09:33:44.7191118Z Package 'ghdl-llvm' is not installed, so not removed
+2026-09-23T09:33:44.7191406Z Package 'llvm-dev' is not installed, so not removed
+2026-09-23T09:33:44.7191712Z Package 'libllvmspirvlib14' is not installed, so not removed
+2026-09-23T09:33:44.7192054Z Package 'libllvm-14-ocaml-dev' is not installed, so not removed
+2026-09-23T09:33:44.7192378Z Package 'llvm-14-doc' is not installed, so not removed
+2026-09-23T09:33:44.7192699Z Package 'libllvm-15-ocaml-dev' is not installed, so not removed
+2026-09-23T09:33:44.7193029Z Package 'llvm-15-doc' is not installed, so not removed
+2026-09-23T09:33:44.7193346Z Package 'libllvm-16-ocaml-dev' is not installed, so not removed
+2026-09-23T09:33:44.7193781Z Package 'llvm-16-doc' is not installed, so not removed
+2026-09-23T09:33:44.7194101Z Package 'libllvm-17-ocaml-dev' is not installed, so not removed
+2026-09-23T09:33:44.7194424Z Package 'llvm-17-doc' is not installed, so not removed
+2026-09-23T09:33:44.7194740Z Package 'libllvm-18-ocaml-dev' is not installed, so not removed
+2026-09-23T09:33:44.7195062Z Package 'llvm-18-doc' is not installed, so not removed
+2026-09-23T09:33:44.7195374Z Package 'libllvm-ocaml-dev' is not installed, so not removed
+2026-09-23T09:33:44.7195694Z Package 'llvm-runtime' is not installed, so not removed
+2026-09-23T09:33:44.7196031Z Package 'libllvmspirvlib-14-dev' is not installed, so not removed
+2026-09-23T09:33:44.7196397Z Package 'libllvmspirvlib-15-dev' is not installed, so not removed
+2026-09-23T09:33:44.7196746Z Package 'libllvmspirvlib15' is not installed, so not removed
+2026-09-23T09:33:44.7197092Z Package 'libllvmspirvlib-16-dev' is not installed, so not removed
+2026-09-23T09:33:44.7197442Z Package 'libllvmspirvlib16' is not installed, so not removed
+2026-09-23T09:33:44.7197793Z Package 'libllvmspirvlib-17-dev' is not installed, so not removed
+2026-09-23T09:33:44.7198145Z Package 'libllvmspirvlib17' is not installed, so not removed
+2026-09-23T09:33:44.7198491Z Package 'libllvmspirvlib-18-dev' is not installed, so not removed
+2026-09-23T09:33:44.7198850Z Package 'libllvmspirvlib18.1' is not installed, so not removed
+2026-09-23T09:33:44.7199168Z Package 'llvm-14' is not installed, so not removed
+2026-09-23T09:33:44.7199527Z Package 'librust-fat-macho+llvm-bitcode-dev' is not installed, so not removed
+2026-09-23T09:33:44.7199941Z Package 'librust-llvm-bitcode-dev' is not installed, so not removed
+2026-09-23T09:33:44.7200339Z Package 'libstarpu-openmp-llvm-1.4-1t64' is not installed, so not removed
+2026-09-23T09:33:44.7200786Z Package 'libstarpu-contrib-openmp-llvm-1.4-1t64' is not installed, so not removed
+2026-09-23T09:33:44.7201189Z Package 'llvm-14-runtime' is not installed, so not removed
+2026-09-23T09:33:44.7201505Z Package 'llvm-14-tools' is not installed, so not removed
+2026-09-23T09:33:44.7201970Z Package 'llvm-14-examples' is not installed, so not removed
+2026-09-23T09:33:44.7202387Z Package 'llvm-15-runtime' is not installed, so not removed
+2026-09-23T09:33:44.7202700Z Package 'llvm-15-tools' is not installed, so not removed
+2026-09-23T09:33:44.7203015Z Package 'llvm-15-examples' is not installed, so not removed
+2026-09-23T09:33:44.7203340Z Package 'llvm-16-examples' is not installed, so not removed
+2026-09-23T09:33:44.7203762Z Package 'llvm-17-examples' is not installed, so not removed
+2026-09-23T09:33:44.7204090Z Package 'llvm-18-examples' is not installed, so not removed
+2026-09-23T09:33:44.7204400Z Package 'llvm-bolt' is not installed, so not removed
+2026-09-23T09:33:44.7204702Z Package 'llvm-spirv-14' is not installed, so not removed
+2026-09-23T09:33:44.7205013Z Package 'llvm-spirv-15' is not installed, so not removed
+2026-09-23T09:33:44.7205323Z Package 'llvm-spirv-16' is not installed, so not removed
+2026-09-23T09:33:44.7205634Z Package 'llvm-spirv-17' is not installed, so not removed
+2026-09-23T09:33:44.7205947Z Package 'llvm-spirv-18' is not installed, so not removed
+2026-09-23T09:33:44.7206261Z Package 'llvmlite-doc' is not installed, so not removed
+2026-09-23T09:33:44.7206578Z Package 'python3-llvmlite' is not installed, so not removed
+2026-09-23T09:33:44.7206900Z Package 'llvm-19-dev' is not installed, so not removed
+2026-09-23T09:33:44.8255323Z Package 'llvm-20-dev' is not installed, so not removed
+2026-09-23T09:33:44.8255866Z Package 'llvm-19-linker-tools' is not installed, so not removed
+2026-09-23T09:33:44.8256353Z Package 'llvm-20-linker-tools' is not installed, so not removed
+2026-09-23T09:33:44.8256839Z Package 'libllvm-19-ocaml-dev' is not installed, so not removed
+2026-09-23T09:33:44.8257302Z Package 'llvm-19-doc' is not installed, so not removed
+2026-09-23T09:33:44.8257760Z Package 'libllvm-20-ocaml-dev' is not installed, so not removed
+2026-09-23T09:33:44.8258193Z Package 'llvm-20-doc' is not installed, so not removed
+2026-09-23T09:33:44.8258683Z Package 'libllvmlibc-19-dev' is not installed, so not removed
+2026-09-23T09:33:44.8259150Z Package 'libllvmlibc-20-dev' is not installed, so not removed
+2026-09-23T09:33:44.8259593Z Package 'libllvmspirvlib-19-dev' is not installed, so not removed
+2026-09-23T09:33:44.8260062Z Package 'libllvmspirvlib19.1' is not installed, so not removed
+2026-09-23T09:33:44.8260523Z Package 'libllvmspirvlib-20-dev' is not installed, so not removed
+2026-09-23T09:33:44.8260971Z Package 'libllvmspirvlib20.1' is not installed, so not removed
+2026-09-23T09:33:44.8261360Z Package 'llvm-19' is not installed, so not removed
+2026-09-23T09:33:44.8261730Z Package 'llvm-19-runtime' is not installed, so not removed
+2026-09-23T09:33:44.8262139Z Package 'llvm-19-tools' is not installed, so not removed
+2026-09-23T09:33:44.8262535Z Package 'llvm-19-examples' is not installed, so not removed
+2026-09-23T09:33:44.8262894Z Package 'llvm-20' is not installed, so not removed
+2026-09-23T09:33:44.8263268Z Package 'llvm-20-runtime' is not installed, so not removed
+2026-09-23T09:33:44.8263582Z Package 'llvm-20-tools' is not installed, so not removed
+2026-09-23T09:33:44.8264044Z Package 'llvm-20-examples' is not installed, so not removed
+2026-09-23T09:33:44.8264346Z Package 'llvm-spirv-19' is not installed, so not removed
+2026-09-23T09:33:44.8264641Z Package 'llvm-spirv-20' is not installed, so not removed
+2026-09-23T09:33:44.8264938Z Package 'mysql-testsuite' is not installed, so not removed
+2026-09-23T09:33:44.8265183Z Package 'mysql-testsuite-8.0' is not installed, so not removed
+2026-09-23T09:33:44.8265467Z Package 'mysql-router' is not installed, so not removed
+2026-09-23T09:33:44.8265671Z Package 'mysql-sandbox' is not installed, so not removed
+2026-09-23T09:33:44.8265866Z Package 'mysql-shell' is not installed, so not removed
+2026-09-23T09:33:44.8266063Z Package 'mysql-source-8.0' is not installed, so not removed
+2026-09-23T09:33:44.8266258Z Package 'mysqltcl' is not installed, so not removed
+2026-09-23T09:33:44.8266500Z Package 'mysqltuner' is not installed, so not removed
+2026-09-23T09:33:44.8267159Z Package 'dotnet-sdk-8.0' is not installed, so not removed
+2026-09-23T09:33:44.8267535Z Package 'dotnet-sdk-8.0-source-built-artifacts' is not installed, so not removed
+2026-09-23T09:33:44.8267799Z Package 'dotnet-sdk-dbg-8.0' is not installed, so not removed
+2026-09-23T09:33:44.8268009Z Package 'dotnet-sdk-10.0' is not installed, so not removed
+2026-09-23T09:33:44.8268223Z Package 'dotnet-sdk-aot-10.0' is not installed, so not removed
+2026-09-23T09:33:44.8268440Z Package 'dotnet-sdk-dbg-10.0' is not installed, so not removed
+2026-09-23T09:33:44.8268804Z Package 'dotnet-sdk-10.0-source-built-artifacts' is not installed, so not removed
+2026-09-23T09:33:44.8269165Z The following additional packages will be installed:
+2026-09-23T09:33:44.8269460Z   ca-certificates-java default-jre-headless libpcsclite1
+2026-09-23T09:33:44.8269643Z   openjdk-21-jre-headless
+2026-09-23T09:33:44.8269775Z Suggested packages:
+2026-09-23T09:33:44.8269979Z   default-jre pcscd libnss-mdns fonts-ipafont-gothic fonts-ipafont-mincho
+2026-09-23T09:33:44.8270213Z   fonts-wqy-microhei | fonts-wqy-zenhei fonts-indic
+2026-09-23T09:33:45.0403409Z The following packages will be REMOVED:
+2026-09-23T09:33:45.0404082Z   azure-cli bpfcc-tools bpftrace clang-16 clang-17 clang-18 clang-format-16
+2026-09-23T09:33:45.0404574Z   clang-format-17 clang-format-18 clang-tidy-16 clang-tidy-17 clang-tidy-18
+2026-09-23T09:33:45.0405181Z   clang-tools-16 clang-tools-17 clang-tools-18 firefox google-chrome-stable
+2026-09-23T09:33:45.0405647Z   google-cloud-cli libbpfcc libclang-common-16-dev libclang-cpp16t64
+2026-09-23T09:33:45.0406148Z   libclang-cpp17t64 libclang-cpp18 libclang1-16t64 libclang1-17t64
+2026-09-23T09:33:45.0406635Z   libclang1-18 libgbm1 libgl1 libgl1-mesa-dri libglx-mesa0 libglx0
+2026-09-23T09:33:45.0407152Z   liblldb-16t64 liblldb-17t64 liblldb-18 libllvm16t64 libllvm17t64 libllvm18
+2026-09-23T09:33:45.0409751Z   libllvm19 libllvm20 libmysqlclient-dev libmysqlclient21 lld-16 lld-17 lld-18
+2026-09-23T09:33:45.0410267Z   lldb-18 llvm-16 llvm-16-dev llvm-16-linker-tools llvm-16-runtime
+2026-09-23T09:33:45.0410697Z   llvm-16-tools llvm-17 llvm-17-dev llvm-17-linker-tools llvm-17-runtime
+2026-09-23T09:33:45.0411101Z   llvm-17-tools llvm-18 llvm-18-dev llvm-18-linker-tools llvm-18-runtime
+2026-09-23T09:33:45.0411604Z   llvm-18-tools mesa-libgallium microsoft-edge-stable mysql-client
+2026-09-23T09:33:45.0411991Z   mysql-client-8.0 mysql-client-core-8.0 mysql-common mysql-server
+2026-09-23T09:33:45.0412404Z   mysql-server-8.0 mysql-server-core-8.0 postgresql-16 postgresql-client-16
+2026-09-23T09:33:45.0412917Z   postgresql-client-common postgresql-common python3-bpfcc python3-lldb-18
+2026-09-23T09:33:45.0413425Z   sphinxsearch temurin-11-jdk temurin-17-jdk temurin-21-jdk temurin-25-jdk
+2026-09-23T09:33:45.0413982Z   temurin-8-jdk xvfb
+2026-09-23T09:33:45.0414234Z The following NEW packages will be installed:
+2026-09-23T09:33:45.0415915Z   ca-certificates-java default-jre-headless libpcsclite1
+2026-09-23T09:33:45.0416788Z   openjdk-21-jre-headless
+2026-09-23T09:33:45.0597777Z 0 upgraded, 4 newly installed, 82 to remove and 0 not upgraded.
+2026-09-23T09:33:45.0598030Z Need to get 46.6 MB of archives.
+2026-09-23T09:33:45.0598204Z After this operation, 6737 MB disk space will be freed.
+2026-09-23T09:33:45.0598418Z Get:1 file:/etc/apt/apt-mirrors.txt Mirrorlist [144 B]
+2026-09-23T09:33:45.1454998Z Get:2 http://azure.archive.ubuntu.com/ubuntu noble/main amd64 ca-certificates-java all 20240118 [11.6 kB]
+2026-09-23T09:33:45.1915614Z Get:3 http://azure.archive.ubuntu.com/ubuntu noble/main amd64 libpcsclite1 amd64 2.0.3-1build1 [21.4 kB]
+2026-09-23T09:33:45.2373492Z Ign:4 http://azure.archive.ubuntu.com/ubuntu noble-updates/main amd64 openjdk-21-jre-headless amd64 21.0.12+8-1~24.04
+2026-09-23T09:33:45.2830533Z Get:5 http://azure.archive.ubuntu.com/ubuntu noble/main amd64 default-jre-headless amd64 2:1.21-75+exp1 [3094 B]
+2026-09-23T09:33:46.0859745Z Ign:4 https://archive.ubuntu.com/ubuntu noble-updates/main amd64 openjdk-21-jre-headless amd64 21.0.12+8-1~24.04
+2026-09-23T09:33:46.7923012Z Ign:4 https://security.ubuntu.com/ubuntu noble-updates/main amd64 openjdk-21-jre-headless amd64 21.0.12+8-1~24.04
+2026-09-23T09:33:46.7924337Z Err:4 mirror+file:/etc/apt/apt-mirrors.txt noble-updates/main amd64 openjdk-21-jre-headless amd64 21.0.12+8-1~24.04
+2026-09-23T09:33:46.7924769Z   404  Not Found [IP: 20.106.104.242 80]
+2026-09-23T09:33:46.8369898Z Fetched 36.1 kB in 2s (20.7 kB/s)
+2026-09-23T09:33:46.8370159Z Unable to correct missing packages.
+2026-09-23T09:33:46.8400140Z E: Failed to fetch mirror+file:/etc/apt/apt-mirrors.txt/pool/main/o/openjdk-21/openjdk-21-jre-headless_21.0.12%2b8-1%7e24.04_amd64.deb  404  Not Found [IP: 20.106.104.242 80]
+2026-09-23T09:33:46.8400809Z E: Unable to correct problems, you have held broken packages.
+2026-09-23T09:33:46.8401086Z E: Aborting install.
+2026-09-23T09:33:46.8498112Z FreeUp Space: -114.64 MB
+2026-09-23T09:33:46.8498358Z Time Elapsed: 6 seconds
+2026-09-23T09:33:46.8512271Z -
+2026-09-23T09:33:46.8512707Z 📦 Running final autoremove and clean
+2026-09-23T09:33:46.8728024Z Reading package lists...
+2026-09-23T09:33:47.0020321Z Building dependency tree...
+2026-09-23T09:33:47.0026018Z Reading state information...
+2026-09-23T09:33:47.1106562Z The following packages will be REMOVED:
+2026-09-23T09:33:47.1107832Z   liblldb-16t64 liblldb-17t64
+2026-09-23T09:33:47.3855193Z 0 upgraded, 0 newly installed, 2 to remove and 1 not upgraded.
+2026-09-23T09:33:47.3855525Z After this operation, 32.6 MB disk space will be freed.
+2026-09-23T09:33:47.4426165Z (Reading database ... 
+2026-09-23T09:33:47.4426487Z (Reading database ... 5%
+2026-09-23T09:33:47.4426725Z (Reading database ... 10%
+2026-09-23T09:33:47.4426991Z (Reading database ... 15%
+2026-09-23T09:33:47.4427197Z (Reading database ... 20%
+2026-09-23T09:33:47.4427422Z (Reading database ... 25%
+2026-09-23T09:33:47.4427682Z (Reading database ... 30%
+2026-09-23T09:33:47.4427910Z (Reading database ... 35%
+2026-09-23T09:33:47.4428135Z (Reading database ... 40%
+2026-09-23T09:33:47.4428377Z (Reading database ... 45%
+2026-09-23T09:33:47.4428633Z (Reading database ... 50%
+2026-09-23T09:33:47.4883605Z (Reading database ... 55%
+2026-09-23T09:33:47.7970436Z (Reading database ... 60%
+2026-09-23T09:33:48.0164589Z (Reading database ... 65%
+2026-09-23T09:33:48.2278379Z (Reading database ... 70%
+2026-09-23T09:33:48.4552679Z (Reading database ... 75%
+2026-09-23T09:33:48.8693336Z (Reading database ... 80%
+2026-09-23T09:33:49.2985569Z (Reading database ... 85%
+2026-09-23T09:33:49.7928546Z (Reading database ... 90%
+2026-09-23T09:33:50.2009589Z (Reading database ... 95%
+2026-09-23T09:33:50.2009886Z (Reading database ... 100%
+2026-09-23T09:33:50.2010121Z (Reading database ... 201816 files and directories currently installed.)
+2026-09-23T09:33:50.2048637Z Removing liblldb-16t64 (1:16.0.6-23ubuntu4) ...
+2026-09-23T09:33:50.2469826Z Removing liblldb-17t64 (1:17.0.6-9ubuntu1) ...
+2026-09-23T09:33:50.2893763Z Processing triggers for libc-bin (2.39-0ubuntu8.8) ...
+2026-09-23T09:33:52.5456753Z FreeUp Space: 145.54 MB
+2026-09-23T09:33:52.5457069Z Time Elapsed: 6 seconds
+2026-09-23T09:33:52.5468500Z -
+2026-09-23T09:33:52.5468989Z 🧹 Removing Tool Cache
+2026-09-23T09:34:05.4279257Z FreeUp Space: 5507.32 MB
+2026-09-23T09:34:05.4279623Z Time Elapsed: 13 seconds
+2026-09-23T09:34:05.4294137Z -
+2026-09-23T09:34:05.4294537Z 👁️‍🗨️ See Swap
+2026-09-23T09:34:05.4307692Z                total        used        free      shared  buff/cache   available
+2026-09-23T09:34:05.4308064Z Mem:            15Gi       999Mi        11Gi        46Mi       3.2Gi        14Gi
+2026-09-23T09:34:05.4308356Z Swap:          3.0Gi          0B       3.0Gi
+2026-09-23T09:34:05.4309700Z 🧹 Removing Swap Storage
+2026-09-23T09:34:05.4527247Z 🧹 Removed Swap Storage
+2026-09-23T09:34:05.4538949Z                total        used        free      shared  buff/cache   available
+2026-09-23T09:34:05.4539304Z Mem:            15Gi       1.0Gi        11Gi        46Mi       3.2Gi        14Gi
+2026-09-23T09:34:05.4539602Z Swap:             0B          0B          0B
+2026-09-23T09:34:05.4541290Z -
+2026-09-23T09:34:05.4542213Z 📁 Removing folders: /usr/share/swift /usr/share/miniconda /usr/share/az* /usr/local/lib/node_modules /usr/local/share/chromium /usr/local/share/powershell /usr/local/julia /usr/local/aws-cli /usr/local/aws-sam-cli /usr/share/gradle
+2026-09-23T09:34:05.4598826Z 📁 Removing /usr/share/swift
+2026-09-23T09:34:05.6268913Z 📁 Removing /usr/share/miniconda
+2026-09-23T09:34:10.6231832Z 📁 Removing /usr/share/az_15.6.1
+2026-09-23T09:34:11.6757527Z 📁 Removing /usr/local/lib/node_modules
+2026-09-23T09:34:13.4517617Z 📁 Removing /usr/local/share/chromium
+2026-09-23T09:34:13.4787239Z 📁 Removing /usr/local/share/powershell
+2026-09-23T09:34:13.5225239Z 📁 Removing /usr/local/julia
+2026-09-23T09:34:13.5279986Z 📁 Removing /usr/local/aws-cli
+2026-09-23T09:34:14.1529065Z 📁 Removing /usr/local/aws-sam-cli
+2026-09-23T09:34:14.7628642Z 📁 Removing /usr/share/gradle
+2026-09-23T09:34:14.7762625Z FreeUp Space: 7847.39 MB
+2026-09-23T09:34:14.7762885Z Time Elapsed: 9 seconds
+2026-09-23T09:34:14.7775536Z -
+2026-09-23T09:34:14.7775717Z Total Recovered Space: 34026.53 MB
+2026-09-23T09:34:14.7786012Z ##[end-action id=__endersonmenezes_free-disk-space.free-disk-space;outcome=success;conclusion=success;duration_ms=73203]
+2026-09-23T09:34:14.7842358Z ##[group]Run pierotofy/set-swap-space@master
+2026-09-23T09:34:14.7842561Z with:
+2026-09-23T09:34:14.7842676Z   swap-size-gb: 16
+2026-09-23T09:34:14.7842799Z ##[endgroup]
+2026-09-23T09:34:14.7846233Z ##[start-action display=Swap space report before modification;id=__pierotofy_set-swap-space.__run]
+2026-09-23T09:34:14.7856014Z ##[group]Run echo "Memory and swap:"
+2026-09-23T09:34:14.7856229Z [36;1mecho "Memory and swap:"[0m
+2026-09-23T09:34:14.7856374Z [36;1mfree -h[0m
+2026-09-23T09:34:14.7856485Z [36;1mecho[0m
+2026-09-23T09:34:14.7856602Z [36;1mswapon --show[0m
+2026-09-23T09:34:14.7856727Z [36;1mecho[0m
+2026-09-23T09:34:14.7887168Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-09-23T09:34:14.7887356Z ##[endgroup]
+2026-09-23T09:34:14.7928219Z Memory and swap:
+2026-09-23T09:34:14.7940808Z                total        used        free      shared  buff/cache   available
+2026-09-23T09:34:14.7941209Z Mem:            15Gi       977Mi        11Gi        47Mi       3.3Gi        14Gi
+2026-09-23T09:34:14.7941509Z Swap:             0B          0B          0B
+2026-09-23T09:34:14.7942875Z 
+2026-09-23T09:34:14.7955545Z 
+2026-09-23T09:34:14.7960222Z ##[end-action id=__pierotofy_set-swap-space.__run;outcome=success;conclusion=success;duration_ms=11]
+2026-09-23T09:34:14.7961648Z ##[start-action display=Set Swap;id=__pierotofy_set-swap-space.__run_2]
+2026-09-23T09:34:14.7987084Z ##[group]Run set -euo pipefail
+2026-09-23T09:34:14.7987318Z [36;1mset -euo pipefail[0m
+2026-09-23T09:34:14.7987470Z [36;1m[0m
+2026-09-23T09:34:14.7987588Z [36;1m# get currently active swap file[0m
+2026-09-23T09:34:14.7987805Z [36;1mSWAP_FILE=$(swapon --noheadings --show=NAME | tail -n 1 || true)[0m
+2026-09-23T09:34:14.7988005Z [36;1m[0m
+2026-09-23T09:34:14.7988147Z [36;1mif [ -n "$SWAP_FILE" ] && [ -f "$SWAP_FILE" ]; then[0m
+2026-09-23T09:34:14.7988367Z [36;1m  echo "Swap file: $SWAP_FILE"[0m
+2026-09-23T09:34:14.7988658Z [36;1m  sudo swapoff "$SWAP_FILE" || echo "Failed to swapoff $SWAP_FILE (maybe not active)"[0m
+2026-09-23T09:34:14.7988893Z [36;1m  sudo rm -f "$SWAP_FILE"[0m
+2026-09-23T09:34:14.7989031Z [36;1melse[0m
+2026-09-23T09:34:14.7989164Z [36;1m  echo "No active swap, using /swapfile"[0m
+2026-09-23T09:34:14.7989331Z [36;1m  SWAP_FILE=/swapfile[0m
+2026-09-23T09:34:14.7989461Z [36;1mfi[0m
+2026-09-23T09:34:14.7989565Z [36;1m[0m
+2026-09-23T09:34:14.7989763Z [36;1m# determine FS type to pick allocation method[0m
+2026-09-23T09:34:14.7990008Z [36;1mFS_TYPE=$(df --output=fstype "$(dirname "$SWAP_FILE")" | tail -n 1)[0m
+2026-09-23T09:34:14.7990212Z [36;1m[0m
+2026-09-23T09:34:14.7990383Z [36;1mecho "Creating swapfile at $SWAP_FILE on filesystem type: $FS_TYPE"[0m
+2026-09-23T09:34:14.7990584Z [36;1m[0m
+2026-09-23T09:34:14.7990789Z [36;1mif [[ "$FS_TYPE" == "xfs" || "$FS_TYPE" == "btrfs" ]]; then[0m
+2026-09-23T09:34:14.7991129Z [36;1m  echo "Using dd for compatibility with $FS_TYPE"[0m
+2026-09-23T09:34:14.7991361Z [36;1m  sudo dd if=/dev/zero of="$SWAP_FILE" bs=1M count=16K status=progress[0m
+2026-09-23T09:34:14.7991557Z [36;1melse[0m
+2026-09-23T09:34:14.7991699Z [36;1m  echo "Using fallocate for fast allocation"[0m
+2026-09-23T09:34:14.7991915Z [36;1m  sudo fallocate -l "16G" "$SWAP_FILE"[0m
+2026-09-23T09:34:14.7992113Z [36;1mfi[0m
+2026-09-23T09:34:14.7992235Z [36;1m[0m
+2026-09-23T09:34:14.7992348Z [36;1m# common swap file prep[0m
+2026-09-23T09:34:14.7992495Z [36;1msudo chmod 600 "$SWAP_FILE"[0m
+2026-09-23T09:34:14.7992631Z [36;1m[0m
+2026-09-23T09:34:14.7992748Z [36;1m# attempt to disable CoW if on btrfs[0m
+2026-09-23T09:34:14.7992985Z [36;1mif [[ "$FS_TYPE" == "btrfs" ]]; then[0m
+2026-09-23T09:34:14.7993175Z [36;1m  echo "Disabling CoW and compression on btrfs"[0m
+2026-09-23T09:34:14.7993396Z [36;1m  sudo chattr +C "$SWAP_FILE" || echo "chattr +C failed, continuing"[0m
+2026-09-23T09:34:14.7993839Z [36;1m  sudo btrfs property set "$SWAP_FILE" compression none || echo "compression disable failed"[0m
+2026-09-23T09:34:14.7994187Z [36;1mfi[0m
+2026-09-23T09:34:14.7994427Z [36;1m[0m
+2026-09-23T09:34:14.7994541Z [36;1m# attempt to init swap space[0m
+2026-09-23T09:34:14.7994697Z [36;1mif sudo mkswap "$SWAP_FILE"; then[0m
+2026-09-23T09:34:14.7994866Z [36;1m  echo "Swap file formatted successfully"[0m
+2026-09-23T09:34:14.7995080Z [36;1melse[0m
+2026-09-23T09:34:14.7995266Z [36;1m  echo "WARNING: mkswap failed. File may be sparse or invalid."[0m
+2026-09-23T09:34:14.7995452Z [36;1mfi[0m
+2026-09-23T09:34:14.7995552Z [36;1m[0m
+2026-09-23T09:34:14.7995661Z [36;1m# attempt to enable swap[0m
+2026-09-23T09:34:14.7995809Z [36;1mif sudo swapon "$SWAP_FILE"; then[0m
+2026-09-23T09:34:14.7995967Z [36;1m  echo "Swap enabled at $SWAP_FILE"[0m
+2026-09-23T09:34:14.7996200Z [36;1melse[0m
+2026-09-23T09:34:14.7996422Z [36;1m  echo "WARNING: swapon failed (likely due to host or kernel restrictions). Continuing without swap."[0m
+2026-09-23T09:34:14.7996672Z [36;1mfi[0m
+2026-09-23T09:34:14.8022037Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-09-23T09:34:14.8022223Z ##[endgroup]
+2026-09-23T09:34:14.8113304Z No active swap, using /swapfile
+2026-09-23T09:34:14.8136789Z Creating swapfile at /swapfile on filesystem type: ext4
+2026-09-23T09:34:14.8137099Z Using fallocate for fast allocation
+2026-09-23T09:34:15.2229379Z mkswap: /swapfile: warning: wiping old swap signature.
+2026-09-23T09:34:15.2366084Z Setting up swapspace version 1, size = 16 GiB (17179865088 bytes)
+2026-09-23T09:34:15.2366483Z no label, UUID=e4f4bb36-9fce-44ad-8739-614f709a463f
+2026-09-23T09:34:15.2375533Z Swap file formatted successfully
+2026-09-23T09:34:15.2446121Z Swap enabled at /swapfile
+2026-09-23T09:34:15.2453262Z ##[end-action id=__pierotofy_set-swap-space.__run_2;outcome=success;conclusion=success;duration_ms=449]
+2026-09-23T09:34:15.2455499Z ##[start-action display=Swap space report after modification;id=__pierotofy_set-swap-space.__run_3]
+2026-09-23T09:34:15.2467146Z ##[group]Run echo "Memory and swap:"
+2026-09-23T09:34:15.2467359Z [36;1mecho "Memory and swap:"[0m
+2026-09-23T09:34:15.2467502Z [36;1mfree -h[0m
+2026-09-23T09:34:15.2467628Z [36;1mecho[0m
+2026-09-23T09:34:15.2467743Z [36;1mswapon --show[0m
+2026-09-23T09:34:15.2467862Z [36;1mecho[0m
+2026-09-23T09:34:15.2496048Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-09-23T09:34:15.2496232Z ##[endgroup]
+2026-09-23T09:34:15.2537185Z Memory and swap:
+2026-09-23T09:34:15.2550767Z                total        used        free      shared  buff/cache   available
+2026-09-23T09:34:15.2551108Z Mem:            15Gi       994Mi        11Gi        47Mi       3.3Gi        14Gi
+2026-09-23T09:34:15.2551402Z Swap:           15Gi          0B        15Gi
+2026-09-23T09:34:15.2552971Z 
+2026-09-23T09:34:15.2563752Z NAME      TYPE SIZE USED PRIO
+2026-09-23T09:34:15.2563997Z /swapfile file  16G   0B   -2
+2026-09-23T09:34:15.2565593Z 
+2026-09-23T09:34:15.2570710Z ##[end-action id=__pierotofy_set-swap-space.__run_3;outcome=success;conclusion=success;duration_ms=11]
+2026-09-23T09:34:15.2615977Z Prepare all required actions
+2026-09-23T09:34:15.2649202Z ##[group]Run ./.github/actions/setup-build-environment
+2026-09-23T09:34:15.2649393Z with:
+2026-09-23T09:34:15.2649511Z   version: android15-6.6
+2026-09-23T09:34:15.2649634Z   sublevel: 102
+2026-09-23T09:34:15.2649793Z   kernel_patches_commit: 41ae18b35d20e0c6ac04116785a4a1089528ae94
+2026-09-23T09:34:15.2650019Z   anykernel3_commit: e1e9dce98430c5c6f231f7094a8c7f4ecaf50948
+2026-09-23T09:34:15.2650211Z ##[endgroup]
+2026-09-23T09:34:15.2660830Z ##[start-action display=Run set -euo pipefail;id=__self_2.__run]
+2026-09-23T09:34:15.2671682Z ##[group]Run set -euo pipefail
+2026-09-23T09:34:15.2671865Z [36;1mset -euo pipefail[0m
+2026-09-23T09:34:15.2671992Z [36;1m[0m
+2026-09-23T09:34:15.2672138Z [36;1mgit config --global user.name "github-actions[bot]"[0m
+2026-09-23T09:34:15.2672410Z [36;1mgit config --global user.email "github-actions[bot]@users.noreply.github.com"[0m
+2026-09-23T09:34:15.2672639Z [36;1m[0m
+2026-09-23T09:34:15.2672843Z [36;1mmkdir -p "/home/runner/work/Muzel_KernelSU_SUSFS/Muzel_KernelSU_SUSFS/kernel"[0m
+2026-09-23T09:34:15.2673136Z [36;1mmkdir -p "/home/runner/work/Muzel_KernelSU_SUSFS/Muzel_KernelSU_SUSFS/git-repo"[0m
+2026-09-23T09:34:15.2673427Z [36;1m# Retry transient network errors (up to 5 attempts, 5s backoff).[0m
+2026-09-23T09:34:15.2673621Z [36;1mretry() {[0m
+2026-09-23T09:34:15.2673950Z [36;1m  local n=0[0m
+2026-09-23T09:34:15.2674105Z [36;1m  until [ "$n" -ge 5 ]; do[0m
+2026-09-23T09:34:15.2674246Z [36;1m    "$@" && return 0[0m
+2026-09-23T09:34:15.2674394Z [36;1m    n=$((n+1))[0m
+2026-09-23T09:34:15.2674527Z [36;1m    echo "retry $n/5 failed for: $*"[0m
+2026-09-23T09:34:15.2674677Z [36;1m    sleep 5[0m
+2026-09-23T09:34:15.2674789Z [36;1m  done[0m
+2026-09-23T09:34:15.2674896Z [36;1m  return 1[0m
+2026-09-23T09:34:15.2675006Z [36;1m}[0m
+2026-09-23T09:34:15.2675340Z [36;1mretry curl -L https://storage.googleapis.com/git-repo-downloads/repo -o "/home/runner/work/Muzel_KernelSU_SUSFS/Muzel_KernelSU_SUSFS/git-repo/repo"[0m
+2026-09-23T09:34:15.2675772Z [36;1mchmod +x "/home/runner/work/Muzel_KernelSU_SUSFS/Muzel_KernelSU_SUSFS/git-repo/repo"[0m
+2026-09-23T09:34:15.2676102Z [36;1mecho "/home/runner/work/Muzel_KernelSU_SUSFS/Muzel_KernelSU_SUSFS/git-repo" >> "$GITHUB_PATH"[0m
+2026-09-23T09:34:15.2676355Z [36;1m[0m
+2026-09-23T09:34:15.2676702Z [36;1mif [ -d "/home/runner/work/Muzel_KernelSU_SUSFS/Muzel_KernelSU_SUSFS/kernel_patches" ]; then rm -rf "/home/runner/work/Muzel_KernelSU_SUSFS/Muzel_KernelSU_SUSFS/kernel_patches"; fi[0m
+2026-09-23T09:34:15.2677285Z [36;1mretry git clone https://github.com/WildKernels/kernel_patches.git "/home/runner/work/Muzel_KernelSU_SUSFS/Muzel_KernelSU_SUSFS/kernel_patches"[0m
+2026-09-23T09:34:15.2677659Z [36;1mif [ -n "41ae18b35d20e0c6ac04116785a4a1089528ae94" ]; then[0m
+2026-09-23T09:34:15.2678030Z [36;1m  git -C "/home/runner/work/Muzel_KernelSU_SUSFS/Muzel_KernelSU_SUSFS/kernel_patches" fetch --depth=1 origin "41ae18b35d20e0c6ac04116785a4a1089528ae94"[0m
+2026-09-23T09:34:15.2678544Z [36;1m  git -C "/home/runner/work/Muzel_KernelSU_SUSFS/Muzel_KernelSU_SUSFS/kernel_patches" checkout "41ae18b35d20e0c6ac04116785a4a1089528ae94"[0m
+2026-09-23T09:34:15.2679127Z [36;1m  [ "$(git -C "/home/runner/work/Muzel_KernelSU_SUSFS/Muzel_KernelSU_SUSFS/kernel_patches" rev-parse HEAD)" = "41ae18b35d20e0c6ac04116785a4a1089528ae94" ] || { echo "kernel_patches pin mismatch" >&2; exit 1; }[0m
+2026-09-23T09:34:15.2679551Z [36;1mfi[0m
+2026-09-23T09:34:15.2679657Z [36;1m[0m
+2026-09-23T09:34:15.2679988Z [36;1mif [ -d "/home/runner/work/Muzel_KernelSU_SUSFS/Muzel_KernelSU_SUSFS/AnyKernel3" ]; then rm -rf "/home/runner/work/Muzel_KernelSU_SUSFS/Muzel_KernelSU_SUSFS/AnyKernel3"; fi[0m
+2026-09-23T09:34:15.2680638Z [36;1mretry git clone https://github.com/WildKernels/AnyKernel3.git -b gki-2.0 "/home/runner/work/Muzel_KernelSU_SUSFS/Muzel_KernelSU_SUSFS/AnyKernel3"[0m
+2026-09-23T09:34:15.2681331Z [36;1mif [ -n "e1e9dce98430c5c6f231f7094a8c7f4ecaf50948" ]; then[0m
+2026-09-23T09:34:15.2681876Z [36;1m  git -C "/home/runner/work/Muzel_KernelSU_SUSFS/Muzel_KernelSU_SUSFS/AnyKernel3" fetch --depth=1 origin "e1e9dce98430c5c6f231f7094a8c7f4ecaf50948"[0m
+2026-09-23T09:34:15.2682443Z [36;1m  git -C "/home/runner/work/Muzel_KernelSU_SUSFS/Muzel_KernelSU_SUSFS/AnyKernel3" checkout "e1e9dce98430c5c6f231f7094a8c7f4ecaf50948"[0m
+2026-09-23T09:34:15.2683109Z [36;1m  [ "$(git -C "/home/runner/work/Muzel_KernelSU_SUSFS/Muzel_KernelSU_SUSFS/AnyKernel3" rev-parse HEAD)" = "e1e9dce98430c5c6f231f7094a8c7f4ecaf50948" ] || { echo "AnyKernel3 pin mismatch" >&2; exit 1; }[0m
+2026-09-23T09:34:15.2683624Z [36;1mfi[0m
+2026-09-23T09:34:15.2708859Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-09-23T09:34:15.2709155Z ##[endgroup]
+2026-09-23T09:34:15.2891948Z   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+2026-09-23T09:34:15.2892659Z                                  Dload  Upload   Total   Spent    Left  Speed
+2026-09-23T09:34:15.2892874Z 
+2026-09-23T09:34:15.3586377Z   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+2026-09-23T09:34:15.3586819Z 100 45880  100 45880    0     0   644k      0 --:--:-- --:--:-- --:--:--  649k
+2026-09-23T09:34:15.3627544Z Cloning into '/home/runner/work/Muzel_KernelSU_SUSFS/Muzel_KernelSU_SUSFS/kernel_patches'...
+2026-09-23T09:34:17.1512470Z From https://github.com/WildKernels/kernel_patches
+2026-09-23T09:34:17.1512793Z  * branch            41ae18b35d20e0c6ac04116785a4a1089528ae94 -> FETCH_HEAD
+2026-09-23T09:34:17.2155792Z Note: switching to '41ae18b35d20e0c6ac04116785a4a1089528ae94'.
+2026-09-23T09:34:17.2156084Z 
+2026-09-23T09:34:17.2156263Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-09-23T09:34:17.2156736Z changes and commit them, and you can discard any commits you make in this
+2026-09-23T09:34:17.2157134Z state without impacting any branches by switching back to a branch.
+2026-09-23T09:34:17.2157395Z 
+2026-09-23T09:34:17.2157566Z If you want to create a new branch to retain commits you create, you may
+2026-09-23T09:34:17.2157933Z do so (now or later) by using -c with the switch command. Example:
+2026-09-23T09:34:17.2158142Z 
+2026-09-23T09:34:17.2158237Z   git switch -c <new-branch-name>
+2026-09-23T09:34:17.2158383Z 
+2026-09-23T09:34:17.2158471Z Or undo this operation with:
+2026-09-23T09:34:17.2158598Z 
+2026-09-23T09:34:17.2158672Z   git switch -
+2026-09-23T09:34:17.2158774Z 
+2026-09-23T09:34:17.2158951Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-09-23T09:34:17.2159207Z 
+2026-09-23T09:34:17.2159358Z HEAD is now at 41ae18b Merge pull request #89 from nullptr-t-oss/main
+2026-09-23T09:34:17.2190117Z Cloning into '/home/runner/work/Muzel_KernelSU_SUSFS/Muzel_KernelSU_SUSFS/AnyKernel3'...
+2026-09-23T09:34:19.7808808Z From https://github.com/WildKernels/AnyKernel3
+2026-09-23T09:34:19.7809108Z  * branch            e1e9dce98430c5c6f231f7094a8c7f4ecaf50948 -> FETCH_HEAD
+2026-09-23T09:34:19.7956408Z Note: switching to 'e1e9dce98430c5c6f231f7094a8c7f4ecaf50948'.
+2026-09-23T09:34:19.7956581Z 
+2026-09-23T09:34:19.7956696Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-09-23T09:34:19.7957011Z changes and commit them, and you can discard any commits you make in this
+2026-09-23T09:34:19.7957314Z state without impacting any branches by switching back to a branch.
+2026-09-23T09:34:19.7957460Z 
+2026-09-23T09:34:19.7957558Z If you want to create a new branch to retain commits you create, you may
+2026-09-23T09:34:19.7957795Z do so (now or later) by using -c with the switch command. Example:
+2026-09-23T09:34:19.7957932Z 
+2026-09-23T09:34:19.7957994Z   git switch -c <new-branch-name>
+2026-09-23T09:34:19.7958086Z 
+2026-09-23T09:34:19.7958145Z Or undo this operation with:
+2026-09-23T09:34:19.7958230Z 
+2026-09-23T09:34:19.7958278Z   git switch -
+2026-09-23T09:34:19.7958342Z 
+2026-09-23T09:34:19.7958462Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-09-23T09:34:19.7958844Z 
+2026-09-23T09:34:19.7959074Z HEAD is now at e1e9dce change BYPASS to SKIPPED for do_check_boot_version
+2026-09-23T09:34:19.7984007Z ##[end-action id=__self_2.__run;outcome=success;conclusion=success;duration_ms=4532]
+2026-09-23T09:34:19.7985873Z ##[start-action display=Install build deps for BTF generation (android12-5.10);id=__self_2.__run_2]
+2026-09-23T09:34:19.7994146Z ##[end-action id=__self_2.__run_2;outcome=skipped;conclusion=skipped;duration_ms=0]
+2026-09-23T09:34:19.8021148Z Prepare all required actions
+2026-09-23T09:34:19.8047706Z ##[group]Run ./.github/actions/download-kernel
+2026-09-23T09:34:19.8047865Z with:
+2026-09-23T09:34:19.8047989Z   version: android15-6.6
+2026-09-23T09:34:19.8048118Z   android_version: android15
+2026-09-23T09:34:19.8048247Z   kernel_version: 6.6
+2026-09-23T09:34:19.8048371Z   os_patch_level: 2025-10
+2026-09-23T09:34:19.8048499Z ##[endgroup]
+2026-09-23T09:34:19.8050408Z ##[start-action display=Initialize and Sync Kernel Repository;id=__self_3.sync]
+2026-09-23T09:34:19.8058806Z ##[group]Run set -euo pipefail
+2026-09-23T09:34:19.8058988Z [36;1mset -euo pipefail[0m
+2026-09-23T09:34:19.8059122Z [36;1m[0m
+2026-09-23T09:34:19.8059289Z [36;1mecho "Using custom kernel source from Blackmanx/kernel_google_muzel"[0m
+2026-09-23T09:34:19.8059497Z [36;1mrm -rf aosp[0m
+2026-09-23T09:34:19.8059698Z [36;1mgit clone --depth=1 https://github.com/hworr93/kernel-muzel-14782430 . || {[0m
+2026-09-23T09:34:19.8059964Z [36;1m  echo "ERROR: git clone failed" >&2[0m
+2026-09-23T09:34:19.8060114Z [36;1m  exit 1[0m
+2026-09-23T09:34:19.8060223Z [36;1m}[0m
+2026-09-23T09:34:19.8060353Z [36;1mecho "deprecated=false" >> $GITHUB_OUTPUT[0m
+2026-09-23T09:34:19.8060530Z [36;1mecho "tag_fallback=" >> $GITHUB_OUTPUT[0m
+2026-09-23T09:34:19.8089093Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-09-23T09:34:19.8089625Z ##[endgroup]
+2026-09-23T09:34:19.8156734Z Using custom kernel source from Blackmanx/kernel_google_muzel
+2026-09-23T09:34:19.8174217Z Cloning into '.'...
+2026-09-23T09:36:37.1715340Z Updating files:   7% (23045/298232)
+2026-09-23T09:36:37.3046050Z Updating files:   8% (23859/298232)
+2026-09-23T09:36:37.4893935Z Updating files:   9% (26841/298232)
+2026-09-23T09:36:37.6797552Z Updating files:  10% (29824/298232)
+2026-09-23T09:36:38.1434510Z Updating files:  11% (32806/298232)
+2026-09-23T09:36:38.4497686Z Updating files:  11% (33917/298232)
+2026-09-23T09:36:38.6332091Z Updating files:  12% (35788/298232)
+2026-09-23T09:36:38.8233843Z Updating files:  13% (38771/298232)
+2026-09-23T09:36:39.0394899Z Updating files:  14% (41753/298232)
+2026-09-23T09:36:39.1392027Z Updating files:  15% (44735/298232)
+2026-09-23T09:36:39.2717807Z Updating files:  15% (46228/298232)
+2026-09-23T09:36:39.5221655Z Updating files:  16% (47718/298232)
+2026-09-23T09:36:39.7454707Z Updating files:  17% (50700/298232)
+2026-09-23T09:36:39.9656291Z Updating files:  18% (53682/298232)
+2026-09-23T09:36:40.1391892Z Updating files:  19% (56665/298232)
+2026-09-23T09:36:40.1550237Z Updating files:  19% (59388/298232)
+2026-09-23T09:36:40.3678028Z Updating files:  20% (59647/298232)
+2026-09-23T09:36:40.5031309Z Updating files:  21% (62629/298232)
+2026-09-23T09:36:40.6439807Z Updating files:  22% (65612/298232)
+2026-09-23T09:36:40.8522567Z Updating files:  23% (68594/298232)
+2026-09-23T09:36:41.0336222Z Updating files:  24% (71576/298232)
+2026-09-23T09:36:41.1392070Z Updating files:  25% (74558/298232)
+2026-09-23T09:36:41.2199880Z Updating files:  25% (76244/298232)
+2026-09-23T09:36:41.3974021Z Updating files:  26% (77541/298232)
+2026-09-23T09:36:41.5531535Z Updating files:  27% (80523/298232)
+2026-09-23T09:36:41.6662931Z Updating files:  28% (83505/298232)
+2026-09-23T09:36:41.7759587Z Updating files:  29% (86488/298232)
+2026-09-23T09:36:42.0246264Z Updating files:  30% (89470/298232)
+2026-09-23T09:36:42.1393254Z Updating files:  31% (92452/298232)
+2026-09-23T09:36:42.1592302Z Updating files:  31% (94937/298232)
+2026-09-23T09:36:42.2921197Z Updating files:  32% (95435/298232)
+2026-09-23T09:36:42.4227112Z Updating files:  33% (98417/298232)
+2026-09-23T09:36:42.5542856Z Updating files:  34% (101399/298232)
+2026-09-23T09:36:42.7345987Z Updating files:  35% (104382/298232)
+2026-09-23T09:36:42.9139505Z Updating files:  36% (107364/298232)
+2026-09-23T09:36:43.0939350Z Updating files:  37% (110346/298232)
+2026-09-23T09:36:43.1391774Z Updating files:  38% (113329/298232)
+2026-09-23T09:36:43.8529594Z Updating files:  38% (114033/298232)
+2026-09-23T09:36:44.0116658Z Updating files:  39% (116311/298232)
+2026-09-23T09:36:44.1394079Z Updating files:  40% (119293/298232)
+2026-09-23T09:36:44.2157677Z Updating files:  40% (121135/298232)
+2026-09-23T09:36:44.4032664Z Updating files:  41% (122276/298232)
+2026-09-23T09:36:44.5886728Z Updating files:  42% (125258/298232)
+2026-09-23T09:36:44.8349149Z Updating files:  43% (128240/298232)
+2026-09-23T09:36:45.0670619Z Updating files:  44% (131223/298232)
+2026-09-23T09:36:45.1392584Z Updating files:  45% (134205/298232)
+2026-09-23T09:36:45.2779868Z Updating files:  45% (135232/298232)
+2026-09-23T09:36:45.9819379Z Updating files:  46% (137187/298232)
+2026-09-23T09:36:46.1396298Z Updating files:  47% (140170/298232)
+2026-09-23T09:36:46.1940250Z Updating files:  47% (142435/298232)
+2026-09-23T09:36:46.3611798Z Updating files:  48% (143152/298232)
+2026-09-23T09:36:46.5089710Z Updating files:  49% (146134/298232)
+2026-09-23T09:36:46.6892084Z Updating files:  50% (149116/298232)
+2026-09-23T09:36:46.8738516Z Updating files:  51% (152099/298232)
+2026-09-23T09:36:47.1392924Z Updating files:  52% (155081/298232)
+2026-09-23T09:36:47.1843209Z Updating files:  52% (157204/298232)
+2026-09-23T09:36:47.3358045Z Updating files:  53% (158063/298232)
+2026-09-23T09:36:47.4557330Z Updating files:  54% (161046/298232)
+2026-09-23T09:36:47.5772750Z Updating files:  55% (164028/298232)
+2026-09-23T09:36:47.6810851Z Updating files:  56% (167010/298232)
+2026-09-23T09:36:47.9177776Z Updating files:  57% (169993/298232)
+2026-09-23T09:36:48.0675588Z Updating files:  58% (172975/298232)
+2026-09-23T09:36:48.1392256Z Updating files:  59% (175957/298232)
+2026-09-23T09:36:48.1885061Z Updating files:  59% (177724/298232)
+2026-09-23T09:36:48.3189664Z Updating files:  60% (178940/298232)
+2026-09-23T09:36:48.4386321Z Updating files:  61% (181922/298232)
+2026-09-23T09:36:48.7595271Z Updating files:  62% (184904/298232)
+2026-09-23T09:36:48.8990729Z Updating files:  63% (187887/298232)
+2026-09-23T09:36:49.0868265Z Updating files:  64% (190869/298232)
+2026-09-23T09:36:49.1392308Z Updating files:  65% (193851/298232)
+2026-09-23T09:36:49.2752119Z Updating files:  65% (194768/298232)
+2026-09-23T09:36:50.1495755Z Updating files:  66% (196834/298232)
+2026-09-23T09:36:51.1393388Z Updating files:  66% (197409/298232)
+2026-09-23T09:36:51.5640425Z Updating files:  66% (197516/298232)
+2026-09-23T09:36:51.8400911Z Updating files:  67% (199816/298232)
+2026-09-23T09:36:52.1392368Z Updating files:  68% (202798/298232)
+2026-09-23T09:36:52.1680295Z Updating files:  68% (205622/298232)
+2026-09-23T09:36:52.4644662Z Updating files:  69% (205781/298232)
+2026-09-23T09:36:52.8340637Z Updating files:  70% (208763/298232)
+2026-09-23T09:36:53.1395661Z Updating files:  71% (211745/298232)
+2026-09-23T09:36:53.2513442Z Updating files:  71% (213815/298232)
+2026-09-23T09:36:53.6267270Z Updating files:  72% (214728/298232)
+2026-09-23T09:36:53.9187731Z Updating files:  73% (217710/298232)
+2026-09-23T09:36:54.1392141Z Updating files:  74% (220692/298232)
+2026-09-23T09:36:54.2252659Z Updating files:  74% (222767/298232)
+2026-09-23T09:36:54.5771067Z Updating files:  75% (223674/298232)
+2026-09-23T09:36:54.7384243Z Updating files:  76% (226657/298232)
+2026-09-23T09:36:54.9137636Z Updating files:  77% (229639/298232)
+2026-09-23T09:36:55.1392483Z Updating files:  78% (232621/298232)
+2026-09-23T09:36:55.2204592Z Updating files:  78% (234739/298232)
+2026-09-23T09:36:55.4792747Z Updating files:  79% (235604/298232)
+2026-09-23T09:36:55.9587025Z Updating files:  80% (238586/298232)
+2026-09-23T09:36:56.0915151Z Updating files:  81% (241568/298232)
+2026-09-23T09:36:56.1392165Z Updating files:  82% (244551/298232)
+2026-09-23T09:36:56.2057361Z Updating files:  82% (245703/298232)
+2026-09-23T09:36:56.4090387Z Updating files:  83% (247533/298232)
+2026-09-23T09:36:57.0822852Z Updating files:  84% (250515/298232)
+2026-09-23T09:36:57.1480038Z Updating files:  85% (253498/298232)
+2026-09-23T09:36:57.2602179Z Updating files:  85% (253939/298232)
+2026-09-23T09:36:57.9657273Z Updating files:  86% (256480/298232)
+2026-09-23T09:36:58.1429752Z Updating files:  87% (259462/298232)
+2026-09-23T09:36:59.2155397Z Updating files:  87% (259575/298232)
+2026-09-23T09:37:00.1507498Z Updating files:  87% (259628/298232)
+2026-09-23T09:37:01.2137035Z Updating files:  87% (259683/298232)
+2026-09-23T09:37:02.1391687Z Updating files:  87% (259734/298232)
+2026-09-23T09:37:02.1780648Z Updating files:  87% (261222/298232)
+2026-09-23T09:37:02.2826196Z Updating files:  88% (262445/298232)
+2026-09-23T09:37:03.6030880Z Updating files:  89% (265427/298232)
+2026-09-23T09:37:04.1957533Z Updating files:  89% (265968/298232)
+2026-09-23T09:37:05.2304290Z Updating files:  89% (265973/298232)
+2026-09-23T09:37:06.1497402Z Updating files:  89% (265986/298232)
+2026-09-23T09:37:06.5702566Z Updating files:  89% (266004/298232)
+2026-09-23T09:37:06.8931663Z Updating files:  90% (268409/298232)
+2026-09-23T09:37:07.3097191Z Updating files:  91% (271392/298232)
+2026-09-23T09:37:08.1876547Z Updating files:  91% (273577/298232)
+2026-09-23T09:37:08.5251737Z Updating files:  91% (273743/298232)
+2026-09-23T09:37:08.8309502Z Updating files:  92% (274374/298232)
+2026-09-23T09:37:09.1609518Z Updating files:  93% (277356/298232)
+2026-09-23T09:37:10.2981550Z Updating files:  93% (277587/298232)
+2026-09-23T09:37:11.2496458Z Updating files:  93% (277951/298232)
+2026-09-23T09:37:11.6177291Z Updating files:  93% (277976/298232)
+2026-09-23T09:37:12.1881757Z Updating files:  94% (280339/298232)
+2026-09-23T09:37:13.3750846Z Updating files:  94% (281419/298232)
+2026-09-23T09:37:14.3030757Z Updating files:  94% (281443/298232)
+2026-09-23T09:37:15.1759042Z Updating files:  94% (281473/298232)
+2026-09-23T09:37:16.1569035Z Updating files:  94% (281506/298232)
+2026-09-23T09:37:17.4081309Z Updating files:  94% (281550/298232)
+2026-09-23T09:37:18.0825973Z Updating files:  94% (281618/298232)
+2026-09-23T09:37:18.1539011Z Updating files:  95% (283321/298232)
+2026-09-23T09:37:19.1397833Z Updating files:  95% (283719/298232)
+2026-09-23T09:37:20.2022696Z Updating files:  95% (283763/298232)
+2026-09-23T09:37:21.3993842Z Updating files:  95% (283816/298232)
+2026-09-23T09:37:21.5858149Z Updating files:  95% (283932/298232)
+2026-09-23T09:37:22.0059903Z Updating files:  96% (286303/298232)
+2026-09-23T09:37:22.1392198Z Updating files:  97% (289286/298232)
+2026-09-23T09:37:22.2587602Z Updating files:  97% (290931/298232)
+2026-09-23T09:37:23.1458177Z Updating files:  98% (292268/298232)
+2026-09-23T09:37:23.1827843Z Updating files:  98% (295062/298232)
+2026-09-23T09:37:23.6424804Z Updating files:  99% (295250/298232)
+2026-09-23T09:37:23.6425750Z Updating files: 100% (298232/298232)
+2026-09-23T09:37:23.6426122Z Updating files: 100% (298232/298232), done.
+2026-09-23T09:37:24.6728647Z Filtering content:  10% (196/1848), 102.03 MiB | 199.51 MiB/s
+2026-09-23T09:37:24.7198842Z Filtering content:  11% (204/1848), 102.03 MiB | 199.51 MiB/s
+2026-09-23T09:37:24.7319601Z Filtering content:  12% (222/1848), 183.71 MiB | 180.21 MiB/s
+2026-09-23T09:37:26.1733992Z Filtering content:  13% (241/1848), 183.71 MiB | 180.21 MiB/s
+2026-09-23T09:37:26.4008412Z Filtering content:  13% (247/1848), 430.05 MiB | 171.92 MiB/s
+2026-09-23T09:37:26.6046790Z Filtering content:  14% (259/1848), 430.05 MiB | 171.92 MiB/s
+2026-09-23T09:37:26.6466394Z Filtering content:  15% (278/1848), 430.05 MiB | 171.92 MiB/s
+2026-09-23T09:37:26.6767529Z Filtering content:  15% (286/1848), 430.05 MiB | 171.92 MiB/s
+2026-09-23T09:37:26.8488859Z Filtering content:  16% (296/1848), 515.54 MiB | 171.65 MiB/s
+2026-09-23T09:37:26.8525654Z Filtering content:  17% (315/1848), 515.54 MiB | 171.65 MiB/s
+2026-09-23T09:37:26.8568167Z Filtering content:  18% (333/1848), 515.54 MiB | 171.65 MiB/s
+2026-09-23T09:37:27.7880153Z Filtering content:  19% (352/1848), 515.54 MiB | 171.65 MiB/s
+2026-09-23T09:37:28.1531759Z Filtering content:  19% (365/1848), 549.55 MiB | 150.70 MiB/s
+2026-09-23T09:37:28.6690066Z Filtering content:  20% (370/1848), 573.52 MiB | 138.14 MiB/s
+2026-09-23T09:37:29.1672403Z Filtering content:  20% (375/1848), 585.71 MiB | 124.48 MiB/s
+2026-09-23T09:37:29.5901103Z Filtering content:  21% (389/1848), 669.92 MiB | 128.38 MiB/s
+2026-09-23T09:37:29.6427399Z Filtering content:  22% (407/1848), 714.44 MiB | 117.41 MiB/s
+2026-09-23T09:37:29.8675035Z Filtering content:  22% (409/1848), 714.44 MiB | 117.41 MiB/s
+2026-09-23T09:37:30.0902623Z Filtering content:  23% (426/1848), 714.44 MiB | 117.41 MiB/s
+2026-09-23T09:37:31.2499771Z Filtering content:  24% (444/1848), 724.40 MiB | 103.66 MiB/s
+2026-09-23T09:37:31.8290276Z Filtering content:  25% (462/1848), 724.40 MiB | 103.66 MiB/s
+2026-09-23T09:37:32.5522156Z Filtering content:  25% (467/1848), 730.57 MiB | 73.26 MiB/s 
+2026-09-23T09:37:32.8056484Z Filtering content:  26% (481/1848), 829.05 MiB | 55.41 MiB/s
+2026-09-23T09:37:33.3010198Z Filtering content:  26% (485/1848), 829.05 MiB | 55.41 MiB/s
+2026-09-23T09:37:33.6400701Z Filtering content:  27% (499/1848), 856.78 MiB | 55.62 MiB/s
+2026-09-23T09:37:33.6904646Z Filtering content:  28% (518/1848), 878.48 MiB | 55.21 MiB/s
+2026-09-23T09:37:33.8695103Z Filtering content:  28% (520/1848), 878.48 MiB | 55.21 MiB/s
+2026-09-23T09:37:34.1716641Z Filtering content:  29% (536/1848), 892.29 MiB | 55.92 MiB/s
+2026-09-23T09:37:34.3165621Z Filtering content:  30% (555/1848), 892.29 MiB | 55.92 MiB/s
+2026-09-23T09:37:35.2992097Z Filtering content:  31% (573/1848), 892.29 MiB | 55.92 MiB/s
+2026-09-23T09:37:35.7797243Z Filtering content:  31% (579/1848), 892.29 MiB | 55.92 MiB/s
+2026-09-23T09:37:36.6063089Z Filtering content:  31% (584/1848), 897.97 MiB | 35.57 MiB/s
+2026-09-23T09:37:36.6472516Z Filtering content:  32% (592/1848), 942.93 MiB | 33.04 MiB/s
+2026-09-23T09:37:37.4694882Z Filtering content:  32% (593/1848), 942.93 MiB | 33.04 MiB/s
+2026-09-23T09:37:37.6722477Z Filtering content:  33% (610/1848), 960.38 MiB | 39.68 MiB/s
+2026-09-23T09:37:37.9901172Z Filtering content:  33% (616/1848), 1023.74 MiB | 45.28 MiB/s
+2026-09-23T09:37:38.2705034Z Filtering content:  34% (629/1848), 1023.74 MiB | 45.28 MiB/s
+2026-09-23T09:37:38.5735040Z Filtering content:  35% (647/1848), 1.01 GiB | 36.48 MiB/s   
+2026-09-23T09:37:38.6446749Z Filtering content:  36% (666/1848), 1.01 GiB | 32.24 MiB/s
+2026-09-23T09:37:38.7854592Z Filtering content:  36% (669/1848), 1.01 GiB | 32.24 MiB/s
+2026-09-23T09:37:40.5403261Z Filtering content:  37% (684/1848), 1.01 GiB | 32.24 MiB/s
+2026-09-23T09:37:41.0251252Z Filtering content:  37% (689/1848), 1.05 GiB | 32.82 MiB/s
+2026-09-23T09:37:41.6694785Z Filtering content:  37% (692/1848), 1.06 GiB | 29.51 MiB/s
+2026-09-23T09:37:42.6280020Z Filtering content:  37% (697/1848), 1.08 GiB | 36.25 MiB/s
+2026-09-23T09:37:42.9947006Z Filtering content:  38% (703/1848), 1.10 GiB | 32.19 MiB/s
+2026-09-23T09:37:43.6607076Z Filtering content:  38% (704/1848), 1.10 GiB | 32.19 MiB/s
+2026-09-23T09:37:44.7940540Z Filtering content:  38% (708/1848), 1.11 GiB | 30.14 MiB/s
+2026-09-23T09:37:45.0744819Z Filtering content:  38% (718/1848), 1.12 GiB | 19.35 MiB/s
+2026-09-23T09:37:45.6469545Z Filtering content:  39% (721/1848), 1.13 GiB | 20.10 MiB/s
+2026-09-23T09:37:46.3457206Z Filtering content:  39% (728/1848), 1.14 GiB | 15.73 MiB/s
+2026-09-23T09:37:46.6449644Z Filtering content:  40% (740/1848), 1.15 GiB | 17.41 MiB/s
+2026-09-23T09:37:47.2306036Z Filtering content:  40% (745/1848), 1.16 GiB | 15.25 MiB/s
+2026-09-23T09:37:47.6825021Z Filtering content:  41% (758/1848), 1.16 GiB | 13.46 MiB/s
+2026-09-23T09:37:47.9466039Z Filtering content:  41% (769/1848), 1.16 GiB | 11.91 MiB/s
+2026-09-23T09:37:49.8667485Z Filtering content:  42% (777/1848), 1.16 GiB | 11.91 MiB/s
+2026-09-23T09:37:53.3663276Z Filtering content:  42% (787/1848), 1.16 GiB | 10.60 MiB/s
+2026-09-23T09:37:54.3970772Z Filtering content:  42% (788/1848), 1.25 GiB | 21.43 MiB/s
+2026-09-23T09:37:59.2117957Z Filtering content:  42% (790/1848), 1.36 GiB | 26.12 MiB/s
+2026-09-23T09:38:02.7110660Z Filtering content:  42% (791/1848), 1.58 GiB | 47.58 MiB/s
+2026-09-23T09:38:03.5711947Z Filtering content:  42% (792/1848), 1.74 GiB | 43.85 MiB/s
+2026-09-23T09:38:03.7018140Z Filtering content:  43% (795/1848), 1.93 GiB | 46.49 MiB/s
+2026-09-23T09:38:04.6330789Z Filtering content:  43% (798/1848), 1.93 GiB | 46.49 MiB/s
+2026-09-23T09:38:04.6833240Z Filtering content:  44% (814/1848), 1.99 GiB | 49.57 MiB/s
+2026-09-23T09:38:05.1198108Z Filtering content:  44% (816/1848), 1.99 GiB | 49.57 MiB/s
+2026-09-23T09:38:05.6050832Z Filtering content:  45% (832/1848), 2.00 GiB | 50.24 MiB/s
+2026-09-23T09:38:05.6541473Z Filtering content:  46% (851/1848), 2.00 GiB | 49.26 MiB/s
+2026-09-23T09:38:05.9871449Z Filtering content:  46% (853/1848), 2.00 GiB | 49.26 MiB/s
+2026-09-23T09:38:06.3416940Z Filtering content:  47% (869/1848), 2.00 GiB | 49.26 MiB/s
+2026-09-23T09:38:07.1013351Z Filtering content:  48% (888/1848), 2.03 GiB | 54.02 MiB/s
+2026-09-23T09:38:14.4426933Z Filtering content:  48% (899/1848), 2.03 GiB | 54.02 MiB/s
+2026-09-23T09:38:15.5384711Z Filtering content:  48% (900/1848), 2.06 GiB | 38.61 MiB/s
+2026-09-23T09:38:15.7860585Z Filtering content:  48% (901/1848), 2.15 GiB | 27.81 MiB/s
+2026-09-23T09:38:16.0585836Z Filtering content:  48% (903/1848), 2.16 GiB | 18.73 MiB/s
+2026-09-23T09:38:16.7353959Z Filtering content:  49% (906/1848), 2.19 GiB | 21.33 MiB/s
+2026-09-23T09:38:17.3647412Z Filtering content:  49% (912/1848), 2.19 GiB | 21.33 MiB/s
+2026-09-23T09:38:17.6429479Z Filtering content:  50% (924/1848), 2.28 GiB | 23.86 MiB/s
+2026-09-23T09:38:18.3152684Z Filtering content:  50% (926/1848), 2.28 GiB | 23.86 MiB/s
+2026-09-23T09:38:18.6632151Z Filtering content:  51% (943/1848), 2.31 GiB | 24.99 MiB/s
+2026-09-23T09:38:18.7851611Z Filtering content:  51% (955/1848), 2.33 GiB | 26.50 MiB/s
+2026-09-23T09:38:19.0856559Z Filtering content:  52% (961/1848), 2.33 GiB | 26.50 MiB/s
+2026-09-23T09:38:19.3571244Z Filtering content:  53% (980/1848), 2.34 GiB | 25.46 MiB/s
+2026-09-23T09:38:19.8372735Z Filtering content:  54% (998/1848), 2.38 GiB | 26.72 MiB/s
+2026-09-23T09:38:20.3798801Z Filtering content:  54% (1004/1848), 2.38 GiB | 26.72 MiB/s
+2026-09-23T09:38:20.6493536Z Filtering content:  55% (1017/1848), 2.39 GiB | 49.51 MiB/s
+2026-09-23T09:38:20.6718177Z Filtering content:  55% (1033/1848), 2.39 GiB | 49.51 MiB/s
+2026-09-23T09:38:20.9877952Z Filtering content:  56% (1035/1848), 2.39 GiB | 49.51 MiB/s
+2026-09-23T09:38:21.2956981Z Filtering content:  57% (1054/1848), 2.40 GiB | 43.50 MiB/s
+2026-09-23T09:38:21.5785161Z Filtering content:  58% (1072/1848), 2.40 GiB | 43.50 MiB/s
+2026-09-23T09:38:21.6626740Z Filtering content:  59% (1091/1848), 2.40 GiB | 32.36 MiB/s
+2026-09-23T09:38:22.2037036Z Filtering content:  59% (1096/1848), 2.40 GiB | 32.36 MiB/s
+2026-09-23T09:38:22.5228641Z Filtering content:  60% (1109/1848), 2.41 GiB | 27.39 MiB/s
+2026-09-23T09:38:22.6620623Z Filtering content:  61% (1128/1848), 2.41 GiB | 27.39 MiB/s
+2026-09-23T09:38:22.7847549Z Filtering content:  61% (1137/1848), 2.41 GiB | 27.39 MiB/s
+2026-09-23T09:38:23.0468762Z Filtering content:  62% (1146/1848), 2.41 GiB | 22.40 MiB/s
+2026-09-23T09:38:23.3270496Z Filtering content:  63% (1165/1848), 2.41 GiB | 22.40 MiB/s
+2026-09-23T09:38:23.5917289Z Filtering content:  64% (1183/1848), 2.41 GiB | 17.99 MiB/s
+2026-09-23T09:38:24.0176628Z Filtering content:  65% (1202/1848), 2.41 GiB | 17.99 MiB/s
+2026-09-23T09:38:24.3816694Z Filtering content:  65% (1204/1848), 2.41 GiB | 17.99 MiB/s
+2026-09-23T09:38:24.6609752Z Filtering content:  66% (1220/1848), 2.41 GiB | 14.29 MiB/s
+2026-09-23T09:38:24.9390631Z Filtering content:  67% (1239/1848), 2.43 GiB | 9.58 MiB/s 
+2026-09-23T09:38:25.2284974Z Filtering content:  68% (1257/1848), 2.43 GiB | 9.58 MiB/s
+2026-09-23T09:38:25.5218715Z Filtering content:  69% (1276/1848), 2.43 GiB | 9.48 MiB/s
+2026-09-23T09:38:26.0762770Z Filtering content:  70% (1294/1848), 2.43 GiB | 9.48 MiB/s
+2026-09-23T09:38:26.2497918Z Filtering content:  70% (1304/1848), 2.43 GiB | 7.13 MiB/s
+2026-09-23T09:38:26.5073006Z Filtering content:  71% (1313/1848), 2.43 GiB | 6.17 MiB/s
+2026-09-23T09:38:26.7220417Z Filtering content:  72% (1331/1848), 2.43 GiB | 6.17 MiB/s
+2026-09-23T09:38:26.8284973Z Filtering content:  72% (1343/1848), 2.43 GiB | 7.07 MiB/s
+2026-09-23T09:38:27.0557797Z Filtering content:  73% (1350/1848), 2.43 GiB | 7.07 MiB/s
+2026-09-23T09:38:27.3471048Z Filtering content:  74% (1368/1848), 2.43 GiB | 7.07 MiB/s
+2026-09-23T09:38:27.5848272Z Filtering content:  75% (1386/1848), 2.43 GiB | 4.50 MiB/s
+2026-09-23T09:38:27.9904572Z Filtering content:  76% (1405/1848), 2.43 GiB | 4.50 MiB/s
+2026-09-23T09:38:28.2353222Z Filtering content:  76% (1406/1848), 2.43 GiB | 4.50 MiB/s
+2026-09-23T09:38:28.4958918Z Filtering content:  77% (1423/1848), 2.43 GiB | 3.96 MiB/s
+2026-09-23T09:38:28.6652086Z Filtering content:  78% (1442/1848), 2.43 GiB | 3.96 MiB/s
+2026-09-23T09:38:28.7782238Z Filtering content:  78% (1453/1848), 2.44 GiB | 4.12 MiB/s
+2026-09-23T09:38:29.0544005Z Filtering content:  79% (1460/1848), 2.44 GiB | 4.12 MiB/s
+2026-09-23T09:38:29.3148843Z Filtering content:  80% (1479/1848), 2.44 GiB | 4.35 MiB/s
+2026-09-23T09:38:29.8455276Z Filtering content:  81% (1497/1848), 2.44 GiB | 4.35 MiB/s
+2026-09-23T09:38:30.0099678Z Filtering content:  81% (1506/1848), 2.44 GiB | 4.35 MiB/s
+2026-09-23T09:38:30.3037585Z Filtering content:  82% (1516/1848), 2.44 GiB | 1.59 MiB/s
+2026-09-23T09:38:30.5771927Z Filtering content:  83% (1534/1848), 2.44 GiB | 1.59 MiB/s
+2026-09-23T09:38:30.6703263Z Filtering content:  84% (1553/1848), 2.44 GiB | 2.55 MiB/s
+2026-09-23T09:38:30.8246458Z Filtering content:  84% (1559/1848), 2.44 GiB | 2.55 MiB/s
+2026-09-23T09:38:31.1053138Z Filtering content:  85% (1571/1848), 2.44 GiB | 2.55 MiB/s
+2026-09-23T09:38:32.2230903Z Filtering content:  86% (1590/1848), 2.44 GiB | 2.56 MiB/s
+2026-09-23T09:38:32.5160722Z Filtering content:  86% (1606/1848), 2.44 GiB | 2.56 MiB/s
+2026-09-23T09:38:32.6939687Z Filtering content:  87% (1608/1848), 2.45 GiB | 2.95 MiB/s
+2026-09-23T09:38:33.6619346Z Filtering content:  87% (1609/1848), 2.45 GiB | 2.95 MiB/s
+2026-09-23T09:38:33.7218803Z Filtering content:  87% (1625/1848), 2.49 GiB | 8.86 MiB/s
+2026-09-23T09:38:34.1836363Z Filtering content:  88% (1627/1848), 2.49 GiB | 8.86 MiB/s
+2026-09-23T09:38:34.6522943Z Filtering content:  89% (1645/1848), 2.51 GiB | 13.00 MiB/s
+2026-09-23T09:38:34.7157889Z Filtering content:  89% (1662/1848), 2.51 GiB | 13.09 MiB/s
+2026-09-23T09:38:35.1366083Z Filtering content:  90% (1664/1848), 2.51 GiB | 13.09 MiB/s
+2026-09-23T09:38:35.5184005Z Filtering content:  91% (1682/1848), 2.51 GiB | 13.15 MiB/s
+2026-09-23T09:38:35.7751263Z Filtering content:  92% (1701/1848), 2.51 GiB | 13.91 MiB/s
+2026-09-23T09:38:36.7763218Z Filtering content:  92% (1706/1848), 2.51 GiB | 13.91 MiB/s
+2026-09-23T09:38:42.2622996Z Filtering content:  92% (1708/1848), 2.59 GiB | 23.81 MiB/s
+2026-09-23T09:38:43.3452945Z Filtering content:  92% (1709/1848), 2.59 GiB | 23.81 MiB/s
+2026-09-23T09:38:44.3457628Z Filtering content:  92% (1710/1848), 2.67 GiB | 20.83 MiB/s
+2026-09-23T09:38:45.4412676Z Filtering content:  92% (1712/1848), 2.72 GiB | 25.49 MiB/s
+2026-09-23T09:38:47.2587010Z Filtering content:  92% (1713/1848), 2.84 GiB | 32.77 MiB/s
+2026-09-23T09:38:47.7545280Z Filtering content:  92% (1714/1848), 2.90 GiB | 34.60 MiB/s
+2026-09-23T09:38:48.6628258Z Filtering content:  92% (1715/1848), 2.94 GiB | 32.83 MiB/s
+2026-09-23T09:38:49.9948056Z Filtering content:  92% (1717/1848), 3.05 GiB | 39.73 MiB/s
+2026-09-23T09:38:50.9170902Z Filtering content:  93% (1719/1848), 3.05 GiB | 39.73 MiB/s
+2026-09-23T09:38:51.6681619Z Filtering content:  93% (1723/1848), 3.15 GiB | 41.35 MiB/s
+2026-09-23T09:38:52.7712725Z Filtering content:  93% (1724/1848), 3.15 GiB | 41.35 MiB/s
+2026-09-23T09:38:53.3336398Z Filtering content:  93% (1729/1848), 3.24 GiB | 59.20 MiB/s
+2026-09-23T09:38:53.6486027Z Filtering content:  94% (1738/1848), 3.38 GiB | 64.77 MiB/s
+2026-09-23T09:38:53.8329180Z Filtering content:  94% (1749/1848), 3.43 GiB | 68.08 MiB/s
+2026-09-23T09:38:54.2306053Z Filtering content:  95% (1756/1848), 3.43 GiB | 68.08 MiB/s
+2026-09-23T09:38:54.5935693Z Filtering content:  96% (1775/1848), 3.44 GiB | 75.73 MiB/s
+2026-09-23T09:38:54.6659914Z Filtering content:  97% (1793/1848), 3.44 GiB | 68.08 MiB/s
+2026-09-23T09:38:56.7565344Z Filtering content:  97% (1796/1848), 3.44 GiB | 68.08 MiB/s
+2026-09-23T09:38:57.6700049Z Filtering content:  97% (1810/1848), 3.44 GiB | 68.08 MiB/s
+2026-09-23T09:38:58.9849913Z Filtering content:  97% (1811/1848), 3.77 GiB | 90.96 MiB/s
+2026-09-23T09:38:59.7127029Z Filtering content:  98% (1812/1848), 3.77 GiB | 90.96 MiB/s
+2026-09-23T09:39:00.4274008Z Filtering content:  98% (1819/1848), 3.78 GiB | 76.98 MiB/s
+2026-09-23T09:39:00.6663513Z Filtering content:  99% (1830/1848), 3.89 GiB | 83.29 MiB/s
+2026-09-23T09:39:07.8909557Z Filtering content:  99% (1836/1848), 3.89 GiB | 83.29 MiB/s
+2026-09-23T09:39:11.9270766Z Filtering content:  99% (1847/1848), 3.91 GiB | 69.98 MiB/s
+2026-09-23T09:39:12.0355573Z Filtering content: 100% (1848/1848), 4.00 GiB | 40.07 MiB/s
+2026-09-23T09:39:12.0355997Z Filtering content: 100% (1848/1848), 4.12 GiB | 38.93 MiB/s, done.
+2026-09-23T09:39:13.1506631Z ##[end-action id=__self_3.sync;outcome=success;conclusion=success;duration_ms=293345]
+2026-09-23T09:39:13.1508557Z ##[start-action display=Capture Kernel Common Commit Metadata;id=__self_3.__run]
+2026-09-23T09:39:13.1523962Z ##[group]Run set -euo pipefail
+2026-09-23T09:39:13.1524158Z [36;1mset -euo pipefail[0m
+2026-09-23T09:39:13.1524289Z [36;1m[0m
+2026-09-23T09:39:13.1524404Z [36;1mif [[ ! -d aosp ]]; then[0m
+2026-09-23T09:39:13.1524620Z [36;1m  echo "WARNING: aosp folder not found; skipping commit metadata capture."[0m
+2026-09-23T09:39:13.1524836Z [36;1m  exit 0[0m
+2026-09-23T09:39:13.1524944Z [36;1mfi[0m
+2026-09-23T09:39:13.1525048Z [36;1m[0m
+2026-09-23T09:39:13.1525160Z [36;1mcd aosp[0m
+2026-09-23T09:39:13.1525269Z [36;1m[0m
+2026-09-23T09:39:13.1525377Z [36;1mif [[ ! -d .git ]]; then[0m
+2026-09-23T09:39:13.1525598Z [36;1m  echo "WARNING: common is not a git checkout; skipping commit metadata capture."[0m
+2026-09-23T09:39:13.1525817Z [36;1m  exit 0[0m
+2026-09-23T09:39:13.1525925Z [36;1mfi[0m
+2026-09-23T09:39:13.1526027Z [36;1m[0m
+2026-09-23T09:39:13.1526149Z [36;1mCOMMIT_DATE=$(git log -1 --format=%cI)[0m
+2026-09-23T09:39:13.1526324Z [36;1mCOMMIT_MSG=$(git log -1 --format=%s)[0m
+2026-09-23T09:39:13.1526502Z [36;1mCOMMIT_SHA=$(git rev-parse HEAD)[0m
+2026-09-23T09:39:13.1526650Z [36;1m[0m
+2026-09-23T09:39:13.1526798Z [36;1mecho "KERNEL_SOURCE_COMMIT=$COMMIT_SHA" >> "$GITHUB_ENV"[0m
+2026-09-23T09:39:13.1527012Z [36;1mecho "Kernel common commit date: $COMMIT_DATE"[0m
+2026-09-23T09:39:13.1527205Z [36;1mecho "Kernel common commit msg: $COMMIT_MSG"[0m
+2026-09-23T09:39:13.1527391Z [36;1mecho "Kernel common commit SHA: $COMMIT_SHA"[0m
+2026-09-23T09:39:13.1810463Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-09-23T09:39:13.1810669Z ##[endgroup]
+2026-09-23T09:39:13.1856533Z WARNING: common is not a git checkout; skipping commit metadata capture.
+2026-09-23T09:39:13.1861585Z ##[end-action id=__self_3.__run;outcome=success;conclusion=success;duration_ms=35]
+2026-09-23T09:39:13.1894223Z ##[group]Run set -x
+2026-09-23T09:39:13.1894377Z [36;1mset -x[0m
+2026-09-23T09:39:13.1894546Z [36;1m# Hardcode the build timestamp to the 5th day of the patch level[0m
+2026-09-23T09:39:13.1894808Z [36;1m# at 04:20 UTC, using the existing timestamp formats expected by the build.[0m
+2026-09-23T09:39:13.1895026Z [36;1mOS_PATCH_LEVEL_INPUT="2025-10"[0m
+2026-09-23T09:39:13.1895195Z [36;1mif [[ "$OS_PATCH_LEVEL_INPUT" == lts* ]]; then[0m
+2026-09-23T09:39:13.1895391Z [36;1m  if [[ "$OS_PATCH_LEVEL_INPUT" =~ ^lts-([0-9]{2})$ ]]; then[0m
+2026-09-23T09:39:13.1895602Z [36;1m    OS_PATCH_LEVEL_YM="$(date -u +%Y)-${BASH_REMATCH[1]}"[0m
+2026-09-23T09:39:13.1895914Z [36;1m  else[0m
+2026-09-23T09:39:13.1896043Z [36;1m    OS_PATCH_LEVEL_YM="$(date -u +%Y-%m)"[0m
+2026-09-23T09:39:13.1896198Z [36;1m  fi[0m
+2026-09-23T09:39:13.1896301Z [36;1melse[0m
+2026-09-23T09:39:13.1896429Z [36;1m  OS_PATCH_LEVEL_YM="$OS_PATCH_LEVEL_INPUT"[0m
+2026-09-23T09:39:13.1896580Z [36;1mfi[0m
+2026-09-23T09:39:13.1896745Z [36;1mFIXED_BUILD_DATE="${OS_PATCH_LEVEL_YM}-05 04:20:00 UTC"[0m
+2026-09-23T09:39:13.1896970Z [36;1mSOURCE_DATE_EPOCH=$(date -u -d "$FIXED_BUILD_DATE" +%s)[0m
+2026-09-23T09:39:13.1897195Z [36;1mecho "SOURCE_DATE_EPOCH=$SOURCE_DATE_EPOCH" >> $GITHUB_ENV[0m
+2026-09-23T09:39:13.1897437Z [36;1mKBUILD_TS=$(date -u -d @${SOURCE_DATE_EPOCH} '+%a %b %d %H:%M:%S UTC %Y')[0m
+2026-09-23T09:39:13.1897677Z [36;1mecho "KBUILD_BUILD_TIMESTAMP=${KBUILD_TS}" >> $GITHUB_ENV[0m
+2026-09-23T09:39:13.1897898Z [36;1m# Keep git metadata aligned with the same fixed timestamp.[0m
+2026-09-23T09:39:13.1898133Z [36;1mGIT_DATE=$(date -u -d @${SOURCE_DATE_EPOCH} '+%Y-%m-%dT%H:%M:%SZ')[0m
+2026-09-23T09:39:13.1898365Z [36;1mecho "GIT_COMMITTER_DATE=${GIT_DATE}" >> $GITHUB_ENV[0m
+2026-09-23T09:39:13.1898586Z [36;1mecho "GIT_AUTHOR_DATE=${GIT_DATE}" >> $GITHUB_ENV[0m
+2026-09-23T09:39:13.1898912Z [36;1mecho "Build timestamp set to: $(date -u -d @${SOURCE_DATE_EPOCH} '+%Y-%m-%d %H:%M:%S UTC') (epoch: $SOURCE_DATE_EPOCH)"[0m
+2026-09-23T09:39:13.1923460Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-09-23T09:39:13.1923637Z ##[endgroup]
+2026-09-23T09:39:13.1964642Z + OS_PATCH_LEVEL_INPUT=2025-10
+2026-09-23T09:39:13.1964843Z + [[ 2025-10 == lts* ]]
+2026-09-23T09:39:13.1965017Z + OS_PATCH_LEVEL_YM=2025-10
+2026-09-23T09:39:13.1965161Z + FIXED_BUILD_DATE='2025-10-05 04:20:00 UTC'
+2026-09-23T09:39:13.1967560Z ++ date -u -d '2025-10-05 04:20:00 UTC' +%s
+2026-09-23T09:39:13.1983104Z + SOURCE_DATE_EPOCH=1759638000
+2026-09-23T09:39:13.1983269Z + echo SOURCE_DATE_EPOCH=1759638000
+2026-09-23T09:39:13.1985652Z ++ date -u -d @1759638000 '+%a %b %d %H:%M:%S UTC %Y'
+2026-09-23T09:39:13.1994018Z + KBUILD_TS='Sun Oct 05 04:20:00 UTC 2025'
+2026-09-23T09:39:13.1994292Z + echo 'KBUILD_BUILD_TIMESTAMP=Sun Oct 05 04:20:00 UTC 2025'
+2026-09-23T09:39:13.1996480Z ++ date -u -d @1759638000 +%Y-%m-%dT%H:%M:%SZ
+2026-09-23T09:39:13.2004755Z + GIT_DATE=2025-10-05T04:20:00Z
+2026-09-23T09:39:13.2005046Z + echo GIT_COMMITTER_DATE=2025-10-05T04:20:00Z
+2026-09-23T09:39:13.2005316Z + echo GIT_AUTHOR_DATE=2025-10-05T04:20:00Z
+2026-09-23T09:39:13.2007600Z ++ date -u -d @1759638000 '+%Y-%m-%d %H:%M:%S UTC'
+2026-09-23T09:39:13.2015486Z + echo 'Build timestamp set to: 2025-10-05 04:20:00 UTC (epoch: 1759638000)'
+2026-09-23T09:39:13.2015867Z Build timestamp set to: 2025-10-05 04:20:00 UTC (epoch: 1759638000)
+2026-09-23T09:39:13.2046072Z Prepare all required actions
+2026-09-23T09:39:13.2069724Z ##[group]Run ./.github/actions/extract-sublevel-file-name
+2026-09-23T09:39:13.2069903Z with:
+2026-09-23T09:39:13.2070018Z   android_version: android15
+2026-09-23T09:39:13.2070151Z   kernel_version: 6.6
+2026-09-23T09:39:13.2070273Z   sublevel: 102
+2026-09-23T09:39:13.2070386Z   os_patch_level: 2025-10
+2026-09-23T09:39:13.2070507Z   variant: KernelSU
+2026-09-23T09:39:13.2070613Z env:
+2026-09-23T09:39:13.2070720Z   SOURCE_DATE_EPOCH: 1759638000
+2026-09-23T09:39:13.2070874Z   KBUILD_BUILD_TIMESTAMP: Sun Oct 05 04:20:00 UTC 2025
+2026-09-23T09:39:13.2071048Z   GIT_COMMITTER_DATE: 2025-10-05T04:20:00Z
+2026-09-23T09:39:13.2071197Z   GIT_AUTHOR_DATE: 2025-10-05T04:20:00Z
+2026-09-23T09:39:13.2071336Z ##[endgroup]
+2026-09-23T09:39:13.2074770Z ##[start-action display=Run set -euo pipefail;id=extract.extract]
+2026-09-23T09:39:13.2083996Z ##[group]Run set -euo pipefail
+2026-09-23T09:39:13.2084173Z [36;1mset -euo pipefail[0m
+2026-09-23T09:39:13.2084314Z [36;1m[0m
+2026-09-23T09:39:13.2084423Z [36;1mSUBLEVEL="102"[0m
+2026-09-23T09:39:13.2084657Z [36;1mMAKEFILE="/home/runner/work/Muzel_KernelSU_SUSFS/Muzel_KernelSU_SUSFS/kernel/aosp/Makefile"[0m
+2026-09-23T09:39:13.2084984Z [36;1mif [ "$(printf '%s' "$INPUT_OS_PATCH_LEVEL" | tr '[:upper:]' '[:lower:]')" = "lts" ]; then[0m
+2026-09-23T09:39:13.2085346Z [36;1m  if [ ! -f "$MAKEFILE" ]; then[0m
+2026-09-23T09:39:13.2085512Z [36;1m    echo "LTS build requires $MAKEFILE" >&2[0m
+2026-09-23T09:39:13.2085674Z [36;1m    exit 1[0m
+2026-09-23T09:39:13.2085787Z [36;1m  fi[0m
+2026-09-23T09:39:13.2085978Z [36;1m  mapfile -t matches < <(grep -E '^[[:space:]]*SUBLEVEL[[:space:]]*=' "$MAKEFILE" || true)[0m
+2026-09-23T09:39:13.2086211Z [36;1m  if [ "${#matches[@]}" -ne 1 ]; then[0m
+2026-09-23T09:39:13.2086456Z [36;1m    echo "Expected exactly one SUBLEVEL assignment in $MAKEFILE; found ${#matches[@]}" >&2[0m
+2026-09-23T09:39:13.2086681Z [36;1m    exit 1[0m
+2026-09-23T09:39:13.2086792Z [36;1m  fi[0m
+2026-09-23T09:39:13.2086906Z [36;1m  EXTRACTED="${matches[0]#*=}"[0m
+2026-09-23T09:39:13.2087134Z [36;1m  EXTRACTED="$(printf '%s' "$EXTRACTED" | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')"[0m
+2026-09-23T09:39:13.2087374Z [36;1m  if ! [[ "$EXTRACTED" =~ ^[0-9]+$ ]]; then[0m
+2026-09-23T09:39:13.2087592Z [36;1m    echo "Invalid numeric SUBLEVEL '$EXTRACTED' in $MAKEFILE" >&2[0m
+2026-09-23T09:39:13.2087780Z [36;1m    exit 1[0m
+2026-09-23T09:39:13.2087889Z [36;1m  fi[0m
+2026-09-23T09:39:13.2088003Z [36;1m  SUBLEVEL="$EXTRACTED"[0m
+2026-09-23T09:39:13.2088134Z [36;1mfi[0m
+2026-09-23T09:39:13.2088235Z [36;1m[0m
+2026-09-23T09:39:13.2088366Z [36;1mFILE_NAME="6.6.${SUBLEVEL}-android15-2025-10"[0m
+2026-09-23T09:39:13.2088588Z [36;1m# Append variant only when it's provided and not the default 'Normal'[0m
+2026-09-23T09:39:13.2088822Z [36;1mif [ -n "KernelSU" ] && [ "KernelSU" != "Normal" ]; then[0m
+2026-09-23T09:39:13.2089011Z [36;1m  FILE_NAME="${FILE_NAME}-KernelSU"[0m
+2026-09-23T09:39:13.2089160Z [36;1mfi[0m
+2026-09-23T09:39:13.2089262Z [36;1m[0m
+2026-09-23T09:39:13.2089385Z [36;1mecho "SUBLEVEL=$SUBLEVEL" >> "$GITHUB_ENV"[0m
+2026-09-23T09:39:13.2089566Z [36;1mecho "FILE_NAME=$FILE_NAME" >> "$GITHUB_ENV"[0m
+2026-09-23T09:39:13.2089719Z [36;1m[0m
+2026-09-23T09:39:13.2089853Z [36;1mecho "file_name=$FILE_NAME" >> "$GITHUB_OUTPUT"[0m
+2026-09-23T09:39:13.2090042Z [36;1mecho "sublevel=$SUBLEVEL" >> "$GITHUB_OUTPUT"[0m
+2026-09-23T09:39:13.2114173Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-09-23T09:39:13.2114347Z env:
+2026-09-23T09:39:13.2114459Z   SOURCE_DATE_EPOCH: 1759638000
+2026-09-23T09:39:13.2114616Z   KBUILD_BUILD_TIMESTAMP: Sun Oct 05 04:20:00 UTC 2025
+2026-09-23T09:39:13.2114787Z   GIT_COMMITTER_DATE: 2025-10-05T04:20:00Z
+2026-09-23T09:39:13.2114934Z   GIT_AUTHOR_DATE: 2025-10-05T04:20:00Z
+2026-09-23T09:39:13.2115083Z   INPUT_OS_PATCH_LEVEL: 2025-10
+2026-09-23T09:39:13.2115216Z ##[endgroup]
+2026-09-23T09:39:13.2171599Z ##[end-action id=extract.extract;outcome=success;conclusion=success;duration_ms=9]
+2026-09-23T09:39:13.2221408Z Prepare all required actions
+2026-09-23T09:39:13.2324957Z ##[group]Run ./.github/actions/kernel-fixes
+2026-09-23T09:39:13.2325113Z with:
+2026-09-23T09:39:13.2325229Z   version: android15-6.6
+2026-09-23T09:39:13.2325367Z   android_version: android15
+2026-09-23T09:39:13.2325494Z   kernel_version: 6.6
+2026-09-23T09:39:13.2325608Z   sublevel: 102
+2026-09-23T09:39:13.2325723Z   os_patch_level: 2025-10
+2026-09-23T09:39:13.2334909Z env:
+2026-09-23T09:39:13.2335047Z   SOURCE_DATE_EPOCH: 1759638000
+2026-09-23T09:39:13.2335216Z   KBUILD_BUILD_TIMESTAMP: Sun Oct 05 04:20:00 UTC 2025
+2026-09-23T09:39:13.2335393Z   GIT_COMMITTER_DATE: 2025-10-05T04:20:00Z
+2026-09-23T09:39:13.2335548Z   GIT_AUTHOR_DATE: 2025-10-05T04:20:00Z
+2026-09-23T09:39:13.2335685Z   SUBLEVEL: 102
+2026-09-23T09:39:13.2335811Z   FILE_NAME: 6.6.102-android15-2025-10-KernelSU
+2026-09-23T09:39:13.2335964Z ##[endgroup]
+2026-09-23T09:39:13.2338841Z ##[start-action display=Apply Makefile and parse-options.c fixes for GLIBC >= 2.38;id=__self_4.__run]
+2026-09-23T09:39:13.2348898Z ##[group]Run set -euo pipefail
+2026-09-23T09:39:13.2349078Z [36;1mset -euo pipefail[0m
+2026-09-23T09:39:13.2349286Z [36;1mGLIBC_VERSION="$(ldd --version 2>/dev/null | head -n 1 | awk '{print $NF}')"[0m
+2026-09-23T09:39:13.2349655Z [36;1mecho "[*] Detected GLIBC version: $GLIBC_VERSION"[0m
+2026-09-23T09:39:13.2349902Z [36;1mif [ "$(printf '%s\n' "2.38" "$GLIBC_VERSION" | sort -V | head -n 1)" = "2.38" ]; then[0m
+2026-09-23T09:39:13.2350147Z [36;1m  echo "[*] GLIBC >= 2.38, attempting Makefile fix."[0m
+2026-09-23T09:39:13.2350360Z [36;1m  # Check if the pattern that needs fixing actually exists[0m
+2026-09-23T09:39:13.2350687Z [36;1m  if grep -q '\$(Q)\$(MAKE) -C \$(SUBCMD_SRC) OUTPUT=\$(abspath \$(dir \$@))\/ \$(abspath \$@)' tools/bpf/resolve_btfids/Makefile; then[0m
+2026-09-23T09:39:13.2350994Z [36;1m    echo "[*] Found pattern to fix, applying sed."[0m
+2026-09-23T09:39:13.2351433Z [36;1m    sed -i '/\$(Q)\$(MAKE) -C \$(SUBCMD_SRC) OUTPUT=\$(abspath \$(dir \$@))\/ \$(abspath \$@)/s//$(Q)$(MAKE) -C $(SUBCMD_SRC) EXTRA_CFLAGS="$(CFLAGS)" OUTPUT=$(abspath $(dir $@))\/ $(abspath $@)/' tools/bpf/resolve_btfids/Makefile[0m
+2026-09-23T09:39:13.2351842Z [36;1m    MAKEFILE_FIXED="true"[0m
+2026-09-23T09:39:13.2352048Z [36;1m  elif grep -q 'EXTRA_CFLAGS' tools/bpf/resolve_btfids/Makefile; then[0m
+2026-09-23T09:39:13.2352286Z [36;1m    echo "[*] EXTRA_CFLAGS already present, no fix needed."[0m
+2026-09-23T09:39:13.2352481Z [36;1m    MAKEFILE_FIXED="already_fixed"[0m
+2026-09-23T09:39:13.2352627Z [36;1m  else[0m
+2026-09-23T09:39:13.2352764Z [36;1m    echo "[!] Neither pattern found in Makefile."[0m
+2026-09-23T09:39:13.2352935Z [36;1m    MAKEFILE_FIXED="false"[0m
+2026-09-23T09:39:13.2353070Z [36;1m  fi[0m
+2026-09-23T09:39:13.2353216Z [36;1m  echo "MAKEFILE_FIXED=$MAKEFILE_FIXED" >> $GITHUB_ENV[0m
+2026-09-23T09:39:13.2353443Z [36;1m   if [[ "android15-6.6" == "android13-5.10" && "102" -le 186 ]] || \[0m
+2026-09-23T09:39:13.2353839Z [36;1m     [[ "android15-6.6" == "android13-5.15" && "102" -le 119 ]] || \[0m
+2026-09-23T09:39:13.2354114Z [36;1m     [[ "android15-6.6" == "android14-5.15" && "102" -le 110 ]]; then[0m
+2026-09-23T09:39:13.2354325Z [36;1m    echo "[*] Applying parse-options.c fixes."[0m
+2026-09-23T09:39:13.2354581Z [36;1m    sed -i '/char \*buf = NULL;/a int i;' tools/lib/subcmd/parse-options.c 2>/dev/null || true[0m
+2026-09-23T09:39:13.2354954Z [36;1m    sed -i 's/for (int i = 0; subcommands\[i\]; i++) {/for (i = 0; subcommands[i]; i++) {/' tools/lib/subcmd/parse-options.c 2>/dev/null || true[0m
+2026-09-23T09:39:13.2355323Z [36;1m    sed -i '/if (subcommands) {/a int i;' tools/lib/subcmd/parse-options.c 2>/dev/null || true[0m
+2026-09-23T09:39:13.2355683Z [36;1m    sed -i 's/for (int i = 0; subcommands\[i\]; i++)/for (i = 0; subcommands[i]; i++)/' tools/lib/subcmd/parse-options.c 2>/dev/null || true[0m
+2026-09-23T09:39:13.2355999Z [36;1m    echo "PARSE_OPTIONS_FIXED=true" >> $GITHUB_ENV[0m
+2026-09-23T09:39:13.2356292Z [36;1m  else[0m
+2026-09-23T09:39:13.2356432Z [36;1m    echo "PARSE_OPTIONS_FIXED=false" >> $GITHUB_ENV[0m
+2026-09-23T09:39:13.2356594Z [36;1m  fi[0m
+2026-09-23T09:39:13.2356697Z [36;1melse[0m
+2026-09-23T09:39:13.2356844Z [36;1m  echo "[-] GLIBC version < 2.38, skipping Makefile fix."[0m
+2026-09-23T09:39:13.2357019Z [36;1mfi[0m
+2026-09-23T09:39:13.2381013Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-09-23T09:39:13.2381188Z env:
+2026-09-23T09:39:13.2381302Z   SOURCE_DATE_EPOCH: 1759638000
+2026-09-23T09:39:13.2381464Z   KBUILD_BUILD_TIMESTAMP: Sun Oct 05 04:20:00 UTC 2025
+2026-09-23T09:39:13.2381637Z   GIT_COMMITTER_DATE: 2025-10-05T04:20:00Z
+2026-09-23T09:39:13.2381787Z   GIT_AUTHOR_DATE: 2025-10-05T04:20:00Z
+2026-09-23T09:39:13.2381924Z   SUBLEVEL: 102
+2026-09-23T09:39:13.2382049Z   FILE_NAME: 6.6.102-android15-2025-10-KernelSU
+2026-09-23T09:39:13.2382200Z ##[endgroup]
+2026-09-23T09:39:13.2443867Z [*] Detected GLIBC version: 2.39
+2026-09-23T09:39:13.2462328Z [*] GLIBC >= 2.38, attempting Makefile fix.
+2026-09-23T09:39:13.2485415Z [*] EXTRA_CFLAGS already present, no fix needed.
+2026-09-23T09:39:13.2490152Z ##[end-action id=__self_4.__run;outcome=success;conclusion=success;duration_ms=15]
+2026-09-23T09:39:13.2491671Z ##[start-action display=Apply mmap.c fix for specific versions;id=__self_4.__run_2]
+2026-09-23T09:39:13.2506125Z ##[group]Run echo "[*] Checking for android15 + kernel 6.6 include fix..."
+2026-09-23T09:39:13.2506393Z [36;1mecho "[*] Checking for android15 + kernel 6.6 include fix..."[0m
+2026-09-23T09:39:13.2506626Z [36;1mif [[ "android15" == "android15" && "6.6" == "6.6" ]]; then[0m
+2026-09-23T09:39:13.2506840Z [36;1m  echo "[+] android15 + 6.6, checking for fs.h include."[0m
+2026-09-23T09:39:13.2507097Z [36;1m  cd "/home/runner/work/Muzel_KernelSU_SUSFS/Muzel_KernelSU_SUSFS/kernel/aosp"[0m
+2026-09-23T09:39:13.2507378Z [36;1m  if ! grep -qxF '#include <trace/hooks/fs.h>' ./fs/namespace.c; then[0m
+2026-09-23T09:39:13.2507652Z [36;1m    echo "[*] Adding missing #include <trace/hooks/fs.h> to fs/namespace.c."[0m
+2026-09-23T09:39:13.2507956Z [36;1m    sed -i '/#include <trace\/hooks\/blk.h>/a #include <trace\/hooks\/fs.h>' ./fs/namespace.c[0m
+2026-09-23T09:39:13.2508218Z [36;1m    echo "MMAP_NAMESPACE_FIX=true" >> "$GITHUB_ENV"[0m
+2026-09-23T09:39:13.2508389Z [36;1m  else[0m
+2026-09-23T09:39:13.2508538Z [36;1m    echo "[*] #include <trace/hooks/fs.h> already present."[0m
+2026-09-23T09:39:13.2508763Z [36;1m    echo "MMAP_NAMESPACE_FIX=already_present" >> "$GITHUB_ENV"[0m
+2026-09-23T09:39:13.2508944Z [36;1m  fi[0m
+2026-09-23T09:39:13.2509048Z [36;1mfi[0m
+2026-09-23T09:39:13.2533411Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-09-23T09:39:13.2533588Z env:
+2026-09-23T09:39:13.2533852Z   SOURCE_DATE_EPOCH: 1759638000
+2026-09-23T09:39:13.2534028Z   KBUILD_BUILD_TIMESTAMP: Sun Oct 05 04:20:00 UTC 2025
+2026-09-23T09:39:13.2534200Z   GIT_COMMITTER_DATE: 2025-10-05T04:20:00Z
+2026-09-23T09:39:13.2534351Z   GIT_AUTHOR_DATE: 2025-10-05T04:20:00Z
+2026-09-23T09:39:13.2534493Z   SUBLEVEL: 102
+2026-09-23T09:39:13.2534620Z   FILE_NAME: 6.6.102-android15-2025-10-KernelSU
+2026-09-23T09:39:13.2534780Z   MAKEFILE_FIXED: already_fixed
+2026-09-23T09:39:13.2534917Z   PARSE_OPTIONS_FIXED: false
+2026-09-23T09:39:13.2535051Z ##[endgroup]
+2026-09-23T09:39:13.2572391Z [*] Checking for android15 + kernel 6.6 include fix...
+2026-09-23T09:39:13.2572818Z [+] android15 + 6.6, checking for fs.h include.
+2026-09-23T09:39:13.2587333Z [*] #include <trace/hooks/fs.h> already present.
+2026-09-23T09:39:13.2591803Z ##[end-action id=__self_4.__run_2;outcome=success;conclusion=success;duration_ms=9]
+2026-09-23T09:39:13.2592981Z ##[start-action display=Apply mmap.c fix for specific versions;id=__self_4.__run_3]
+2026-09-23T09:39:13.2602504Z ##[end-action id=__self_4.__run_3;outcome=skipped;conclusion=skipped;duration_ms=0]
+2026-09-23T09:39:13.2603640Z ##[start-action display=Final Kernel Fixes Summary;id=__self_4.__run_4]
+2026-09-23T09:39:13.2617230Z ##[group]Run SUMMARY_FILE="/tmp/kernel-fixes-summary.md"
+2026-09-23T09:39:13.2617479Z [36;1mSUMMARY_FILE="/tmp/kernel-fixes-summary.md"[0m
+2026-09-23T09:39:13.2617689Z [36;1mecho "## Final Kernel Fixes Summary" >> "$SUMMARY_FILE"[0m
+2026-09-23T09:39:13.2617881Z [36;1mecho "" >> "$SUMMARY_FILE"[0m
+2026-09-23T09:39:13.2618090Z [36;1mecho "**Kernel Version:** android15 + 6.6 (sublevel 102)" >> "$SUMMARY_FILE"[0m
+2026-09-23T09:39:13.2618306Z [36;1mecho "" >> "$SUMMARY_FILE"[0m
+2026-09-23T09:39:13.2618460Z [36;1mecho "### Fix Status" >> "$SUMMARY_FILE"[0m
+2026-09-23T09:39:13.2618615Z [36;1m[0m
+2026-09-23T09:39:13.2618798Z [36;1mGLIBC_VERSION="$(ldd --version 2>/dev/null | head -n 1 | awk '{print $NF}')"[0m
+2026-09-23T09:39:13.2619097Z [36;1mif [ "$(printf '%s\n' "2.38" "$GLIBC_VERSION" | sort -V | head -n 1)" = "2.38" ]; then[0m
+2026-09-23T09:39:13.2619342Z [36;1m  if [ "${MAKEFILE_FIXED:-false}" = "true" ]; then[0m
+2026-09-23T09:39:13.2619570Z [36;1m    echo "- Makefile EXTRA_CFLAGS fix: applied" >> "$SUMMARY_FILE"[0m
+2026-09-23T09:39:13.2619810Z [36;1m  elif [ "${MAKEFILE_FIXED:-false}" = "already_fixed" ]; then[0m
+2026-09-23T09:39:13.2620053Z [36;1m    echo "- Makefile EXTRA_CFLAGS fix: already present" >> "$SUMMARY_FILE"[0m
+2026-09-23T09:39:13.2620352Z [36;1m  else[0m
+2026-09-23T09:39:13.2620524Z [36;1m    echo "- Makefile EXTRA_CFLAGS fix: pattern not found" >> "$SUMMARY_FILE"[0m
+2026-09-23T09:39:13.2620727Z [36;1m  fi[0m
+2026-09-23T09:39:13.2620829Z [36;1m[0m
+2026-09-23T09:39:13.2620967Z [36;1m  if [ "${PARSE_OPTIONS_FIXED:-false}" = "true" ]; then[0m
+2026-09-23T09:39:13.2621190Z [36;1m    echo "- parse-options.c fix: applied" >> "$SUMMARY_FILE"[0m
+2026-09-23T09:39:13.2621371Z [36;1m  else[0m
+2026-09-23T09:39:13.2621536Z [36;1m    echo "- parse-options.c fix: not applicable" >> "$SUMMARY_FILE"[0m
+2026-09-23T09:39:13.2621726Z [36;1m  fi[0m
+2026-09-23T09:39:13.2621828Z [36;1melse[0m
+2026-09-23T09:39:13.2622023Z [36;1m  echo "- Makefile EXTRA_CFLAGS fix: skipped because GLIBC < 2.38" >> "$SUMMARY_FILE"[0m
+2026-09-23T09:39:13.2622323Z [36;1m  echo "- parse-options.c fix: skipped because GLIBC < 2.38" >> "$SUMMARY_FILE"[0m
+2026-09-23T09:39:13.2622534Z [36;1mfi[0m
+2026-09-23T09:39:13.2622634Z [36;1m[0m
+2026-09-23T09:39:13.2622790Z [36;1mif [ "${MMAP_NAMESPACE_FIX:-not_applicable}" = "true" ]; then[0m
+2026-09-23T09:39:13.2623037Z [36;1m  echo "- fs/namespace.c include fix: applied" >> "$SUMMARY_FILE"[0m
+2026-09-23T09:39:13.2623305Z [36;1melif [ "${MMAP_NAMESPACE_FIX:-not_applicable}" = "already_present" ]; then[0m
+2026-09-23T09:39:13.2623579Z [36;1m  echo "- fs/namespace.c include fix: already present" >> "$SUMMARY_FILE"[0m
+2026-09-23T09:39:13.2623942Z [36;1melse[0m
+2026-09-23T09:39:13.2624114Z [36;1m  echo "- fs/namespace.c include fix: not applicable" >> "$SUMMARY_FILE"[0m
+2026-09-23T09:39:13.2624311Z [36;1mfi[0m
+2026-09-23T09:39:13.2624413Z [36;1m[0m
+2026-09-23T09:39:13.2624559Z [36;1mif [ "${MMAP_VM_FLAGS_FIX:-not_applicable}" = "true" ]; then[0m
+2026-09-23T09:39:13.2624796Z [36;1m  echo "- mm/mmap.c VM_PAD_MASK fix: applied" >> "$SUMMARY_FILE"[0m
+2026-09-23T09:39:13.2624979Z [36;1melse[0m
+2026-09-23T09:39:13.2625143Z [36;1m  echo "- mm/mmap.c VM_PAD_MASK fix: not applicable" >> "$SUMMARY_FILE"[0m
+2026-09-23T09:39:13.2625339Z [36;1mfi[0m
+2026-09-23T09:39:13.2625438Z [36;1m[0m
+2026-09-23T09:39:13.2625590Z [36;1mif [[ "${SELINUX_HIDE_FIX:-not_applicable}" == patched:* ]]; then[0m
+2026-09-23T09:39:13.2625883Z [36;1m  echo "- selinux_hide.c 6.6+ pointer-bool fix: ${SELINUX_HIDE_FIX#patched:}" >> "$SUMMARY_FILE"[0m
+2026-09-23T09:39:13.2626185Z [36;1melif [ "${SELINUX_HIDE_FIX:-not_applicable}" = "not_needed" ]; then[0m
+2026-09-23T09:39:13.2626482Z [36;1m  echo "- selinux_hide.c 6.6+ pointer-bool fix: already patched / not needed" >> "$SUMMARY_FILE"[0m
+2026-09-23T09:39:13.2626774Z [36;1melif [ "${SELINUX_HIDE_FIX:-not_applicable}" = "skipped" ]; then[0m
+2026-09-23T09:39:13.2627153Z [36;1m  echo "- selinux_hide.c 6.6+ pointer-bool fix: skipped (<6.6)" >> "$SUMMARY_FILE"[0m
+2026-09-23T09:39:13.2627366Z [36;1melse[0m
+2026-09-23T09:39:13.2627548Z [36;1m  echo "- selinux_hide.c 6.6+ pointer-bool fix: not applicable" >> "$SUMMARY_FILE"[0m
+2026-09-23T09:39:13.2627757Z [36;1mfi[0m
+2026-09-23T09:39:13.2651757Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-09-23T09:39:13.2651932Z env:
+2026-09-23T09:39:13.2652045Z   SOURCE_DATE_EPOCH: 1759638000
+2026-09-23T09:39:13.2652203Z   KBUILD_BUILD_TIMESTAMP: Sun Oct 05 04:20:00 UTC 2025
+2026-09-23T09:39:13.2652376Z   GIT_COMMITTER_DATE: 2025-10-05T04:20:00Z
+2026-09-23T09:39:13.2652578Z   GIT_AUTHOR_DATE: 2025-10-05T04:20:00Z
+2026-09-23T09:39:13.2652718Z   SUBLEVEL: 102
+2026-09-23T09:39:13.2652842Z   FILE_NAME: 6.6.102-android15-2025-10-KernelSU
+2026-09-23T09:39:13.2653002Z   MAKEFILE_FIXED: already_fixed
+2026-09-23T09:39:13.2653140Z   PARSE_OPTIONS_FIXED: false
+2026-09-23T09:39:13.2653281Z   MMAP_NAMESPACE_FIX: already_present
+2026-09-23T09:39:13.2653422Z ##[endgroup]
+2026-09-23T09:39:13.2737419Z ##[end-action id=__self_4.__run_4;outcome=success;conclusion=success;duration_ms=13]
+2026-09-23T09:39:13.2777482Z Prepare all required actions
+2026-09-23T09:39:13.2777752Z Getting action download info
+2026-09-23T09:39:13.2817162Z ##[group]Run ./.github/actions/root-setup
+2026-09-23T09:39:13.2817427Z with:
+2026-09-23T09:39:13.2817537Z   flavor: kernelsu
+2026-09-23T09:39:13.2817670Z   commit: 449436dd56e4abb075f7b53fb5b2b33ff3830dd2
+2026-09-23T09:39:13.2817825Z env:
+2026-09-23T09:39:13.2817933Z   SOURCE_DATE_EPOCH: 1759638000
+2026-09-23T09:39:13.2818090Z   KBUILD_BUILD_TIMESTAMP: Sun Oct 05 04:20:00 UTC 2025
+2026-09-23T09:39:13.2818261Z   GIT_COMMITTER_DATE: 2025-10-05T04:20:00Z
+2026-09-23T09:39:13.2818410Z   GIT_AUTHOR_DATE: 2025-10-05T04:20:00Z
+2026-09-23T09:39:13.2818547Z   SUBLEVEL: 102
+2026-09-23T09:39:13.2818672Z   FILE_NAME: 6.6.102-android15-2025-10-KernelSU
+2026-09-23T09:39:13.2818829Z   MAKEFILE_FIXED: already_fixed
+2026-09-23T09:39:13.2818964Z   PARSE_OPTIONS_FIXED: false
+2026-09-23T09:39:13.2819100Z   MMAP_NAMESPACE_FIX: already_present
+2026-09-23T09:39:13.2819240Z ##[endgroup]
+2026-09-23T09:39:13.2821371Z ##[start-action display=Clone and integrate selected root;id=__self_5.__run]
+2026-09-23T09:39:13.2830122Z ##[group]Run set -euo pipefail
+2026-09-23T09:39:13.2830323Z [36;1mset -euo pipefail[0m
+2026-09-23T09:39:13.2830448Z [36;1m[0m
+2026-09-23T09:39:13.2830556Z [36;1mflavor="kernelsu"[0m
+2026-09-23T09:39:13.2830736Z [36;1mexpected_commit="449436dd56e4abb075f7b53fb5b2b33ff3830dd2"[0m
+2026-09-23T09:39:13.2830931Z [36;1mcase "$flavor" in[0m
+2026-09-23T09:39:13.2831056Z [36;1m  kernelsu)[0m
+2026-09-23T09:39:13.2831209Z [36;1m    repo="https://github.com/tiann/KernelSU.git"[0m
+2026-09-23T09:39:13.2831387Z [36;1m    directory="KernelSU"[0m
+2026-09-23T09:39:13.2831531Z [36;1m    manager="KernelSU Manager"[0m
+2026-09-23T09:39:13.2831668Z [36;1m    ;;[0m
+2026-09-23T09:39:13.2831772Z [36;1m  next)[0m
+2026-09-23T09:39:13.2831931Z [36;1m    repo="https://github.com/KernelSU-Next/KernelSU-Next.git"[0m
+2026-09-23T09:39:13.2832127Z [36;1m    directory="KernelSU-Next"[0m
+2026-09-23T09:39:13.2832284Z [36;1m    manager="KernelSU Next Manager"[0m
+2026-09-23T09:39:13.2832426Z [36;1m    ;;[0m
+2026-09-23T09:39:13.2832533Z [36;1m  resukisu)[0m
+2026-09-23T09:39:13.2832685Z [36;1m    repo="https://github.com/ReSukiSU/ReSukiSU.git"[0m
+2026-09-23T09:39:13.2832861Z [36;1m    directory="ReSukiSU"[0m
+2026-09-23T09:39:13.2833005Z [36;1m    manager="ReSukiSU Manager"[0m
+2026-09-23T09:39:13.2833137Z [36;1m    ;;[0m
+2026-09-23T09:39:13.2833247Z [36;1m  sukisu-ultra)[0m
+2026-09-23T09:39:13.2833414Z [36;1m    repo="https://github.com/SukiSU-Ultra/SukiSU-Ultra.git"[0m
+2026-09-23T09:39:13.2833604Z [36;1m    directory="SukiSU-Ultra"[0m
+2026-09-23T09:39:13.2833964Z [36;1m    manager="SukiSU-Ultra Manager"[0m
+2026-09-23T09:39:13.2834108Z [36;1m    ;;[0m
+2026-09-23T09:39:13.2834211Z [36;1m  kowsu)[0m
+2026-09-23T09:39:13.2834354Z [36;1m    repo="https://github.com/KOWX712/KernelSU.git"[0m
+2026-09-23T09:39:13.2834530Z [36;1m    directory="KowSU"[0m
+2026-09-23T09:39:13.2834669Z [36;1m    manager="KowSU Manager"[0m
+2026-09-23T09:39:13.2834799Z [36;1m    ;;[0m
+2026-09-23T09:39:13.2834901Z [36;1m  *)[0m
+2026-09-23T09:39:13.2835035Z [36;1m    echo "Unsupported root flavor: $flavor" >&2[0m
+2026-09-23T09:39:13.2835199Z [36;1m    exit 2[0m
+2026-09-23T09:39:13.2835308Z [36;1m    ;;[0m
+2026-09-23T09:39:13.2835410Z [36;1mesac[0m
+2026-09-23T09:39:13.2835512Z [36;1m[0m
+2026-09-23T09:39:13.2835649Z [36;1mif ! [[ "$expected_commit" =~ ^[0-9a-f]{40}$ ]]; then[0m
+2026-09-23T09:39:13.2835858Z [36;1m  echo "Root commit must be a full 40-character SHA." >&2[0m
+2026-09-23T09:39:13.2836034Z [36;1m  exit 2[0m
+2026-09-23T09:39:13.2836139Z [36;1mfi[0m
+2026-09-23T09:39:13.2836239Z [36;1m[0m
+2026-09-23T09:39:13.2836414Z [36;1mfor candidate in KernelSU KernelSU-Next ReSukiSU SukiSU-Ultra KowSU; do[0m
+2026-09-23T09:39:13.2836670Z [36;1m  if [ "$candidate" != "$directory" ] && [ -e "$candidate" ]; then[0m
+2026-09-23T09:39:13.2837063Z [36;1m    echo "Refusing mixed root implementations: found $candidate." >&2[0m
+2026-09-23T09:39:13.2837259Z [36;1m    exit 1[0m
+2026-09-23T09:39:13.2837368Z [36;1m  fi[0m
+2026-09-23T09:39:13.2837470Z [36;1mdone[0m
+2026-09-23T09:39:13.2837672Z [36;1m[0m
+2026-09-23T09:39:13.2837783Z [36;1mif [ -d aosp/drivers ]; then[0m
+2026-09-23T09:39:13.2837930Z [36;1m  drivers_dir="aosp/drivers"[0m
+2026-09-23T09:39:13.2838074Z [36;1melif [ -d drivers ]; then[0m
+2026-09-23T09:39:13.2838218Z [36;1m  drivers_dir="drivers"[0m
+2026-09-23T09:39:13.2838348Z [36;1melse[0m
+2026-09-23T09:39:13.2838484Z [36;1m  echo "Kernel drivers directory not found." >&2[0m
+2026-09-23T09:39:13.2838646Z [36;1m  exit 1[0m
+2026-09-23T09:39:13.2838752Z [36;1mfi[0m
+2026-09-23T09:39:13.2838853Z [36;1m[0m
+2026-09-23T09:39:13.2839020Z [36;1mif [ -e "$drivers_dir/kernelsu" ] || [ -L "$drivers_dir/kernelsu" ]; then[0m
+2026-09-23T09:39:13.2839274Z [36;1m  echo "Refusing to replace an existing kernelsu integration." >&2[0m
+2026-09-23T09:39:13.2839463Z [36;1m  exit 1[0m
+2026-09-23T09:39:13.2839572Z [36;1mfi[0m
+2026-09-23T09:39:13.2839681Z [36;1mif [ -e "$directory" ]; then[0m
+2026-09-23T09:39:13.2839875Z [36;1m  echo "Refusing to reuse an existing root checkout: $directory." >&2[0m
+2026-09-23T09:39:13.2840069Z [36;1m  exit 1[0m
+2026-09-23T09:39:13.2840172Z [36;1mfi[0m
+2026-09-23T09:39:13.2840272Z [36;1m[0m
+2026-09-23T09:39:13.2840403Z [36;1mgit clone --no-checkout "$repo" "$directory"[0m
+2026-09-23T09:39:13.2840623Z [36;1mgit -C "$directory" fetch --depth=1 origin "$expected_commit"[0m
+2026-09-23T09:39:13.2840853Z [36;1mgit -C "$directory" checkout --detach "$expected_commit"[0m
+2026-09-23T09:39:13.2841073Z [36;1mactual_commit="$(git -C "$directory" rev-parse HEAD)"[0m
+2026-09-23T09:39:13.2841284Z [36;1mif [ "$actual_commit" != "$expected_commit" ]; then[0m
+2026-09-23T09:39:13.2841532Z [36;1m  echo "Root commit mismatch: expected $expected_commit, got $actual_commit." >&2[0m
+2026-09-23T09:39:13.2841747Z [36;1m  exit 1[0m
+2026-09-23T09:39:13.2841854Z [36;1mfi[0m
+2026-09-23T09:39:13.2842039Z [36;1mif [ ! -f "$directory/kernel/Kconfig" ] || [ ! -f "$directory/kernel/Makefile" ]; then[0m
+2026-09-23T09:39:13.2842323Z [36;1m  echo "Selected root checkout does not contain a kernel integration." >&2[0m
+2026-09-23T09:39:13.2842528Z [36;1m  exit 1[0m
+2026-09-23T09:39:13.2853000Z [36;1mfi[0m
+2026-09-23T09:39:13.2853203Z [36;1mroot_version="$(git -C "$directory" describe --tags --always --dirty)"[0m
+2026-09-23T09:39:13.2853404Z [36;1m[0m
+2026-09-23T09:39:13.2853603Z [36;1mrelative_kernel="$(realpath --relative-to="$drivers_dir" "$PWD/$directory/kernel")"[0m
+2026-09-23T09:39:13.2854013Z [36;1mln -s "$relative_kernel" "$drivers_dir/kernelsu"[0m
+2026-09-23T09:39:13.2854240Z [36;1mgrep -q 'obj-$(CONFIG_KSU) += kernelsu/' "$drivers_dir/Makefile" ||[0m
+2026-09-23T09:39:13.2854491Z [36;1m  printf '\nobj-$(CONFIG_KSU) += kernelsu/\n' >> "$drivers_dir/Makefile"[0m
+2026-09-23T09:39:13.2854754Z [36;1mgrep -q 'source "drivers/kernelsu/Kconfig"' "$drivers_dir/Kconfig" ||[0m
+2026-09-23T09:39:13.2855048Z [36;1m  sed -i '/endmenu/i source "drivers/kernelsu/Kconfig"' "$drivers_dir/Kconfig"[0m
+2026-09-23T09:39:13.2855254Z [36;1m[0m
+2026-09-23T09:39:13.2855399Z [36;1mecho "ROOT_IMPLEMENTATION=$flavor" >> "$GITHUB_ENV"[0m
+2026-09-23T09:39:13.2855596Z [36;1mecho "ROOT_MANAGER=$manager" >> "$GITHUB_ENV"[0m
+2026-09-23T09:39:13.2855786Z [36;1mecho "ROOT_VERSION=$root_version" >> "$GITHUB_ENV"[0m
+2026-09-23T09:39:13.2855985Z [36;1mecho "ROOT_COMMIT=$actual_commit" >> "$GITHUB_ENV"[0m
+2026-09-23T09:39:13.2880332Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-09-23T09:39:13.2880504Z env:
+2026-09-23T09:39:13.2880614Z   SOURCE_DATE_EPOCH: 1759638000
+2026-09-23T09:39:13.2880771Z   KBUILD_BUILD_TIMESTAMP: Sun Oct 05 04:20:00 UTC 2025
+2026-09-23T09:39:13.2880940Z   GIT_COMMITTER_DATE: 2025-10-05T04:20:00Z
+2026-09-23T09:39:13.2881086Z   GIT_AUTHOR_DATE: 2025-10-05T04:20:00Z
+2026-09-23T09:39:13.2881221Z   SUBLEVEL: 102
+2026-09-23T09:39:13.2881466Z   FILE_NAME: 6.6.102-android15-2025-10-KernelSU
+2026-09-23T09:39:13.2881626Z   MAKEFILE_FIXED: already_fixed
+2026-09-23T09:39:13.2881763Z   PARSE_OPTIONS_FIXED: false
+2026-09-23T09:39:13.2881997Z   MMAP_NAMESPACE_FIX: already_present
+2026-09-23T09:39:13.2882138Z ##[endgroup]
+2026-09-23T09:39:13.2932391Z Cloning into 'KernelSU'...
+2026-09-23T09:39:15.7142778Z From https://github.com/tiann/KernelSU
+2026-09-23T09:39:15.7143180Z  * branch              449436dd56e4abb075f7b53fb5b2b33ff3830dd2 -> FETCH_HEAD
+2026-09-23T09:39:15.7696368Z HEAD is now at 449436dd fix(manager): Unexport magica receiver (#3747)
+2026-09-23T09:39:15.7999034Z ##[end-action id=__self_5.__run;outcome=success;conclusion=success;duration_ms=2517]
+2026-09-23T09:39:15.8000724Z ##[start-action display=Enable root configuration;id=__self_5.__self]
+2026-09-23T09:39:15.8018017Z Prepare all required actions
+2026-09-23T09:39:15.8035970Z ##[group]Run ./.github/actions/set-kernel-config
+2026-09-23T09:39:15.8036130Z with:
+2026-09-23T09:39:15.8036261Z   config_list: CONFIG_KSU=y
+
+2026-09-23T09:39:15.8036389Z env:
+2026-09-23T09:39:15.8036499Z   SOURCE_DATE_EPOCH: 1759638000
+2026-09-23T09:39:15.8036659Z   KBUILD_BUILD_TIMESTAMP: Sun Oct 05 04:20:00 UTC 2025
+2026-09-23T09:39:15.8036845Z   GIT_COMMITTER_DATE: 2025-10-05T04:20:00Z
+2026-09-23T09:39:15.8036998Z   GIT_AUTHOR_DATE: 2025-10-05T04:20:00Z
+2026-09-23T09:39:15.8037137Z   SUBLEVEL: 102
+2026-09-23T09:39:15.8037263Z   FILE_NAME: 6.6.102-android15-2025-10-KernelSU
+2026-09-23T09:39:15.8037422Z   MAKEFILE_FIXED: already_fixed
+2026-09-23T09:39:15.8037560Z   PARSE_OPTIONS_FIXED: false
+2026-09-23T09:39:15.8037699Z   MMAP_NAMESPACE_FIX: already_present
+2026-09-23T09:39:15.8037845Z   ROOT_IMPLEMENTATION: kernelsu
+2026-09-23T09:39:15.8037980Z   ROOT_MANAGER: KernelSU Manager
+2026-09-23T09:39:15.8038115Z   ROOT_VERSION: 449436dd
+2026-09-23T09:39:15.8038268Z   ROOT_COMMIT: 449436dd56e4abb075f7b53fb5b2b33ff3830dd2
+2026-09-23T09:39:15.8038432Z ##[endgroup]
+2026-09-23T09:39:15.8040211Z ##[start-action display=Patch gki_defconfig;id=__self_5.__self.__run]
+2026-09-23T09:39:15.8048900Z ##[group]Run set -euo pipefail
+2026-09-23T09:39:15.8049083Z [36;1mset -euo pipefail[0m
+2026-09-23T09:39:15.8049217Z [36;1m[0m
+2026-09-23T09:39:15.8049361Z [36;1mDEFCONFIG="private/devices/google/muzel_defconfig"[0m
+2026-09-23T09:39:15.8049546Z [36;1mCONFIG_LIST="CONFIG_KSU=y[0m
+2026-09-23T09:39:15.8049679Z [36;1m"[0m
+2026-09-23T09:39:15.8049779Z [36;1m[0m
+2026-09-23T09:39:15.8049892Z [36;1mif [ ! -f "$DEFCONFIG" ]; then[0m
+2026-09-23T09:39:15.8050053Z [36;1m  echo "ERROR: gki_defconfig not found"[0m
+2026-09-23T09:39:15.8050209Z [36;1m  exit 1[0m
+2026-09-23T09:39:15.8050315Z [36;1mfi[0m
+2026-09-23T09:39:15.8050414Z [36;1m[0m
+2026-09-23T09:39:15.8050542Z [36;1mapply_line() {[0m
+2026-09-23T09:39:15.8050669Z [36;1m  local line="$1"[0m
+2026-09-23T09:39:15.8050854Z [36;1m  line="$(echo "$line" | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')"[0m
+2026-09-23T09:39:15.8051050Z [36;1m[0m
+2026-09-23T09:39:15.8051165Z [36;1m  # skip empty/comments[0m
+2026-09-23T09:39:15.8051323Z [36;1m  [[ -z "$line" || "$line" == \#* ]] && return[0m
+2026-09-23T09:39:15.8051473Z [36;1m[0m
+2026-09-23T09:39:15.8051582Z [36;1m  local key value[0m
+2026-09-23T09:39:15.8051716Z [36;1m  if [[ "$line" == *"="* ]]; then[0m
+2026-09-23T09:39:15.8051862Z [36;1m    key="${line%%=*}"[0m
+2026-09-23T09:39:15.8051998Z [36;1m    value="${line#*=}"[0m
+2026-09-23T09:39:15.8052127Z [36;1m  else[0m
+2026-09-23T09:39:15.8052239Z [36;1m    key="$line"[0m
+2026-09-23T09:39:15.8052362Z [36;1m    value="y"[0m
+2026-09-23T09:39:15.8052479Z [36;1m  fi[0m
+2026-09-23T09:39:15.8052580Z [36;1m[0m
+2026-09-23T09:39:15.8052694Z [36;1m  echo "Processing: $key=$value"[0m
+2026-09-23T09:39:15.8052835Z [36;1m[0m
+2026-09-23T09:39:15.8052970Z [36;1m  # if config exists anywhere in file → replace it[0m
+2026-09-23T09:39:15.8053158Z [36;1m  if grep -q "^$key=" "$DEFCONFIG"; then[0m
+2026-09-23T09:39:15.8053472Z [36;1m    sed -i "s|^$key=.*|$key=$value|g" "$DEFCONFIG"[0m
+2026-09-23T09:39:15.8053773Z [36;1m  elif grep -q "^# $key is not set" "$DEFCONFIG"; then[0m
+2026-09-23T09:39:15.8053983Z [36;1m    sed -i "s|^# $key is not set|$key=$value|g" "$DEFCONFIG"[0m
+2026-09-23T09:39:15.8054256Z [36;1m  else[0m
+2026-09-23T09:39:15.8054374Z [36;1m    # not present → append[0m
+2026-09-23T09:39:15.8054525Z [36;1m    echo "$key=$value" >> "$DEFCONFIG"[0m
+2026-09-23T09:39:15.8054671Z [36;1m  fi[0m
+2026-09-23T09:39:15.8054773Z [36;1m}[0m
+2026-09-23T09:39:15.8054872Z [36;1m[0m
+2026-09-23T09:39:15.8055002Z [36;1mwhile IFS= read -r line || [ -n "$line" ]; do[0m
+2026-09-23T09:39:15.8055168Z [36;1m  apply_line "$line"[0m
+2026-09-23T09:39:15.8055303Z [36;1mdone <<< "$CONFIG_LIST"[0m
+2026-09-23T09:39:15.8084200Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-09-23T09:39:15.8084378Z env:
+2026-09-23T09:39:15.8084490Z   SOURCE_DATE_EPOCH: 1759638000
+2026-09-23T09:39:15.8084650Z   KBUILD_BUILD_TIMESTAMP: Sun Oct 05 04:20:00 UTC 2025
+2026-09-23T09:39:15.8084831Z   GIT_COMMITTER_DATE: 2025-10-05T04:20:00Z
+2026-09-23T09:39:15.8084984Z   GIT_AUTHOR_DATE: 2025-10-05T04:20:00Z
+2026-09-23T09:39:15.8085124Z   SUBLEVEL: 102
+2026-09-23T09:39:15.8085259Z   FILE_NAME: 6.6.102-android15-2025-10-KernelSU
+2026-09-23T09:39:15.8085418Z   MAKEFILE_FIXED: already_fixed
+2026-09-23T09:39:15.8085555Z   PARSE_OPTIONS_FIXED: false
+2026-09-23T09:39:15.8085697Z   MMAP_NAMESPACE_FIX: already_present
+2026-09-23T09:39:15.8085845Z   ROOT_IMPLEMENTATION: kernelsu
+2026-09-23T09:39:15.8085983Z   ROOT_MANAGER: KernelSU Manager
+2026-09-23T09:39:15.8086117Z   ROOT_VERSION: 449436dd
+2026-09-23T09:39:15.8086270Z   ROOT_COMMIT: 449436dd56e4abb075f7b53fb5b2b33ff3830dd2
+2026-09-23T09:39:15.8086435Z ##[endgroup]
+2026-09-23T09:39:15.8125729Z ERROR: gki_defconfig not found
+2026-09-23T09:39:15.8134152Z ##[error]Process completed with exit code 1.
+2026-09-23T09:39:15.8137702Z ##[end-action id=__self_5.__self.__run;outcome=failure;conclusion=failure;duration_ms=9]
+2026-09-23T09:39:15.8141028Z ##[end-action id=__self_5.__self;outcome=failure;conclusion=failure;duration_ms=14]
+2026-09-23T09:39:15.8142240Z ##[start-action display=Disable multi-manager for ReSukiSU;id=__self_5.__self_2]
+2026-09-23T09:39:15.8143633Z ##[end-action id=__self_5.__self_2;outcome=skipped;conclusion=skipped;duration_ms=0]
+2026-09-23T09:39:15.8208739Z Prepare all required actions
+2026-09-23T09:39:15.8238527Z ##[group]Run ./.github/actions/scan-patch-rejects
+2026-09-23T09:39:15.8238690Z env:
+2026-09-23T09:39:15.8238802Z   SOURCE_DATE_EPOCH: 1759638000
+2026-09-23T09:39:15.8238958Z   KBUILD_BUILD_TIMESTAMP: Sun Oct 05 04:20:00 UTC 2025
+2026-09-23T09:39:15.8239129Z   GIT_COMMITTER_DATE: 2025-10-05T04:20:00Z
+2026-09-23T09:39:15.8239276Z   GIT_AUTHOR_DATE: 2025-10-05T04:20:00Z
+2026-09-23T09:39:15.8239413Z   SUBLEVEL: 102
+2026-09-23T09:39:15.8239536Z   FILE_NAME: 6.6.102-android15-2025-10-KernelSU
+2026-09-23T09:39:15.8239692Z   MAKEFILE_FIXED: already_fixed
+2026-09-23T09:39:15.8239826Z   PARSE_OPTIONS_FIXED: false
+2026-09-23T09:39:15.8239965Z   MMAP_NAMESPACE_FIX: already_present
+2026-09-23T09:39:15.8240107Z   ROOT_IMPLEMENTATION: kernelsu
+2026-09-23T09:39:15.8240245Z   ROOT_MANAGER: KernelSU Manager
+2026-09-23T09:39:15.8240386Z   ROOT_VERSION: 449436dd
+2026-09-23T09:39:15.8240550Z   ROOT_COMMIT: 449436dd56e4abb075f7b53fb5b2b33ff3830dd2
+2026-09-23T09:39:15.8240712Z ##[endgroup]
+2026-09-23T09:39:15.8243188Z ##[start-action display=Run set -euo pipefail;id=scan.scan]
+2026-09-23T09:39:15.8251573Z ##[group]Run set -euo pipefail
+2026-09-23T09:39:15.8251747Z [36;1mset -euo pipefail[0m
+2026-09-23T09:39:15.8251871Z [36;1m[0m
+2026-09-23T09:39:15.8252059Z [36;1mCONFIG_DIR="/home/runner/work/Muzel_KernelSU_SUSFS/Muzel_KernelSU_SUSFS/kernel"[0m
+2026-09-23T09:39:15.8252378Z [36;1mREJECTS_DIR="/home/runner/work/Muzel_KernelSU_SUSFS/Muzel_KernelSU_SUSFS/patch-rejects"[0m
+2026-09-23T09:39:15.8252621Z [36;1mmkdir -p "$REJECTS_DIR"[0m
+2026-09-23T09:39:15.8252808Z [36;1mmapfile -t REJS < <(find "$CONFIG_DIR" -type f -name '*.rej')[0m
+2026-09-23T09:39:15.8252999Z [36;1mFILTERED_REJS=()[0m
+2026-09-23T09:39:15.8253120Z [36;1m[0m
+2026-09-23T09:39:15.8253229Z [36;1mfor REJ in "${REJS[@]}"; do[0m
+2026-09-23T09:39:15.8253481Z [36;1m  REL="${REJ#"$CONFIG_DIR"/}"[0m
+2026-09-23T09:39:15.8253811Z [36;1m  if [ "$(basename "$REL")" = "i2c-nomadik.c.rej" ]; then[0m
+2026-09-23T09:39:15.8254065Z [36;1m    echo "Skipping $REL because it matches the ignored reject file"[0m
+2026-09-23T09:39:15.8254260Z [36;1m    continue[0m
+2026-09-23T09:39:15.8254374Z [36;1m  fi[0m
+2026-09-23T09:39:15.8254487Z [36;1m  FILTERED_REJS+=("$REJ")[0m
+2026-09-23T09:39:15.8254616Z [36;1mdone[0m
+2026-09-23T09:39:15.8254718Z [36;1m[0m
+2026-09-23T09:39:15.8254829Z [36;1mREJ_COUNT=${#FILTERED_REJS[@]}[0m
+2026-09-23T09:39:15.8254992Z [36;1mecho "REJ_COUNT=$REJ_COUNT" >> "$GITHUB_ENV"[0m
+2026-09-23T09:39:15.8255178Z [36;1mecho "rej_count=$REJ_COUNT" >> "$GITHUB_OUTPUT"[0m
+2026-09-23T09:39:15.8255337Z [36;1m[0m
+2026-09-23T09:39:15.8255444Z [36;1mif [ "$REJ_COUNT" -gt 0 ]; then[0m
+2026-09-23T09:39:15.8255599Z [36;1m  for REJ in "${FILTERED_REJS[@]}"; do[0m
+2026-09-23T09:39:15.8255760Z [36;1m    REL="${REJ#"$CONFIG_DIR"/}"[0m
+2026-09-23T09:39:15.8255911Z [36;1m    DEST="$REJECTS_DIR/$REL"[0m
+2026-09-23T09:39:15.8256065Z [36;1m    mkdir -p "$(dirname "$DEST")"[0m
+2026-09-23T09:39:15.8256216Z [36;1m    cp "$REJ" "$DEST"[0m
+2026-09-23T09:39:15.8256350Z [36;1m    ORIG="${REJ%.rej}"[0m
+2026-09-23T09:39:15.8256485Z [36;1m    if [ -f "$ORIG" ]; then[0m
+2026-09-23T09:39:15.8256641Z [36;1m      ORIG_DEST="$REJECTS_DIR/${REL%.rej}"[0m
+2026-09-23T09:39:15.8256812Z [36;1m      mkdir -p "$(dirname "$ORIG_DEST")"[0m
+2026-09-23T09:39:15.8256971Z [36;1m      cp "$ORIG" "$ORIG_DEST"[0m
+2026-09-23T09:39:15.8257105Z [36;1m    fi[0m
+2026-09-23T09:39:15.8257232Z [36;1m    echo "$REL" >> "$REJECTS_DIR/index.txt"[0m
+2026-09-23T09:39:15.8257382Z [36;1m  done[0m
+2026-09-23T09:39:15.8257486Z [36;1mfi[0m
+2026-09-23T09:39:15.8281032Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-09-23T09:39:15.8281205Z env:
+2026-09-23T09:39:15.8281316Z   SOURCE_DATE_EPOCH: 1759638000
+2026-09-23T09:39:15.8281473Z   KBUILD_BUILD_TIMESTAMP: Sun Oct 05 04:20:00 UTC 2025
+2026-09-23T09:39:15.8281649Z   GIT_COMMITTER_DATE: 2025-10-05T04:20:00Z
+2026-09-23T09:39:15.8281920Z   GIT_AUTHOR_DATE: 2025-10-05T04:20:00Z
+2026-09-23T09:39:15.8282059Z   SUBLEVEL: 102
+2026-09-23T09:39:15.8282184Z   FILE_NAME: 6.6.102-android15-2025-10-KernelSU
+2026-09-23T09:39:15.8282340Z   MAKEFILE_FIXED: already_fixed
+2026-09-23T09:39:15.8282474Z   PARSE_OPTIONS_FIXED: false
+2026-09-23T09:39:15.8282615Z   MMAP_NAMESPACE_FIX: already_present
+2026-09-23T09:39:15.8282759Z   ROOT_IMPLEMENTATION: kernelsu
+2026-09-23T09:39:15.8282897Z   ROOT_MANAGER: KernelSU Manager
+2026-09-23T09:39:15.8283030Z   ROOT_VERSION: 449436dd
+2026-09-23T09:39:15.8283180Z   ROOT_COMMIT: 449436dd56e4abb075f7b53fb5b2b33ff3830dd2
+2026-09-23T09:39:15.8283344Z ##[endgroup]
+2026-09-23T09:39:16.2982292Z ##[end-action id=scan.scan;outcome=success;conclusion=success;duration_ms=473]
+2026-09-23T09:39:16.3010633Z ##[group]Run actions/upload-artifact@v7
+2026-09-23T09:39:16.3010795Z with:
+2026-09-23T09:39:16.3010930Z   name: 6.6.102-android15-2025-10-KernelSU-Rejects
+2026-09-23T09:39:16.3011113Z   path: patch-rejects/
+2026-09-23T09:39:16.3011241Z   if-no-files-found: ignore
+2026-09-23T09:39:16.3011377Z   compression-level: 9
+2026-09-23T09:39:16.3011496Z   overwrite: false
+2026-09-23T09:39:16.3011617Z   include-hidden-files: false
+2026-09-23T09:39:16.3011749Z   archive: true
+2026-09-23T09:39:16.3011857Z env:
+2026-09-23T09:39:16.3011967Z   SOURCE_DATE_EPOCH: 1759638000
+2026-09-23T09:39:16.3012143Z   KBUILD_BUILD_TIMESTAMP: Sun Oct 05 04:20:00 UTC 2025
+2026-09-23T09:39:16.3012320Z   GIT_COMMITTER_DATE: 2025-10-05T04:20:00Z
+2026-09-23T09:39:16.3012482Z   GIT_AUTHOR_DATE: 2025-10-05T04:20:00Z
+2026-09-23T09:39:16.3012625Z   SUBLEVEL: 102
+2026-09-23T09:39:16.3012758Z   FILE_NAME: 6.6.102-android15-2025-10-KernelSU
+2026-09-23T09:39:16.3012922Z   MAKEFILE_FIXED: already_fixed
+2026-09-23T09:39:16.3013075Z   PARSE_OPTIONS_FIXED: false
+2026-09-23T09:39:16.3013248Z   MMAP_NAMESPACE_FIX: already_present
+2026-09-23T09:39:16.3013402Z   ROOT_IMPLEMENTATION: kernelsu
+2026-09-23T09:39:16.3013872Z   ROOT_MANAGER: KernelSU Manager
+2026-09-23T09:39:16.3014009Z   ROOT_VERSION: 449436dd
+2026-09-23T09:39:16.3014160Z   ROOT_COMMIT: 449436dd56e4abb075f7b53fb5b2b33ff3830dd2
+2026-09-23T09:39:16.3014322Z   REJ_COUNT: 0
+2026-09-23T09:39:16.3014431Z ##[endgroup]
+2026-09-23T09:39:16.6054114Z No files were found with the provided path: patch-rejects/. No artifacts will be uploaded.
+2026-09-23T09:39:16.6219838Z ##[group]Run SUMMARY_BASE="6.6.102-android15-2025-10-KernelSU"
+2026-09-23T09:39:16.6220154Z [36;1mSUMMARY_BASE="6.6.102-android15-2025-10-KernelSU"[0m
+2026-09-23T09:39:16.6220349Z [36;1mif [ -z "${SUMMARY_BASE}" ]; then[0m
+2026-09-23T09:39:16.6220520Z [36;1m  SUMMARY_BASE="6.6.102-android15-2025-10"[0m
+2026-09-23T09:39:16.6220689Z [36;1m  VARIANT="KernelSU"[0m
+2026-09-23T09:39:16.6220862Z [36;1m  if [ -n "${VARIANT}" ] && [ "${VARIANT}" != "Normal" ]; then[0m
+2026-09-23T09:39:16.6221066Z [36;1m    SUMMARY_BASE="${SUMMARY_BASE}-${VARIANT}"[0m
+2026-09-23T09:39:16.6221239Z [36;1m  fi[0m
+2026-09-23T09:39:16.6221344Z [36;1mfi[0m
+2026-09-23T09:39:16.6221492Z [36;1mSUMMARY_FILE="/tmp/build-summary-${SUMMARY_BASE}.md"[0m
+2026-09-23T09:39:16.6221708Z [36;1mecho "SUMMARY_BASE=${SUMMARY_BASE}" >> "$GITHUB_ENV"[0m
+2026-09-23T09:39:16.6221882Z [36;1m[0m
+2026-09-23T09:39:16.6222054Z [36;1m# NoMount is optional (nomount_commit input is always populated, so[0m
+2026-09-23T09:39:16.6222336Z [36;1m# feature_set is the only reliable signal for whether it was built).[0m
+2026-09-23T09:39:16.6222541Z [36;1mNOMOUNT_ENABLED="false"[0m
+2026-09-23T09:39:16.6222685Z [36;1mif [ "true" = "true" ]; then[0m
+2026-09-23T09:39:16.6222832Z [36;1m  NOMOUNT_ENABLED="true"[0m
+2026-09-23T09:39:16.6222963Z [36;1mfi[0m
+2026-09-23T09:39:16.6223066Z [36;1m[0m
+2026-09-23T09:39:16.6223176Z [36;1m# Determine build status[0m
+2026-09-23T09:39:16.6223322Z [36;1mif [ "failure" = "success" ]; then[0m
+2026-09-23T09:39:16.6223475Z [36;1m  STATUS="[+] Success"[0m
+2026-09-23T09:39:16.6223607Z [36;1melse[0m
+2026-09-23T09:39:16.6223949Z [36;1m  STATUS="[-] Failed"[0m
+2026-09-23T09:39:16.6224088Z [36;1mfi[0m
+2026-09-23T09:39:16.6224189Z [36;1m[0m
+2026-09-23T09:39:16.6224319Z [36;1m# Get kernel version from Image if available[0m
+2026-09-23T09:39:16.6224487Z [36;1mKERNEL_VER_STR=""[0m
+2026-09-23T09:39:16.6224642Z [36;1mif [ -f "/home/runner/out/dist/Image" ]; then[0m
+2026-09-23T09:39:16.6224956Z [36;1m  KERNEL_VER_STR=$(strings "/home/runner/out/dist/Image" | grep -m1 "^Linux version " | sed 's/Linux version //' || echo "")[0m
+2026-09-23T09:39:16.6225263Z [36;1melif [ -f "/home/runner/out/Image" ]; then[0m
+2026-09-23T09:39:16.6225553Z [36;1m  KERNEL_VER_STR=$(strings "/home/runner/out/Image" | grep -m1 "^Linux version " | sed 's/Linux version //' || echo "")[0m
+2026-09-23T09:39:16.6225818Z [36;1mfi[0m
+2026-09-23T09:39:16.6225919Z [36;1m[0m
+2026-09-23T09:39:16.6226057Z [36;1m# Get KSU version from env (set by kernelsu action)[0m
+2026-09-23T09:39:16.6226237Z [36;1mKSU_VER="${KSU_VERSION:-N/A}"[0m
+2026-09-23T09:39:16.6226389Z [36;1mKSU_TAG="${KSU_GIT_TAG:-N/A}"[0m
+2026-09-23T09:39:16.6226587Z [36;1mROOT_IMPL="${ROOT_IMPLEMENTATION:-KernelSU-Next (legacy path)}"[0m
+2026-09-23T09:39:16.6226826Z [36;1mROOT_MANAGER="${ROOT_MANAGER:-KernelSU-Next Manager}"[0m
+2026-09-23T09:39:16.6227026Z [36;1mROOT_VERSION="${ROOT_VERSION:-${KSU_TAG}}"[0m
+2026-09-23T09:39:16.6227212Z [36;1mROOT_SHA="${ROOT_COMMIT:-${KSU_COMMIT:-N/A}}"[0m
+2026-09-23T09:39:16.6227388Z [36;1mif [ "$NOMOUNT_ENABLED" = "true" ]; then[0m
+2026-09-23T09:39:16.6227620Z [36;1m  NOMOUNT_SHA="${NOMOUNT_COMMIT:-db76155b6c8073dd02b8f7ecf6cdae4a1547e157}"[0m
+2026-09-23T09:39:16.6227832Z [36;1melse[0m
+2026-09-23T09:39:16.6227970Z [36;1m  NOMOUNT_SHA="N/A"[0m
+2026-09-23T09:39:16.6228096Z [36;1mfi[0m
+2026-09-23T09:39:16.6228264Z [36;1mSUSFS_SHA="${SUSFS_COMMIT:-9d9464f191b2d846590ac4d1b52e123df135c401}"[0m
+2026-09-23T09:39:16.6228461Z [36;1m[0m
+2026-09-23T09:39:16.6228590Z [36;1m# Get SUSFS version from susfs.h if available[0m
+2026-09-23T09:39:16.6228876Z [36;1mSUSFS_VER="N/A"[0m
+2026-09-23T09:39:16.6229134Z [36;1mif [ -f "/home/runner/work/Muzel_KernelSU_SUSFS/Muzel_KernelSU_SUSFS/kernel/aosp/include/linux/susfs.h" ]; then[0m
+2026-09-23T09:39:16.6229806Z [36;1m  SUSFS_VER=$(grep '#define SUSFS_VERSION' "/home/runner/work/Muzel_KernelSU_SUSFS/Muzel_KernelSU_SUSFS/kernel/aosp/include/linux/susfs.h" | awk -F'"' '{print $2}' || echo "N/A")[0m
+2026-09-23T09:39:16.6230216Z [36;1mfi[0m
+2026-09-23T09:39:16.6230317Z [36;1m[0m
+2026-09-23T09:39:16.6230459Z [36;1m# Get cache stats from env (set by cache-stats action)[0m
+2026-09-23T09:39:16.6230651Z [36;1mCCACHE_HIT="${CCACHE_HIT_RATE:-N/A}"[0m
+2026-09-23T09:39:16.6230802Z [36;1m[0m
+2026-09-23T09:39:16.6230935Z [36;1m# Get build time (approximate from step timing)[0m
+2026-09-23T09:39:16.6231105Z [36;1mBUILD_TIME="N/A"[0m
+2026-09-23T09:39:16.6231229Z [36;1m[0m
+2026-09-23T09:39:16.6231356Z [36;1m# Count warnings from build log if available[0m
+2026-09-23T09:39:16.6231525Z [36;1mWARNINGS="N/A"[0m
+2026-09-23T09:39:16.6231642Z [36;1m[0m
+2026-09-23T09:39:16.6231739Z [36;1m{[0m
+2026-09-23T09:39:16.6231876Z [36;1m  echo "## android15 6.6.102 (KernelSU) - ${STATUS}"[0m
+2026-09-23T09:39:16.6232044Z [36;1m  echo[0m
+2026-09-23T09:39:16.6232162Z [36;1m  echo "| Metric | Value |"[0m
+2026-09-23T09:39:16.6232306Z [36;1m  echo "|--------|-------|"[0m
+2026-09-23T09:39:16.6232460Z [36;1m  echo "| **Status** | ${STATUS} |"[0m
+2026-09-23T09:39:16.6232638Z [36;1m  echo "| **Kernel** | 6.6.102-android15-2025-10 |"[0m
+2026-09-23T09:39:16.6232815Z [36;1m  if [ -n "$KERNEL_VER_STR" ]; then[0m
+2026-09-23T09:39:16.6232998Z [36;1m    echo "| **Version String** | \`${KERNEL_VER_STR}\` |"[0m
+2026-09-23T09:39:16.6233169Z [36;1m  fi[0m
+2026-09-23T09:39:16.6233298Z [36;1m  echo "| **KSU Version** | ${KSU_VER} |"[0m
+2026-09-23T09:39:16.6233463Z [36;1m  echo "| **KSU Tag** | ${KSU_TAG} |"[0m
+2026-09-23T09:39:16.6234175Z [36;1m  echo "| **Root Implementation** | ${ROOT_IMPL} |"[0m
+2026-09-23T09:39:16.6234375Z [36;1m  echo "| **Root Manager** | ${ROOT_MANAGER} |"[0m
+2026-09-23T09:39:16.6234558Z [36;1m  echo "| **Root Version** | ${ROOT_VERSION} |"[0m
+2026-09-23T09:39:16.6234735Z [36;1m  echo "| **Root Commit** | ${ROOT_SHA} |"[0m
+2026-09-23T09:39:16.6234909Z [36;1m  echo "| **SUSFS Version** | ${SUSFS_VER} |"[0m
+2026-09-23T09:39:16.6235090Z [36;1m  echo "| **SUSFS Commit** | ${SUSFS_SHA} |"[0m
+2026-09-23T09:39:16.6235270Z [36;1m  echo "| **NoMount Commit** | ${NOMOUNT_SHA} |"[0m
+2026-09-23T09:39:16.6235516Z [36;1m  echo "| **Feature Set** | NoMount+BBG+NET+DS+NTSync+Ptrace+Unicode+BPF+Perf |"[0m
+2026-09-23T09:39:16.6235756Z [36;1m  echo "| **Variant** | KernelSU |"[0m
+2026-09-23T09:39:16.6235899Z [36;1m  echo[0m
+2026-09-23T09:39:16.6236004Z [36;1m  [0m
+2026-09-23T09:39:16.6236112Z [36;1m  # Kernel Fixes[0m
+2026-09-23T09:39:16.6236264Z [36;1m  if [ -f /tmp/kernel-fixes-summary.md ]; then[0m
+2026-09-23T09:39:16.6236433Z [36;1m    echo "### Kernel Fixes"[0m
+2026-09-23T09:39:16.6236589Z [36;1m    cat /tmp/kernel-fixes-summary.md[0m
+2026-09-23T09:39:16.6236741Z [36;1m    echo[0m
+2026-09-23T09:39:16.6236848Z [36;1m  fi[0m
+2026-09-23T09:39:16.6236960Z [36;1m} > "$SUMMARY_FILE"[0m
+2026-09-23T09:39:16.6277209Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-09-23T09:39:16.6277816Z env:
+2026-09-23T09:39:16.6278238Z   SOURCE_DATE_EPOCH: 1759638000
+2026-09-23T09:39:16.6278815Z   KBUILD_BUILD_TIMESTAMP: Sun Oct 05 04:20:00 UTC 2025
+2026-09-23T09:39:16.6279454Z   GIT_COMMITTER_DATE: 2025-10-05T04:20:00Z
+2026-09-23T09:39:16.6279973Z   GIT_AUTHOR_DATE: 2025-10-05T04:20:00Z
+2026-09-23T09:39:16.6280437Z   SUBLEVEL: 102
+2026-09-23T09:39:16.6280885Z   FILE_NAME: 6.6.102-android15-2025-10-KernelSU
+2026-09-23T09:39:16.6281357Z   MAKEFILE_FIXED: already_fixed
+2026-09-23T09:39:16.6281615Z   PARSE_OPTIONS_FIXED: false
+2026-09-23T09:39:16.6281850Z   MMAP_NAMESPACE_FIX: already_present
+2026-09-23T09:39:16.6282096Z   ROOT_IMPLEMENTATION: kernelsu
+2026-09-23T09:39:16.6282583Z   ROOT_MANAGER: KernelSU Manager
+2026-09-23T09:39:16.6282747Z   ROOT_VERSION: 449436dd
+2026-09-23T09:39:16.6282902Z   ROOT_COMMIT: 449436dd56e4abb075f7b53fb5b2b33ff3830dd2
+2026-09-23T09:39:16.6283357Z   REJ_COUNT: 0
+2026-09-23T09:39:16.6283805Z ##[endgroup]
+2026-09-23T09:39:16.6446054Z Post job cleanup.
+2026-09-23T09:39:16.6483450Z Post job cleanup.
+2026-09-23T09:39:16.7075274Z [command]/usr/bin/git version
+2026-09-23T09:39:16.7429341Z git version 2.55.0
+2026-09-23T09:39:16.7452101Z Copying '/home/runner/.gitconfig' to '/home/runner/work/_temp/107117d4-df01-4ac5-a5f7-281d5e539cef/.gitconfig'
+2026-09-23T09:39:16.7459775Z Temporarily overriding HOME='/home/runner/work/_temp/107117d4-df01-4ac5-a5f7-281d5e539cef' before making global git config changes
+2026-09-23T09:39:16.7460733Z Adding repository directory to the temporary git global config as a safe directory
+2026-09-23T09:39:16.7463991Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/Muzel_KernelSU_SUSFS/Muzel_KernelSU_SUSFS
+2026-09-23T09:39:16.7498019Z Removing SSH command configuration
+2026-09-23T09:39:16.7503267Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-09-23T09:39:16.7538767Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-09-23T09:39:16.7749931Z Removing HTTP extra header
+2026-09-23T09:39:16.7753122Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-09-23T09:39:16.7782877Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-09-23T09:39:16.7956156Z Removing includeIf entries pointing to credentials config files
+2026-09-23T09:39:16.7959818Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-09-23T09:39:16.7982652Z includeif.gitdir:/home/runner/work/Muzel_KernelSU_SUSFS/Muzel_KernelSU_SUSFS/.git.path
+2026-09-23T09:39:16.7983190Z includeif.gitdir:/home/runner/work/Muzel_KernelSU_SUSFS/Muzel_KernelSU_SUSFS/.git/worktrees/*.path
+2026-09-23T09:39:16.7983774Z includeif.gitdir:/github/workspace/.git.path
+2026-09-23T09:39:16.7984091Z includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-09-23T09:39:16.7990444Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/Muzel_KernelSU_SUSFS/Muzel_KernelSU_SUSFS/.git.path
+2026-09-23T09:39:16.8010094Z /home/runner/work/_temp/git-credentials-a62c7428-4a7c-4953-ad56-47ec67a7a07f.config
+2026-09-23T09:39:16.8017400Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/Muzel_KernelSU_SUSFS/Muzel_KernelSU_SUSFS/.git.path \/home\/runner\/work\/_temp\/git\-credentials\-a62c7428\-4a7c\-4953\-ad56\-47ec67a7a07f\.config
+2026-09-23T09:39:16.8046775Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/Muzel_KernelSU_SUSFS/Muzel_KernelSU_SUSFS/.git/worktrees/*.path
+2026-09-23T09:39:16.8069234Z /home/runner/work/_temp/git-credentials-a62c7428-4a7c-4953-ad56-47ec67a7a07f.config
+2026-09-23T09:39:16.8076583Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/Muzel_KernelSU_SUSFS/Muzel_KernelSU_SUSFS/.git/worktrees/*.path \/home\/runner\/work\/_temp\/git\-credentials\-a62c7428\-4a7c\-4953\-ad56\-47ec67a7a07f\.config
+2026-09-23T09:39:16.8378702Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git.path
+2026-09-23T09:39:16.8402900Z /github/runner_temp/git-credentials-a62c7428-4a7c-4953-ad56-47ec67a7a07f.config
+2026-09-23T09:39:16.8408798Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git.path \/github\/runner_temp\/git\-credentials\-a62c7428\-4a7c\-4953\-ad56\-47ec67a7a07f\.config
+2026-09-23T09:39:16.8438943Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-09-23T09:39:16.8461813Z /github/runner_temp/git-credentials-a62c7428-4a7c-4953-ad56-47ec67a7a07f.config
+2026-09-23T09:39:16.8466145Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git/worktrees/*.path \/github\/runner_temp\/git\-credentials\-a62c7428\-4a7c\-4953\-ad56\-47ec67a7a07f\.config
+2026-09-23T09:39:16.8495931Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-09-23T09:39:16.8682748Z Removing credentials config '/home/runner/work/_temp/git-credentials-a62c7428-4a7c-4953-ad56-47ec67a7a07f.config'
+2026-09-23T09:39:16.8790780Z Cleaning up orphan processes

@@ -33,7 +33,7 @@ runs:
         set -euo pipefail
 
         SUBLEVEL="${{ inputs.sublevel }}"
-        MAKEFILE="${{ github.workspace }}/kernel/aosp/Makefile"
+        MAKEFILE="${{ github.workspace }}/kernel/common/ack/Makefile"
         if [ "$(printf '%s' "$INPUT_OS_PATCH_LEVEL" | tr '[:upper:]' '[:lower:]')" = "lts" ]; then
           if [ ! -f "$MAKEFILE" ]; then
             echo "LTS build requires $MAKEFILE" >&2

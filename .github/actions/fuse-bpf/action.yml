@@ -34,7 +34,7 @@ runs:
         set -euo pipefail
         GEN_DIR="$(mktemp -d)"
         echo "GENERATED_HDR_DIR=${GEN_DIR}" >> "$GITHUB_ENV"
-        KSRC="${{ github.workspace }}/kernel/aosp"
+        KSRC="${{ github.workspace }}/kernel/common/ack"
 
         # Build a small stub tree for the arch "asm/" headers that kbuild
         # normally generates (asm/types.h -> asm-generic/types.h). Deterministic,
@@ -87,7 +87,7 @@ runs:
       run: |
         set -euo pipefail
 
-        FUSE_DIR="${{ github.workspace }}/kernel/aosp/tools/testing/selftests/filesystems/fuse"
+        FUSE_DIR="${{ github.workspace }}/kernel/common/ack/tools/testing/selftests/filesystems/fuse"
 
         if [ ! -d "$FUSE_DIR" ]; then
           echo "ERROR: FUSE selftests directory not found at: $FUSE_DIR"
@@ -125,11 +125,11 @@ runs:
           -idirafter "${GEN_OBJ}/arch/arm64/include/generated" \
           -idirafter "${GEN_OBJ}/include/generated/uapi" \
           -idirafter "${GEN_OBJ}/include/generated" \
-          -idirafter "${{ github.workspace }}/kernel/aosp/arch/arm64/include/generated/uapi" \
-          -idirafter "${{ github.workspace }}/kernel/aosp/arch/arm64/include/uapi" \
-          -idirafter "${{ github.workspace }}/kernel/aosp/include/uapi" \
-          -idirafter "${{ github.workspace }}/kernel/aosp/arch/arm64/include" \
-          -idirafter "${{ github.workspace }}/kernel/aosp/include" \
+          -idirafter "${{ github.workspace }}/kernel/common/ack/arch/arm64/include/generated/uapi" \
+          -idirafter "${{ github.workspace }}/kernel/common/ack/arch/arm64/include/uapi" \
+          -idirafter "${{ github.workspace }}/kernel/common/ack/include/uapi" \
+          -idirafter "${{ github.workspace }}/kernel/common/ack/arch/arm64/include" \
+          -idirafter "${{ github.workspace }}/kernel/common/ack/include" \
           -Wall -O2 -g \
           -emit-llvm -c fd_bpf.c -o fd_bpf.ir
 
@@ -153,7 +153,7 @@ runs:
       run: |
         set -euo pipefail
 
-        FUSE_DIR="${{ github.workspace }}/kernel/aosp/tools/testing/selftests/filesystems/fuse"
+        FUSE_DIR="${{ github.workspace }}/kernel/common/ack/tools/testing/selftests/filesystems/fuse"
         cd "$FUSE_DIR"
 
         # Use Android NDK compiler if available, otherwise use system cross-compiler
@@ -182,11 +182,11 @@ runs:
           -D__KERNEL__ \
           -D__EXPORTED_HEADERS__ \
           -I "${GENERATED_HDR_DIR}/usr/include" \
-          -I "${{ github.workspace }}/kernel/aosp/include/uapi" \
-          -I "${{ github.workspace }}/kernel/aosp/include" \
-          -I "${{ github.workspace }}/kernel/aosp/arch/arm64/include" \
-          -I "${{ github.workspace }}/kernel/aosp/arch/arm64/include/uapi" \
-          -I "${{ github.workspace }}/kernel/aosp/tools/testing/selftests" \
+          -I "${{ github.workspace }}/kernel/common/ack/include/uapi" \
+          -I "${{ github.workspace }}/kernel/common/ack/include" \
+          -I "${{ github.workspace }}/kernel/common/ack/arch/arm64/include" \
+          -I "${{ github.workspace }}/kernel/common/ack/arch/arm64/include/uapi" \
+          -I "${{ github.workspace }}/kernel/common/ack/tools/testing/selftests" \
           -Wall \
           -c bpf_loader.c -o bpf_loader.o 2>&1 || true
 
@@ -198,11 +198,11 @@ runs:
           -D__KERNEL__ \
           -D__EXPORTED_HEADERS__ \
           -I "${GENERATED_HDR_DIR}/usr/include" \
-          -I "${{ github.workspace }}/kernel/aosp/include/uapi" \
-          -I "${{ github.workspace }}/kernel/aosp/include" \
-          -I "${{ github.workspace }}/kernel/aosp/arch/arm64/include" \
-          -I "${{ github.workspace }}/kernel/aosp/arch/arm64/include/uapi" \
-          -I "${{ github.workspace }}/kernel/aosp/tools/testing/selftests" \
+          -I "${{ github.workspace }}/kernel/common/ack/include/uapi" \
+          -I "${{ github.workspace }}/kernel/common/ack/include" \
+          -I "${{ github.workspace }}/kernel/common/ack/arch/arm64/include" \
+          -I "${{ github.workspace }}/kernel/common/ack/arch/arm64/include/uapi" \
+          -I "${{ github.workspace }}/kernel/common/ack/tools/testing/selftests" \
           -Wall \
           -c fuse_daemon.c -o fuse_daemon.o 2>&1 || true
 
@@ -254,15 +254,15 @@ runs:
         mkdir -p "${{ github.workspace }}/artifacts/fuse-bpf"
 
         # Copy the full daemon if built
-        if [ -f "${{ github.workspace }}/kernel/aosp/tools/testing/selftests/filesystems/fuse/fuse-daemon-arm64" ]; then
-          cp "${{ github.workspace }}/kernel/aosp/tools/testing/selftests/filesystems/fuse/fuse-daemon-arm64" \
+        if [ -f "${{ github.workspace }}/kernel/common/ack/tools/testing/selftests/filesystems/fuse/fuse-daemon-arm64" ]; then
+          cp "${{ github.workspace }}/kernel/common/ack/tools/testing/selftests/filesystems/fuse/fuse-daemon-arm64" \
             "${{ github.workspace }}/artifacts/fuse-bpf/fuse-daemon"
           echo "Copied full FUSE-BPF daemon"
         fi
 
         # Copy the BPF object
-        if [ -f "${{ github.workspace }}/kernel/aosp/tools/testing/selftests/filesystems/fuse/fd_bpf.bpf" ]; then
-          cp "${{ github.workspace }}/kernel/aosp/tools/testing/selftests/filesystems/fuse/fd_bpf.bpf" \
+        if [ -f "${{ github.workspace }}/kernel/common/ack/tools/testing/selftests/filesystems/fuse/fd_bpf.bpf" ]; then
+          cp "${{ github.workspace }}/kernel/common/ack/tools/testing/selftests/filesystems/fuse/fd_bpf.bpf" \
             "${{ github.workspace }}/artifacts/fuse-bpf/fd_bpf.bpf"
           echo "Copied fd_bpf.bpf"
         fi
