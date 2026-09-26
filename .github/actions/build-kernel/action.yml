@@ -13,8 +13,10 @@ runs:
     working-directory: ${{ github.workspace }}/kernel
     run: |
       set -euo pipefail
+      # Feature options are appended to gki_defconfig, so it is not a minimal
+      # savedefconfig. Keep Kleaf's separate fragment/value checks enabled.
+      sed -i 's/check_defconfig//' ./aosp/build.config.gki
       if [ -f "build/build.sh" ]; then
-        sed -i 's/check_defconfig//' ./aosp/build.config.gki
         BUILD_GKI_ARTIFACTS="" \
         BUILD_GKI_CERTIFICATION_TOOLS=0 \
         BUILD_SYSTEM_DLKM=0 \
@@ -34,6 +36,9 @@ runs:
           --verbose_failures \
           --config=stamp \
           --config=muzel \
+          --kernel_package=ack \
+          --nouse_prebuilt_kernel \
+          --nouse_prebuilt_fips140 \
           //private/devices/google/muzel:lga_muzel_dist "$@"
       fi
 

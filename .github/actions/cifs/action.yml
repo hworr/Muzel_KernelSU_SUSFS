@@ -8,13 +8,13 @@ inputs:
 runs:
   using: "composite"
   steps:
+    # NETFS_SUPPORT has no prompt; Kconfig selects its value from CIFS.
     - name: Enable CIFS Configs
       uses: ./.github/actions/set-kernel-config
       with:
         config_list: |
           CONFIG_CIFS=m
           CONFIG_NETWORK_FILESYSTEMS=y
-          CONFIG_NETFS_SUPPORT=y
           CONFIG_KEYS=y
           CONFIG_CIFS_XATTR=y
           CONFIG_CIFS_POSIX=y

@@ -1,5 +1,5 @@
 name: Set Kernel Config
-description: Patch the Muzel defconfig directly (add or modify entries)
+description: Configure both the source kernel Image and Muzel device modules
 
 inputs:
   config_list:
@@ -9,7 +9,7 @@ inputs:
 runs:
   using: composite
   steps:
-  - name: Patch Muzel defconfig
+  - name: Patch base and Muzel defconfigs
     shell: bash
     working-directory: ${{ github.workspace }}/kernel
     env:
@@ -17,12 +17,18 @@ runs:
     run: |
       set -euo pipefail
 
-      DEFCONFIG="private/devices/google/muzel/muzel_defconfig"
-
-      if [ ! -f "$DEFCONFIG" ]; then
-        echo "ERROR: $DEFCONFIG not found" >&2
-        exit 1
-      fi
+      # Muzel's device target builds modules on top of kernel_aarch64. Its
+      # fragment alone does not configure the base Image shipped in dist.
+      DEFCONFIGS=(
+        "common/ack/arch/arm64/configs/gki_defconfig"
+        "private/devices/google/muzel/muzel_defconfig"
+      )
+      for DEFCONFIG in "${DEFCONFIGS[@]}"; do
+        if [ ! -f "$DEFCONFIG" ]; then
+          echo "ERROR: $DEFCONFIG not found" >&2
+          exit 1
+        fi
+      done
 
       apply_line() {
         local line="$1"
@@ -53,6 +59,8 @@ runs:
         fi
       }
 
-      while IFS= read -r line || [ -n "$line" ]; do
-        apply_line "$line"
-      done <<< "$CONFIG_LIST"
+      for DEFCONFIG in "${DEFCONFIGS[@]}"; do
+        while IFS= read -r line || [ -n "$line" ]; do
+          apply_line "$line"
+        done <<< "$CONFIG_LIST"
+      done
