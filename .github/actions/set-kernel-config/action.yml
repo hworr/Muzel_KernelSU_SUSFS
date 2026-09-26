@@ -1,5 +1,5 @@
 name: Set Kernel Config
-description: Patch gki_defconfig directly (add or modify entries)
+description: Patch the Muzel defconfig directly (add or modify entries)
 
 inputs:
   config_list:
@@ -9,17 +9,18 @@ inputs:
 runs:
   using: composite
   steps:
-  - name: Patch gki_defconfig
+  - name: Patch Muzel defconfig
     shell: bash
     working-directory: ${{ github.workspace }}/kernel
+    env:
+      CONFIG_LIST: ${{ inputs.config_list }}
     run: |
       set -euo pipefail
 
-      DEFCONFIG="/home/runner/work/Muzel_KernelSU_SUSFS/Muzel_KernelSU_SUSFS/kernel/private/devices/google/muzel/muzel_defconfig"
-      CONFIG_LIST="${{ inputs.config_list }}"
+      DEFCONFIG="private/devices/google/muzel/muzel_defconfig"
 
       if [ ! -f "$DEFCONFIG" ]; then
-        echo "ERROR: gki_defconfig not found"
+        echo "ERROR: $DEFCONFIG not found" >&2
         exit 1
       fi
 
@@ -28,7 +29,7 @@ runs:
         line="$(echo "$line" | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')"
 
         # skip empty/comments
-        [[ -z "$line" || "$line" == \#* ]] && return
+        [[ -z "$line" || "$line" == \#* ]] && return 0
 
         local key value
         if [[ "$line" == *"="* ]]; then

@@ -33,7 +33,7 @@ runs:
       run: |
         set -euo pipefail
 
-        echo "Using custom kernel source from Blackmanx/kernel_google_muzel"
+        echo "Using custom kernel source from hworr93/kernel-muzel-14782430"
         rm -rf aosp
         git clone --depth=1 https://github.com/hworr93/kernel-muzel-14782430 . || {
           echo "ERROR: git clone failed" >&2
@@ -92,10 +92,9 @@ runs:
 
         cd aosp
 
-        if [[ ! -d .git ]]; then
-          echo "WARNING: common is not a git checkout; skipping commit metadata capture."
-          exit 0
-        fi
+        # aosp may be a directory/symlink in the Muzel monorepo rather than
+        # a separate checkout. Git resolves its enclosing repository here.
+        git rev-parse --is-inside-work-tree > /dev/null
 
         COMMIT_DATE=$(git log -1 --format=%cI)
         COMMIT_MSG=$(git log -1 --format=%s)

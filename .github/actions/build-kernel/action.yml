@@ -8,16 +8,13 @@ inputs:
 runs:
   using: composite
   steps:
-  - name: Setup Kernel Configs
-    if: false
-    uses: ./.github/actions/set-kernel-config
-  
   - name: 'Build Kernel'
     shell: bash
     working-directory: ${{ github.workspace }}/kernel
     run: |
-      sed -i 's/check_defconfig//' ./aosp/build.config.gki
+      set -euo pipefail
       if [ -f "build/build.sh" ]; then
+        sed -i 's/check_defconfig//' ./aosp/build.config.gki
         BUILD_GKI_ARTIFACTS="" \
         BUILD_GKI_CERTIFICATION_TOOLS=0 \
         BUILD_SYSTEM_DLKM=0 \
@@ -33,8 +30,8 @@ runs:
         HOSTCXX="/usr/bin/ccache clang++" \
         build/build.sh -j"$(nproc)"
       else
-        sed -i '/name = "kernel_aarch64",/a\    check_defconfig = "disabled",' aosp/BUILD.bazel
         tools/bazel run \
+          --verbose_failures \
           --config=stamp \
           --config=muzel \
           //private/devices/google/muzel:lga_muzel_dist "$@"
@@ -45,16 +42,15 @@ runs:
     working-directory: ${{ github.workspace }}/kernel
     run: |
       set -euo pipefail
-      if [ -f "bazel-bin/aosp/kernel_aarch64/Image" ]; then
-        echo "Found Image at bazel-bin/aosp/kernel_aarch64/Image"
-        cp "bazel-bin/aosp/kernel_aarch64/Image" "${{ github.workspace }}/AnyKernel3/Image"
-        exit 0
-        fi
-      if [ -f "/home/runner/out/dist/Image" ]; then
-        echo "Found Image at /home/runner/out/dist/Image"
-        cp "/home/runner/out/dist/Image" "${{ github.workspace }}/AnyKernel3/Image"
-        exit 0
+      if [ -f "build/build.sh" ]; then
+        IMAGE="/home/runner/out/dist/Image"
+      else
+        IMAGE="out/muzel/dist/Image"
       fi
 
-      exit 1
-
+      if [ ! -s "$IMAGE" ]; then
+        echo "::error::Kernel build did not produce $IMAGE"
+        exit 1
+      fi
+      echo "Found Image at $IMAGE"
+      cp "$IMAGE" "${{ github.workspace }}/AnyKernel3/Image"

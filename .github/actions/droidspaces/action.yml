@@ -83,6 +83,18 @@ runs:
         echo >> "${{ github.workspace }}/kernel/common/ack/ipc/msgutil.c"
         echo 'EXPORT_SYMBOL_GPL(init_ipc_ns);' >> "${{ github.workspace }}/kernel/common/ack/ipc/msgutil.c"
 
+    - name: Align inherited LGA config with DroidSpaces
+      shell: bash
+      working-directory: ${{ github.workspace }}/kernel
+      run: |
+        set -euo pipefail
+        # Kleaf checks every inherited fragment against the final .config.
+        # LGA disables DEVTMPFS, while DroidSpaces requires it enabled.
+        LGA_DEFCONFIG="private/devices/google/lga/lga_defconfig"
+        if [ -f "$LGA_DEFCONFIG" ]; then
+          common/ack/scripts/config --file "$LGA_DEFCONFIG" --enable DEVTMPFS
+        fi
+
     - name: Enable Kernel Configs
       uses: ./.github/actions/set-kernel-config
       with:
