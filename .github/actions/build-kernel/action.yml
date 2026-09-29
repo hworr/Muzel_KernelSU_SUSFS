@@ -13,6 +13,15 @@ runs:
     working-directory: ${{ github.workspace }}/kernel
     run: |
       set -euo pipefail
+      # The 6.6+ workflow exports this helper's forward declaration but its
+      # older sed expression misses definitions annotated with __nocfi.
+      # Match that external linkage while retaining the CFI annotation.
+      SELINUX_HIDE="aosp/drivers/kernelsu/feature/selinux_hide.c"
+      if [ -f "$SELINUX_HIDE" ] &&
+         grep -q '^void security_compute_av_user_with_policy(' "$SELINUX_HIDE"; then
+        sed -i 's/^static void __nocfi security_compute_av_user_with_policy(/void __nocfi security_compute_av_user_with_policy(/' "$SELINUX_HIDE"
+      fi
+
       # Feature options are appended to gki_defconfig, so it is not a minimal
       # savedefconfig. Keep Kleaf's separate fragment/value checks enabled.
       sed -i 's/check_defconfig//' ./aosp/build.config.gki

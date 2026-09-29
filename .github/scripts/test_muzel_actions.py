@@ -4,6 +4,7 @@
 import os
 from pathlib import Path
 import subprocess
+import shutil
 import tempfile
 import unittest
 
@@ -53,7 +54,7 @@ class MuzelActionsTest(unittest.TestCase):
         self.assertNotEqual(result.returncode, 0)
         self.assertEqual(self.base.read_bytes(), before)
 
-    def test_bazel_build_selects_patched_ack_and_disables_prebuilts(self):
+    def prepare_bazel(self):
         self.kernel.joinpath('aosp').symlink_to('common/ack')
         config = self.kernel / 'aosp/build.config.gki'
         config.write_text('DEFCONFIG=gki_defconfig\nPOST_DEFCONFIG_CMDS="check_defconfig"\n')
@@ -62,6 +63,10 @@ class MuzelActionsTest(unittest.TestCase):
         bazel.write_text('#!/bin/bash\nprintf "%s\\n" "$@" > "$CAPTURE_ARGS"\n')
         bazel.chmod(0o755)
         captured = self.kernel / 'args'
+        return config, captured
+
+    def test_bazel_build_selects_patched_ack_and_disables_prebuilts(self):
+        config, captured = self.prepare_bazel()
         result = self.run_step(action_steps('build-kernel')[0], CAPTURE_ARGS=str(captured))
         self.assertEqual(result.returncode, 0, result.stderr)
         args = captured.read_text().splitlines()
@@ -71,6 +76,38 @@ class MuzelActionsTest(unittest.TestCase):
             self.assertGreater(args.index(flag), args.index('--config=muzel'))
         self.assertEqual(args[-1], '//private/devices/google/muzel:lga_muzel_dist')
         self.assertNotIn('check_defconfig', config.read_text())
+
+    def test_selinux_helper_linkage_and_annotation(self):
+        _, captured = self.prepare_bazel()
+        source = self.kernel / 'aosp/drivers/kernelsu/feature/selinux_hide.c'
+        source.parent.mkdir(parents=True)
+        compiler = shutil.which('gcc')
+        self.assertIsNotNone(compiler, 'gcc is required for the linkage regression check')
+        for declaration in ('void', 'static void'):
+            with self.subTest(declaration=declaration):
+                # Model the declaration/definition mismatch from the build log.
+                source.write_text(
+                    '#define __nocfi\n'
+                    f'{declaration} security_compute_av_user_with_policy(void);\n'
+                    'static void __nocfi security_compute_av_user_with_policy(void) {}\n'
+                    'int main(void) { security_compute_av_user_with_policy(); return 0; }\n'
+                )
+                before = source.read_text()
+                result = subprocess.run([compiler, '-Werror', '-fsyntax-only', str(source)],
+                                        capture_output=True, text=True)
+                self.assertEqual(result.returncode == 0, declaration == 'static void')
+                step = action_steps('build-kernel')[0]
+                for _ in range(2):
+                    result = self.run_step(step, CAPTURE_ARGS=str(captured))
+                    self.assertEqual(result.returncode, 0, result.stderr)
+                if declaration == 'static void':
+                    self.assertEqual(source.read_text(), before)
+                else:
+                    self.assertIn('void __nocfi security_compute_av_user_with_policy', source.read_text())
+                    self.assertNotIn('static void __nocfi', source.read_text())
+                result = subprocess.run([compiler, '-Werror', '-fsyntax-only', str(source)],
+                                        capture_output=True, text=True)
+                self.assertEqual(result.returncode, 0, result.stderr)
 
     def test_cifs_leaves_hidden_netfs_dependency_to_kconfig(self):
         options = action_steps('cifs')[0]['with']['config_list']
